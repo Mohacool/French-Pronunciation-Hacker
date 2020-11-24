@@ -1,6 +1,3 @@
-
-
-
 // var sentence = "Hello how are you today i hope you are doing fine";
 // var sentence = "Le 24 février 1815, en France, un grand bateau appelé « le Pharaon » entre dans le port de Marseille. Le bateau avance très lentement et avec une apparence vraiment triste. Alors, certaines personnes curieuses sur la plate-forme du port se demandent si un accident est arrivé.";
 // $("#story").text(sentence);
@@ -105,88 +102,7 @@ words = words.filter(word => word!="«" && word!="»").filter(e=> e!="" && e!="�
 console.log("words->");
 console.log(words);
 
-// Keep track of which word you're on
-// var at_word = 0;
-// var at_position = 0;
 
-// Function that does the actual highlighting
-function analyse(transcript){
-    
-    // Get the words detected
-    var words_detected = transcript.split(" ");
-
-    // Clean up the list of words
-    words_detected = words_detected.filter(function(e){return e }); 
-
-
-    // words_detected = words_detected.filter(word => word!="" && word!="«");
-
-    console.log(words_detected);
-    
-    console.log(words);
-    // Loop through the words detected
-    words_detected.forEach(function (item, index) {
-        console.log(item, index);
-        console.log("is "+item+"equal to "+words[at_word]);
-
-
-        var stripped_word = words[at_word].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()«»]/g,"");
-
-        
-        // If the words match the current word we're at 
-        // item => the detected word 
-        // stripped_word => word from story
-
-        let detected_word = item.toLowerCase();
-        let actual_word = stripped_word.toLowerCase().trim();
-
-        console.log("############ is "+detected_word+"equal to "+actual_word);
-        console.log("############ is "+(detected_word==actual_word));
-
-        if(detected_word == actual_word){
-           
-
-            // The text that can get highlighted (this gets smaller as you get more words)
-            var current= $("#story").html().substring(at_position);
-            
-            var burrent= $("#story").html().substring(at_position);
-
-            // The text that got highlighted
-            var previous =$("#story").html().substring(0,at_position);
-
-            // Highlight the word that matched 
-            console.log("############ highlight "+words[at_word]);
-            var change = current.replace(words[at_word],"<mark>"+words[at_word]+"</mark>");
-            console.log("######### current"+current);
-            console.log("######### burrent"+burrent);
-            // console.log("previous="+previous);
-            // console.log("current="+current.substring(at_position));
-            // console.log("change="+change);
-
-            $("#story").html(previous+change);
-
-            // Increase the current position to include the marks
-            
-            //This is wrong!
-            at_position += item.length+14;
-
-            console.log("=============now at item"+stripped_word);
-            console.log(content.indexOf(stripped_word));
-
-            console.log(at_position);
-
-            // Increment the current word
-            at_word +=1;
-
-            console.log("==matched: We finished word #"+at_word);
-            
-
-        }
-
-    });
-    // $("#story").mark("hello");
-    
-}
 var at_wrd = 0;
 var dict = {};
 function canalyse(transcript){
@@ -243,53 +159,6 @@ function canalyse(transcript){
 
         }
         
-    })
-}
-function banalyse(transcript){
-    
-    // Split up the words detected
-    var words_detected = transcript.split(" ");
-
-    // Clean it up
-    words_detected = words_detected.filter(function(e){return e }); 
-
-
-    console.log(words_detected);
-    console.log(words);
-    words_detected.forEach(function (item, index) {
-        var detected_word = item.toLowerCase();
-        
-        // Actual word that is in the HTML
-        var actual_word = words[at_wrd];
-        
-        // Cleaned up word used for comparison
-        var stripped_word = words[at_wrd].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()«»]/g,"").toLowerCase().trim();
-        
-        if (detected_word==stripped_word){
-            console.log(detected_word+" = "+stripped_word);
-            console.log("actual word:"+actual_word);
-            at_wrd +=1;
-
-            console.log('current');
-            console.log($("#story").html().substring(0,300));
-
-            var copy = $("#story").html();
-            copy = copy.replace(actual_word,"<mark>"+actual_word+"</mark>");
-            $("#story").html(copy);
-
-            // console.log('copy');
-            // console.log(copy.substring(0,300));
-            
-
-            // console.log("now start at");
-            // copy = copy.substring(find);
-            // find += copy.indexOf("</mark>")+7;
-            // console.log(copy);
-
-            
-
-        }
-
     })
 }
 
