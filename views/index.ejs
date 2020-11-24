@@ -9,30 +9,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.2/plyr.css" integrity="sha512-jrLDXl9jUPe5DT19ukacvpX39XiErIBZxiaVMDFRe+OAKoBVYO126Dt7cvhMJ3Fja963lboD9DH+ev/2vbEnMw==" crossorigin="anonymous" />
+    
 </head>
 
 <body>
-    <div class="wrapper">
-        <h1>Google Cloud Speech Node with Socket.io Playground</h1>
 
-        <audio></audio>
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand mx-auto" href="#">
+            <!-- <h1 class="mx-auto">Pronunciation Hacker</h1> -->
+            <img src="assets/logo.png" height="90px" alt="" style="max-width:100%;object-fit:scale-down">
+        </a>
+    </nav>
 
-        <br>
-        <button id="startRecButton" type="button"> Start recording</button>
-        <button id="stopRecButton" type="button"> Stop recording</button>
-        <div id="recordingStatus">&nbsp;</div>
-        <br>
+    <div class="container-fluid w-100"> 
 
-        <div>
-            <p id="ResultText">
-                <span class="greyText">No Speech to Text yet
-                    <span>
-            </p>
+        <!-- <audio id="player" controls>
+            <source src="audio/book.mp3" type="audio/mp3" />
+        </audio> -->
+
+        <div class="container pt-5">
+            <h4 class="book-title-small">Le Comte de Monte-Cristo</h4>
+            <div class="story_holder" style="border:1px solid transparent;">
+
+                <h1 class="book-title text-center">Le Comte de Monte-Cristo</h1>
+                <br>
+                <div id='chapter_title'></div>
+                <br><br><br>
+                
+                <h3>
+                    <p id="story"></p>
+                </h3>
+            </div>
+          
+            <div class="form-group" >
+                
+                <div>
+                    <p id="ResultText">
+                        <span class="greyText">No Speech to Text yet
+                            <span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <br>
+                <button id="startRecButton" type="button"> Start recording</button>
+                <button id="stopRecButton" type="button"> Stop recording</button>
+                <div id="recordingStatus">&nbsp;</div>
+                <br>
+            </div>
+            <div class="row">
+                <a class="mx-auto" href="https://www.amazon.ca/Improve-your-French-reading-Monte-Cristo-ebook/dp/B085VQB8M1">
+                    <img class="buy mx-auto" height="90px" src="assets/buy.png">
+                </a>
+            </div>
         </div>
-
-        <br>
-        <br>
+        
+        
     </div>
+
+
 
     <!-- Nlp -->
     <script src="https://unpkg.com/compromise@11.14.3/builds/compromise.min.js"></script>
@@ -44,5 +88,113 @@
     <script src="assets/js/client.js"></script>
     <!-- <script src="../public/js/client.js"></script> -->
 </body>
+<style>
+    body{
+        background-color:rgba(252, 210, 159, 0.171);
+    }
+    mark{
+      
+        background-color: #72c157;
+        border-radius: 8px;
+
+            
+    }
+    #story{
+        line-height:1.5em;
+        font-family: 'Roboto', sans-serif;
+        font-size:20px;
+        
+    }
+    .book-title-small{
+        font-family: 'Roboto', sans-serif;
+        font-size: 28px;
+        right: 0;
+        display: none;
+        transform: translateY(-26px);
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    .book-title{
+        font-size:50px;
+    }
+    .annotate{
+        font-family: 'Roboto', sans-serif;
+        font-size:20px;
+        /* text-decoration:underline; */
+        /* font-style: italic; */
+        color:rgb(56, 54, 54);
+        /* text-decoration-line: underline; */
+        font-weight:700;
+        cursor:pointer;
+    }
+    
+    p {
+        margin-bottom:1.5em
+    }
+    #chapter_title{
+        text-align: center;
+        font-size:30px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .story_holder{
+        height:300px;
+        overflow-x:hidden;
+        overflow-y:scroll;
+        transition:all 1s ease;
+    }
+    .audio{
+        font-weight:800;
+        color: rgb(85, 151, 182);
+    }
+    .audio:hover{
+        cursor:pointer;
+
+    }
+    .tooltip-inner {
+        max-width: 200px;
+        padding: 3px 8px;
+        color: #fff;
+        text-align: center;
+        font-size:18px;
+        background-color: rgb(85, 151, 182);
+        border-radius: .25rem;
+        opacity:1;
+    }
+    .tooltip.bs-tooltip-top .arrow:before {
+        display:none;
+    }
+    .tooltip.bs-tooltip-bottom .arrow:before {
+        color:rgb(85, 151, 182) !important;
+    }
+    .tooltip{opacity:1!important;}
+    .buy{
+        cursor:pointer;
+    }
+    .plyr{
+        display:none;
+        width:450px !important;
+        max-width:100% !important;
+    }
+    
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+
+<script>
+    
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            html:true
+        });
+    })
+</script>
+<script src="assets/js/script.js"></script>
+<script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
+    <script>
+        const player = new Plyr('#player');
+    </script>
 
 </html>
