@@ -78,7 +78,7 @@ $.ajax({
 
        // Add audio annotations manually (this can be made into a loop later)
        audio_words.forEach(function (audio_word, index){    
-            lines = lines.replace(audio_word,`<span onclick="playAudio('audio/${audio_files[index]}')" class='audio' data-toggle='tooltip' data-placement='top' title="<img src='audio.png' height='30px'/>" >${audio_word}</span>`);
+            lines = lines.replace(audio_word,`<span onclick="playAudio('assets/audio/${audio_files[index]}')" class='audio' data-toggle='tooltip' data-placement='top' title="<img src='assets/audio.png' height='30px'/>" >${audio_word}</span>`);
 
        })
     //    lines = lines.replace("monsieur",`<span onclick="playAudio('audio/monsieur.mp3')" class='audio audio1' data-toggle='tooltip' data-placement='top' title="<img src='audio.png' height='30px'/>" >monsieur</span>`);
