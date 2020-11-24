@@ -1,4 +1,5 @@
-// 'use strict';
+'use strict';
+
 
 const express = require('express'); // const bodyParser = require('body-parser'); // const path = require('path');
 const environmentVars = require('dotenv').config();
@@ -15,6 +16,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
 app.use('/assets', express.static(__dirname + '/public'));
+app.use('/session/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 // =========================== ROUTERS ================================ //
