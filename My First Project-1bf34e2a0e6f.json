@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "neural-geode-281221",
+  "private_key_id": "1bf34e2a0e6f20e9203f8b589580fcceda2d84f8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCfsWx7IRhZCZBA\nEJ4Zf9Q0v3Fcm9MQrnbDRQkG01aqR8+44i0EP9NHx2PGUUchbYT/Eq5Ca6NG8Flq\nzi+mcqSz1tIylR6PGLQkH91kh3QtXPbE3TbznA4jaLl6VvoIbI4OgxKRisjBy4tF\npSQOvEcfaTJbkIPyS4NrDeeAYaZqLjK4klvb255oF6lZ3N/VOFyYHCKcLpJ2ZEJV\nmP0Vp5n5ggle0uzR1OzfTUXZF2rWoqyj9yHHjjLX70Z8lBHyLZ4QQzDNJ7KMGbGs\nqtYM6ShUAoYIM4enNJ+3fPG7Q3bpAXlmwO8ZlJXQhD9rWikFaqRrF3KMRJ+Tl86/\neHbz1EC1AgMBAAECggEADzEHM11uHgZBYT7Tc3SMIOp3Y8p1FTirlp7qIWqYa4GC\nWsG1a5qQxFrM/JA91om/Ja7Gwg3QTg7OStFLiieM0IjmnSY/bnh4ppkbbBVQsYIO\n/aJXuGwHkknDn0ZH6eY9y1afvRW5TGpLGPiBSh+SGoRc5IYGb1XMrjH37GgdtysA\nWXAJrjA2TsMgPpctYsjqrzz3ou/1Pwq76FH5wNF19RFa5ueIr9rp2lSuhOqnEPXi\nfmlQ5V5ATQcUb6mZaiewIEdMdBGOOGWq8y8QXvflfUQPHPIPQboJYeESibPnU3NO\nsl8oA9B9z9wPfZjerhSMPg/ZMz5TE/H9yuFwH9bFzwKBgQDZUbKycFAyII5z8VTX\neV2HemDCqwEMj8LgaRAh+s0NXgnuYEvmgrQay6cQ6qeCoOrKSyofoNUr4ZkaqOQU\nmApNf79qV0Cy63UY4fNzfYTj1DsMrKCE2rqSBC1qnTHCM7FAlFec2fyGTEjUkxvu\nC8Xv9jbSEJpH5uBmmp65vMeUuwKBgQC8HfPWvjoe5kNh+Nit1uzcIaBm/PVsz+dK\n2FECPstoGicSN4YeFqS+ZepLHwwbY4ZYTixxqupQouIhxv92L8dImZJsvvNy7ltp\nEEZHJmf3AkBNsDITf8ggzDIsB/Bx0xPlZb9PNga80vkw1qB63pMDuM9+S5n8lqSR\n+H6KY7/hTwKBgEbQC0V/uXIMD78R9U5dGq/pnZvxMt9P/PU45uvbmHNxoBTPxguv\nrVZJ4/9sJvc2zirqwSgbNTseQNBiFifrvvev18Sj984VUUuxXK3WSbYfUrp3ibqg\nt0ibGd1yqWMZivl7HO1cTp/IPbce1GwF5BKkDQr4I/2n6pkkavIk5He/AoGBAIkZ\nP0PLQaqRYJx/ctNHJzrLmw5T3z4dS1Dl1CxRvYayQLVrF+jH0esddaKoDvfLEfc7\nifKRgNGh1DKPyFDHQ3Lq0adFh0HE64Pno4BpQi3oSxsThXtmjmEw0IP8iUU7c22l\nOMcu9bwZ+hiY4z6JBhYZU8eUq7ZFx8zGkNqlFgvLAoGBAJY2oxZtwSdC1JJQYhdk\nky4xD5L2HIl05/Dj3Rbvc3z+tdeQaPD7hErji02VV0kEy8M0PpSktfIweCkim2hy\n8g5NXqk7tiojkRG6Kc/ehs5aoiZfeOxM2muRtpjqy9il+wcQlcYj5ixpOBn3Csq0\nYxD1P80EbnOOzXtLFBLyiUN1\n-----END PRIVATE KEY-----\n",
+  "client_email": "pronunciationhacker@neural-geode-281221.iam.gserviceaccount.com",
+  "client_id": "118268644415646442309",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pronunciationhacker%40neural-geode-281221.iam.gserviceaccount.com"
+}
