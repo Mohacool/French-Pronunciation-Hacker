@@ -66,11 +66,11 @@ io.on('connection', function (client) {
 
         // if end of utterance, let's restart stream
         // this is a small hack. After 65 seconds of silence, the stream will still throw an error for speech length limit
-        // if (data.results[0] && data.results[0].isFinal) {
-        //   stopRecognitionStream();
-        //   startRecognitionStream(client);
-        //   // console.log('restarted stream serverside');
-        // }
+        if (data.results[0] && data.results[0].isFinal) {
+          stopRecognitionStream();
+          startRecognitionStream(client);
+          // console.log('restarted stream serverside');
+        }
       });
   }
 
