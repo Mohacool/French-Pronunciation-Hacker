@@ -4,6 +4,20 @@
 
 
 
+$("#holdbutton").mousedown(function(){
+    console.log('holding.....');
+    $("#holdbutton").css({'background-color':'red'});
+    startRecording();
+})
+
+$("#holdbutton").mouseup(function() {
+    $("#holdbutton").css({'background-color':'blue'});
+    console.log('released');
+    stopRecording();
+  });
+  
+
+// Initialize ScrollBar
 const ps = new PerfectScrollbar('.result_holder', {
     wheelPropagation: false,
 });
