@@ -10,7 +10,6 @@ const ps = new PerfectScrollbar('.result_holder', {
 
 let transcript_length = my_transcript.length;
 console.log(my_transcript);
-alert(my_transcript);
 
 
 var annotated_words=["bateau","se demandent","marin","Il a l’air calme","Crie","à bord","malheur","soulagé","la mer ","obéissent","inattendue","épée","survécu","voilà","le comptable","dextérité","saisit","laisse","surtout","des conseils","en jetant un regard","haine","l'île d'Elbe","au lieu de"];
