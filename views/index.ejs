@@ -8,11 +8,10 @@
     <meta name="description" content="Google Cloud Speech Recognition with Node and Socket.io">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="assets/css/main.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
-    
+    <link rel="stylesheet" href="assets/css/perfect-scrollbar.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -37,6 +36,7 @@
         </audio> -->
 
         <div class="container pt-5">
+            
             <h4 class="book-title-small">Le Comte de Monte-Cristo</h4>
             <div class="story_holder" style="border:1px solid transparent;">
 
@@ -51,12 +51,20 @@
             </div>
           
             <div class="form-group" >
-                
-                <div>
-                    <p id="ResultText">
-                        <span class="greyText">No Speech to Text yet
-                            <span>
-                    </p>
+
+                <div class="result_holder">
+                   
+
+                    <div id="ResultText">
+                    
+                        <!-- <span class="greyText">No Speech to Text yet
+                        </span> -->
+                        <span class="greyText">No Speech to Text yet No Speech to Text yet No Speech to Text yet No Speech to Text yet No Speech to Text yetNo Speech to Text yet No Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yet No Speech to Text yetNo Speech to Text yet No Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yet
+                        </span>
+                    
+                    </div>
+                    
+                    
                 </div>
             </div>
             <div class="form-group">
@@ -175,6 +183,21 @@
         width:450px !important;
         max-width:100% !important;
     }
+    .result_holder {
+        background-color: #d9d9d9;
+        border-radius: 10px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        height: 100px;
+        overflow-y: scroll;
+        position:relative;
+    }
+    .scroll_div{
+        width:100%;
+    }
+
     
 </style>
 
@@ -191,6 +214,9 @@
         });
     })
 </script>
+
+<script src="assets/js/perfect-scrollbar.js"></script>
+
 <script src="assets/js/script.js"></script>
 <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
     <script>
