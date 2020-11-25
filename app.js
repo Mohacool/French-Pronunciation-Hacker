@@ -103,7 +103,7 @@ const request = {
     //     phrases: ["hoful","shwazil"]
     //    }] // add your own speech context for better recognition
   },
-  interimResults: false, // If you want interim results, set this to true
+  interimResults: true, // If you want interim results, set this to true
 };
 
 // =========================== START SERVER ================================ //
