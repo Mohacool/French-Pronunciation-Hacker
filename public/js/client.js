@@ -192,6 +192,7 @@ function addTimeSettingsInterim(speechData) {
 	console.log(wholeString);
 
 	if (my_full_transcript.indexOf(wholeString)==-1){
+		console.log('got here');
 		my_full_transcript.push(wholeString);
 		canalyse(my_full_transcript.join(" "));
 	}

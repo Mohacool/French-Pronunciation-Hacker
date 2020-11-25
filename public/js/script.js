@@ -125,7 +125,7 @@ $("#skipword").on('click',function(){
 
 })
 function canalyse(transcript){
-    
+    console.log('canalyse run');
     // Split up the words detected
     var words_detected = transcript.split(" ");
 

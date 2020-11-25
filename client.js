@@ -1,7 +1,9 @@
-// 'use strict'
+'use strict'
 
-var my_transcript = [];
-var my_full_transcript = [];
+//  Google Cloud Speech Playground with node.js and socket.io
+//  Created by Vinzenz Aubry for sansho 24.01.17
+//  Feel free to improve!
+//	Contact: vinzenz@sansho.studio
 
 //connection to socket
 const socket = io.connect();
@@ -191,12 +193,6 @@ function addTimeSettingsInterim(speechData) {
 	let wholeString = speechData.results[0].alternatives[0].transcript;
 	console.log(wholeString);
 
-	if (my_full_transcript.indexOf(wholeString)==-1){
-		my_full_transcript.push(wholeString);
-		canalyse(my_full_transcript.join(" "));
-	}
-	
-
 	let nlpObject = nlp(wholeString).out('terms');
 
 	let words_without_time = [];
@@ -234,9 +230,6 @@ function addTimeSettingsInterim(speechData) {
 
 function addTimeSettingsFinal(speechData) {
 	let wholeString = speechData.results[0].alternatives[0].transcript;
-
-	// my_transcript.push(wholeString);
-	// canalyse(my_transcript.join(" "));
 
 	let nlpObject = nlp(wholeString).out('terms');
 	let words = speechData.results[0].alternatives[0].words;
