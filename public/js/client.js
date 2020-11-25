@@ -191,8 +191,8 @@ function addTimeSettingsInterim(speechData) {
 	let wholeString = speechData.results[0].alternatives[0].transcript;
 	console.log(wholeString);
 
-	my_full_transcript.push(wholeString);
-	canalyse(my_full_transcript.join(" "));
+	// my_full_transcript.push(wholeString);
+	// canalyse(my_full_transcript.join(" "));
 
 	let nlpObject = nlp(wholeString).out('terms');
 
@@ -232,8 +232,8 @@ function addTimeSettingsInterim(speechData) {
 function addTimeSettingsFinal(speechData) {
 	let wholeString = speechData.results[0].alternatives[0].transcript;
 
-	// my_transcript.push(wholeString);
-	// canalyse(my_transcript.join(" "));
+	my_transcript.push(wholeString);
+	canalyse(my_transcript.join(" "));
 
 	let nlpObject = nlp(wholeString).out('terms');
 	let words = speechData.results[0].alternatives[0].words;
