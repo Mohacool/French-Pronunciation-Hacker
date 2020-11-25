@@ -154,7 +154,7 @@ function canalyse(transcript){
         
         // Cleaned up word used for comparison
         var stripped_word = words[at_wrd].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()«»]/g,"").toLowerCase().trim();
-        console.table(detected_word,actual_word,stripped_word);
+        console.table("Detected: " + detected_word, "Stripped: ",stripped_word);
         if (detected_word==stripped_word){
             console.log("#####FOUND: "+actual_word);
             console.log("Find it in HTML and move it");
