@@ -2,12 +2,14 @@
 
 const express = require('express'); // const bodyParser = require('body-parser'); // const path = require('path');
 const environmentVars = require('dotenv').config();
+var secure = require('express-force-https');
 
 // Google Cloud
 const speech = require('@google-cloud/speech');
 const speechClient = new speech.SpeechClient(); // Creates a client
 
 const app = express();
+app.use(secure);
 const port = process.env.PORT || 1337;
 
 const server = require('http').createServer(app);
@@ -16,6 +18,8 @@ const io = require('socket.io')(server);
 
 app.use('/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
+
+
 
 // =========================== ROUTERS ================================ //
 
