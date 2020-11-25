@@ -193,9 +193,10 @@ function addTimeSettingsInterim(speechData) {
 
 	if (my_full_transcript.indexOf(wholeString)==-1){
 		console.log('got here');
-		my_full_transcript.push(wholeString);
-		canalyse(my_full_transcript.join(" "));
+		
 	}
+	my_full_transcript.push(wholeString);
+	canalyse(my_full_transcript.join(" "));
 	
 
 	let nlpObject = nlp(wholeString).out('terms');
