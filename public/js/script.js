@@ -116,9 +116,13 @@ console.log(words);
 var at_wrd = 0;
 var dict = {};
 $("#skipword").on('click',function(){
-    alert('at word '+words[at_wrd]+' and skipping');
+    // alert('at word '+words[at_wrd]+' and skipping');
+    $("#story").mark(words[at_wrd],{
+        accuracy:'exactly',
+        className: "highlight"
+});
     at_wrd +=1;
-    
+
 })
 function canalyse(transcript){
     
@@ -168,6 +172,8 @@ function canalyse(transcript){
             };
             
             $("#story").mark(actual_word,{accuracy:'exactly'});
+
+            
             // $("#story").mark(actual_word,options);
 
             at_wrd+=1;
