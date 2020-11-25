@@ -98,7 +98,7 @@ const request = {
     sampleRateHertz: sampleRateHertz,
     languageCode: languageCode,
     profanityFilter: false,
-    enableWordTimeOffsets: true,
+    enableWordTimeOffsets: false,
     // speechContexts: [{
     //     phrases: ["hoful","shwazil"]
     //    }] // add your own speech context for better recognition
