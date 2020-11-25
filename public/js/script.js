@@ -115,6 +115,11 @@ console.log(words);
 
 var at_wrd = 0;
 var dict = {};
+$("#skipword").on('click',function(){
+    alert('at word '+words[at_wrd]+' and skipping');
+    at_wrd +=1;
+    
+})
 function canalyse(transcript){
     
     // Split up the words detected
