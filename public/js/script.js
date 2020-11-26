@@ -18,13 +18,16 @@ $("#circle").mouseup(function() {
     stopRecording();
 });
 
-$("#circle").on('touchstart', function(){
+$("#circle").on('touchstart', function(e){
+    e.preventDefault();
+
     console.log('holding.....');
     $("#circle").css({'background':'rgb(68 197 84)'});
     startRecording();
 });
 
-$("#circle").on('touchend', function(){
+$("#circle").on('touchend', function(e){
+    e.preventDefault();
     $("#circle").css({'background':'rgb(220,64,53)'});
     console.log('released');
     stopRecording();
