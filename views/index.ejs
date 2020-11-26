@@ -92,10 +92,10 @@
                 </div>
             </div>
             <div class="col-2 h-100">
-                <button id="skipword">Skip</button>
+                <!-- <button id="skipword">Skip</button> -->
                 <div class="row microw justify-content-center">
 
-                    <div id="circle" class="flow">
+                    <div id="circle" class="flow annotate" data-original-title="Hey there" data-toggle="bigtooltip" data-placement="top">
                         <img class="show mx-auto d-block mic" height="50%"src="assets/mic.png" alt="">
                     </div>
                     
@@ -125,7 +125,7 @@
 </body>
 <style>
     
-    /* .show{
+    .show{
         border:1px solid red;
     }
     .blow{
@@ -134,7 +134,7 @@
     .flow{
         border:1px solid green;
 
-    } */
+    }
     body{
         background-color:rgba(255,255,255);
         /* overflow-y:hidden; */
@@ -208,6 +208,9 @@
         cursor:pointer;
 
     }
+    .bigtooltip-inner{
+        background-color: rgb(220,64,53) !important;
+    }
     .tooltip-inner {
         max-width: 200px;
         padding: 3px 8px;
@@ -280,6 +283,11 @@
     
     $(function () {
         $('[data-toggle="tooltip"]').tooltip({
+            html:true
+        });
+    })
+    $(function () {
+        $('[data-toggle="bigtooltip"]').tooltip({
             html:true
         });
     })
