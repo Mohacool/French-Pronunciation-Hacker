@@ -6,14 +6,17 @@ $(".mainrow").css({'height':mainrowheight+'px'});
 console.log('main row set to'+mainrowheight);
 
 
+var mic_on_color = "rgb(220,64,53)";
+var mic_off_color = "#156d74"
+
 $("#circle").mousedown(function(){
     console.log('holding.....');
-    $("#circle").css({'background':'rgb(68 197 84)'});
+    $("#circle").css({'background':mic_on_color});
     startRecording();
 });
 
 $("#circle").mouseup(function() {
-    $("#circle").css({'background':'rgb(220,64,53)'});
+    $("#circle").css({'background':mic_off_color});
     console.log('released');
     stopRecording();
 });
@@ -22,16 +25,18 @@ $("#circle").on('touchstart', function(e){
     e.preventDefault();
 
     console.log('holding.....');
-    $("#circle").css({'background':'rgb(68 197 84)'});
+    $("#circle").css({'background':mic_on_color});
     startRecording();
 });
 
 $("#circle").on('touchend', function(e){
     e.preventDefault();
-    $("#circle").css({'background':'rgb(220,64,53)'});
+    $("#circle").css({'background':mic_off_color});
     console.log('released');
     stopRecording();
 });
+
+
   
 
 // Initialize ScrollBar
@@ -254,6 +259,7 @@ $(".story_holder").scroll(function(e){
 function playAudio(url) {
     new Audio(url).play();
 }
+
 
 
 

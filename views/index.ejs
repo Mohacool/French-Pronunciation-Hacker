@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="assets/css/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/css/tooltip.css">
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -43,8 +45,8 @@
 
         <div class="row top show">
 
-            <div class="col-2 ">
-                
+            <div class="col-2 mt-auto">
+                <img class="mytooltip" width="100%" src="assets/tooltip-left.png" alt="">
             </div>
             <div class="col flow">
                 <div id="move" class="pt-5">
@@ -63,8 +65,9 @@
 
                 </div>
             </div>
-            <div class="col-2 ">
-               
+            <div class="col-2 mt-auto">
+                <img class="mytooltip" width="100%" src="assets/tooltip-right.png" alt="">
+                    
             </div>
 
         </div>
@@ -95,8 +98,8 @@
                 <!-- <button id="skipword">Skip</button> -->
                 <div class="row microw justify-content-center">
 
-                    <div id="circle" class="flow annotate" data-original-title="Hey there" data-toggle="bigtooltip" data-placement="top">
-                        <img class="show mx-auto d-block mic" height="50%"src="assets/mic.png" alt="">
+                    <div id="circle">
+                        <img class="mx-auto d-block mic" height="50%"src="assets/mic.png" alt="">
                     </div>
                     
                     <button id="startRecButton" type="button" style="display:none"> Start recording</button>
@@ -123,156 +126,6 @@
     <script src="assets/js/client.js"></script>
     <!-- <script src="../public/js/client.js"></script> -->
 </body>
-<style>
-    
-    .show{
-        border:1px solid red;
-    }
-    .blow{
-        border:1px solid blue;
-    }
-    .flow{
-        border:1px solid green;
-
-    }
-    body{
-        background-color:rgba(255,255,255);
-        /* overflow-y:hidden; */
-    }
-    .booktitle {
-    margin-left: 96px;
-    font-size:43px;
-    /* font-size: 61px; */
-    }
-    .mic{
-        margin-top:25%
-    }
-    mark{
-        background-color: #72c157;
-        border-radius: 8px;
-            
-    }
-    .highlight{
-        background-color: #e6871b;
-        border-radius: 8px;
-    }
-    #story{
-        line-height:1.5em;
-        font-family: 'Roboto', sans-serif;
-        font-size:20px;
-        
-    }
-    .book-title-small{
-        font-family: 'Roboto', sans-serif;
-        font-size: 28px;
-        right: 0;
-        opacity:0;
-        /* display: none; */
-        transform: translateY(-26px);
-        font-weight: 700;
-        text-decoration: underline;
-    }
-    .book-title{
-        font-size:50px;
-    }
-    .annotate{
-        font-family: 'Roboto', sans-serif;
-        font-size:20px;
-        /* text-decoration:underline; */
-        /* font-style: italic; */
-        color:rgb(56, 54, 54);
-        /* text-decoration-line: underline; */
-        font-weight:700;
-        cursor:pointer;
-    }
-    
-    p {
-        margin-bottom:1.5em
-    }
-    #chapter_title{
-        text-align: center;
-        font-size:30px;
-        font-family: 'Roboto', sans-serif;
-    }
-    .story_holder{
-        height:300px;
-        overflow-x:hidden;
-        overflow-y:scroll;
-        transition:all 1s ease;
-    }
-    .audio{
-        font-weight:800;
-        color: rgb(85, 151, 182);
-    }
-    .audio:hover{
-        cursor:pointer;
-
-    }
-    .bigtooltip-inner{
-        background-color: rgb(220,64,53) !important;
-    }
-    .tooltip-inner {
-        max-width: 200px;
-        padding: 3px 8px;
-        color: #fff;
-        text-align: center;
-        font-size:18px;
-        background-color: rgb(85, 151, 182);
-        border-radius: .25rem;
-        opacity:1;
-    }
-    .tooltip.bs-tooltip-top .arrow:before {
-        display:none;
-    }
-    .tooltip.bs-tooltip-bottom .arrow:before {
-        color:rgb(85, 151, 182) !important;
-    }
-    .tooltip{opacity:1!important;}
-    .buy{
-        cursor:pointer;
-    }
-    .plyr{
-        display:none;
-        width:450px !important;
-        max-width:100% !important;
-    }
-    .result_holder {
-        background-color: #f2f1eb;
-        border-radius: 15px;
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        height: 100px;
-        overflow-y: scroll;
-        position:relative;
-    }
-    .scroll_div{
-        width:100%;
-    }
-    #move{
-        transition: all ease 0.5s;
-    }
-    .logo{
-        height:90px;
-        max-width:100%;
-        object-fit:scale-down;
-        right:0;
-    }
-    #circle {
-        background: lightblue;
-        background: rgb(220,64,53);
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        cursor:pointer;
-    }
-    .microw{
-        padding-top:35px;
-    }
-
-    
-</style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -286,11 +139,7 @@
             html:true
         });
     })
-    $(function () {
-        $('[data-toggle="bigtooltip"]').tooltip({
-            html:true
-        });
-    })
+    
 </script>
 
 <script src="assets/js/perfect-scrollbar.js"></script>
