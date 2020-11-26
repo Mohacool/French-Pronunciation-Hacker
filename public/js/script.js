@@ -1,17 +1,19 @@
 // var sentence = "Hello how are you today i hope you are doing fine";
 // var sentence = "Le 24 février 1815, en France, un grand bateau appelé « le Pharaon » entre dans le port de Marseille. Le bateau avance très lentement et avec une apparence vraiment triste. Alors, certaines personnes curieuses sur la plate-forme du port se demandent si un accident est arrivé.";
 // $("#story").text(sentence);
+var mainrowheight = window.innerHeight-$('.logo').height();
+$(".mainrow").css({'height':mainrowheight+'px'});
+console.log('main row set to'+mainrowheight);
 
 
-
-$("#holdbutton").mousedown(function(){
+$("#circle").mousedown(function(){
     console.log('holding.....');
-    $("#holdbutton").css({'background-color':'red'});
+    $("#circle").css({'background':'rgb(68 197 84)'});
     startRecording();
 })
 
-$("#holdbutton").mouseup(function() {
-    $("#holdbutton").css({'background-color':'blue'});
+$("#circle").mouseup(function() {
+    $("#circle").css({'background':'rgb(220,64,53)'});
     console.log('released');
     stopRecording();
   });

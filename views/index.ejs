@@ -23,67 +23,90 @@
 
 <body>
 
-    <nav class="navbar navbar-light">
+    <!-- <nav class="navbar navbar-light">
         <a class="navbar-brand mx-auto" href="#">
-            <!-- <h1 class="mx-auto">Pronunciation Hacker</h1> -->
             <img src="assets/logo.png" height="90px" alt="" style="max-width:100%;object-fit:scale-down">
         </a>
-    </nav>
+    </nav> -->
 
-    <div class="container-fluid w-100"> 
+    <div class="container-fluid h-100 w-100"> 
 
+        <div class="row justify-content-end flow"> 
+            <img class="mr-2 logo" src="assets/logo2.png" >
+        </div>
         <!-- <audio id="player" controls>
             <source src="audio/book.mp3" type="audio/mp3" />
         </audio> -->
-    
-        <div class="container pt-5">
-            
-            <h4 class="book-title-small">Le Comte de Monte-Cristo</h4>
-            <div class="story_holder" style="border:1px solid transparent;">
+        <div class="row">
+            <h3 class="booktitle">Le Compte de Monte Cristo</h3>
+        </div>
 
-                <h1 class="book-title text-center">Le Comte de Monte-Cristo</h1>
-                <br>
-                <div id='chapter_title'></div>
-                <br><br><br>
+        <div class="row top show">
+
+            <div class="col-2 ">
                 
-                <h3>
-                    <p id="story"></p>
-                </h3>
             </div>
-          
-            <div class="form-group" >
+            <div class="col flow">
+                <div id="move" class="pt-5">
 
-                <div class="result_holder">
-                   
+                    <div class="story_holder" style="border:1px solid transparent;">
 
-                    <div id="ResultText">
-                    
-                        <!-- <span class="greyText">No Speech to Text yet
-                        </span> -->
-                        <span class="greyText">No Speech to Text yet No Speech to Text yet No Speech to Text yet No Speech to Text yet No Speech to Text yetNo Speech to Text yet No Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yet No Speech to Text yetNo Speech to Text yet No Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yetNo Speech to Text yet
-                        </span>
-                    
+                        <!-- <h1 class="book-title text-center">Le Comte de Monte-Cristo</h1>
+                        <br>
+                        <div id='chapter_title'></div>
+                        <br><br><br> -->
+                        
+                        <h3>
+                            <p id="story"></p>
+                        </h3>
                     </div>
-                    
-                    
+
                 </div>
             </div>
-            <!-- <div class="form-group">
-                <br>
-                <button id="startRecButton" type="button"> Start recording</button>
-                <button id="stopRecButton" type="button"> Stop recording</button>
-                <button id="skipword">SKIP WORD</button>
-                <button class="btn btn-primary" id="holdbutton">HOLD RECORD</button>
-                <div id="recordingStatus">&nbsp;</div>
-                <br>
-            </div> -->
-            <!-- <div class="row">
-                <a class="mx-auto" href="https://www.amazon.ca/Improve-your-French-reading-Monte-Cristo-ebook/dp/B085VQB8M1">
-                    <img class="buy mx-auto" height="90px" src="assets/buy.png">
-                </a>
-            </div> -->
+            <div class="col-2 ">
+               
+            </div>
+
         </div>
+
+        <div class="row bottom flow">
+            <div class="col-2 ">
+               
+            </div>
+            <div class="col flow">
+                <div class="form-group pt-4" >
         
+                    <div class="result_holder">
+                       
+    
+                        <div id="ResultText">
+                        
+                
+                            <span class="greyText">
+                            </span>
+                        
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 h-100">
+                
+                <div class="row microw justify-content-center">
+
+                    <div id="circle" class="flow">
+                        <img class="show mx-auto d-block mic" height="50%"src="assets/mic.png" alt="">
+                    </div>
+                    <button id="startRecButton" type="button" style="display:none"> Start recording</button>
+                    <button id="stopRecButton" type="button" style="display:none"> Stop recording</button>
+                    <div id="recordingStatus" style="display:none"></div>
+                </div>
+                
+                
+            </div>
+        </div>
+
         
     </div>
 
@@ -100,6 +123,7 @@
     <!-- <script src="../public/js/client.js"></script> -->
 </body>
 <style>
+    
     /* .show{
         border:1px solid red;
     }
@@ -111,7 +135,16 @@
 
     } */
     body{
-        background-color:rgba(252, 210, 159, 0.171);
+        background-color:rgba(255,255,255);
+        /* overflow-y:hidden; */
+    }
+    .booktitle {
+    margin-left: 96px;
+    font-size:43px;
+    /* font-size: 61px; */
+    }
+    .mic{
+        margin-top:25%
     }
     mark{
         background-color: #72c157;
@@ -200,8 +233,8 @@
         max-width:100% !important;
     }
     .result_holder {
-        background-color: #d9d9d9;
-        border-radius: 10px;
+        background-color: #f2f1eb;
+        border-radius: 15px;
         padding-left: 24px;
         padding-right: 24px;
         padding-top: 5px;
@@ -213,8 +246,25 @@
     .scroll_div{
         width:100%;
     }
-    #ResultText{
-        word-wrap: break-word;
+    #move{
+        transition: all ease 0.5s;
+    }
+    .logo{
+        height:90px;
+        max-width:100%;
+        object-fit:scale-down;
+        right:0;
+    }
+    #circle {
+        background: lightblue;
+        background: rgb(220,64,53);
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        cursor:pointer;
+    }
+    .microw{
+        padding-top:35px;
     }
 
     
