@@ -10,13 +10,25 @@ $("#circle").mousedown(function(){
     console.log('holding.....');
     $("#circle").css({'background':'rgb(68 197 84)'});
     startRecording();
-})
+});
 
 $("#circle").mouseup(function() {
     $("#circle").css({'background':'rgb(220,64,53)'});
     console.log('released');
     stopRecording();
-  });
+});
+
+$("#circle").on('touchstart', function(){
+    console.log('holding.....');
+    $("#circle").css({'background':'rgb(68 197 84)'});
+    startRecording();
+});
+
+$("#circle").on('touchend', function(){
+    $("#circle").css({'background':'rgb(220,64,53)'});
+    console.log('released');
+    stopRecording();
+});
   
 
 // Initialize ScrollBar
