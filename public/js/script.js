@@ -217,13 +217,16 @@ $(".annotate").hover(function(e){
 // Show a small story title when the big title is scrolled past
 $(".story_holder").scroll(function(e){
     if(this.scrollTop>=150){
-        // $(".book-title-small").fadeIn(500);
+        // $(".book-title-small").fadeOut(500);
+        
+
         $(".book-title-small").animate({
             opacity:1
         })
     }
     else{
-        // $(".book-title-small").fadeOut(500);
+        // $(".book-title-small").fadeIn(500);
+        
         $(".book-title-small").animate({
             opacity:0
         })
