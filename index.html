@@ -40,8 +40,8 @@
             <div class="col-1 mr-5">
                 hey man
             </div>
-            <div class="col">
-                <div class="pt-5">
+            <div class="col flow">
+                <div id="move" class="pt-5">
             
                     <h4 class="book-title-small">Le Comte de Monte-Cristo</h4>
                     <div class="story_holder" style="border:1px solid transparent;">
@@ -87,7 +87,7 @@
                         </h3>
                     </div>
                   
-                    <div class="form-group" >
+                    <div class="form-group pt-4" >
         
                         <div class="result_holder">
                            
@@ -104,14 +104,14 @@
                             
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <br>
                         <button id="startRecButton" type="button"> Start recording</button>
                         <button id="stopRecButton" type="button"> Stop recording</button>
                         <button id="skipword">SKIP WORD</button>
                         <div id="recordingStatus">&nbsp;</div>
                         <br>
-                    </div>
+                    </div> -->
                     <!-- <div class="row">
                         <a class="mx-auto" href="https://www.amazon.ca/Improve-your-French-reading-Monte-Cristo-ebook/dp/B085VQB8M1">
                             <img class="buy mx-auto" height="90px" src="public/buy.png">
@@ -155,6 +155,7 @@
     }
     body{
         background-color:rgba(252, 210, 159, 0.171);
+        /* overflow-y:hidden; */
     }
     mark{
         background-color: #72c157;
@@ -175,7 +176,8 @@
         font-family: 'Roboto', sans-serif;
         font-size: 28px;
         right: 0;
-        display: none;
+        opacity:0;
+        /* display: none; */
         transform: translateY(-26px);
         font-weight: 700;
         text-decoration: underline;
@@ -254,6 +256,9 @@
     }
     .scroll_div{
         width:100%;
+    }
+    #move{
+        transition: all ease 0.5s;
     }
 
     
