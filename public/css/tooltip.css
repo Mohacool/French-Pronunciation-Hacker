@@ -8,18 +8,30 @@
     border:1px solid green;
 
 } */
+.slow{
+    border: 1px solid blue !important;
+}
 
 body{
     background-color:rgba(255,255,255);
     /* overflow-y:hidden; */
+    --plyr-color-main:#156d74;
 }
+
 .booktitle {
     margin-left: 96px;
     font-size:43px;
     /* font-size: 61px; */
 }
 .mic{
-    margin-top:25%
+    margin-top:25%;
+}
+.play_arrow{
+    margin-top:27%;
+}
+.pause{
+    margin-left: 14px !important;
+    margin-top: 16px !important;
 }
 mark{
     background-color: #72c157;
@@ -92,6 +104,7 @@ p {
     text-align: center;
     font-size:18px;
     background-color: rgb(85, 151, 182);
+    background-color:#156d74;
     border-radius: .25rem;
     opacity:1;
 }
@@ -107,8 +120,8 @@ p {
 }
 .plyr{
     display:none;
-    width:450px !important;
-    max-width:100% !important;
+    width:100% !important;
+    /* max-width:100% !important; */
 }
 .result_holder {
     background-color: #f2f1eb;
@@ -136,6 +149,14 @@ p {
 #circle {
     background: lightblue;
     background: rgb(220,64,53);
+    background: #156d74;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    cursor:pointer;
+}
+
+#playbutton{
     background: #156d74;
     border-radius: 50%;
     width: 70px;

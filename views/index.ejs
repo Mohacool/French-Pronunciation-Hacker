@@ -36,11 +36,19 @@
         <div class="row justify-content-end flow"> 
             <img class="mr-2 logo" src="assets/logo2.png" >
         </div>
-        <!-- <audio id="player" controls>
-            <source src="audio/book.mp3" type="audio/mp3" />
-        </audio> -->
-        <div class="row">
+        
+        <div class="row show">
             <h3 class="booktitle">Le Comte de Monte Cristo</h3>
+        </div>
+        <div class="row show">
+            <div class="col-2"></div>
+            <div class="col show">
+                 <audio id="player" controls>
+                    <source src="assets/audio/book.mp3" type="audio/mp3" />
+                </audio>
+            </div>
+            <div class="col-2"></div>
+            
         </div>
 
         <div class="row top show">
@@ -74,7 +82,15 @@
 
         <div class="row bottom flow">
             <div class="col-2 ">
-               
+                <div class="row microw justify-content-center">
+
+                    <div id="playbutton">
+                        <img class="mx-auto pl-2 d-block play_arrow" height="45%" src="assets/play_arrow.png" alt="">
+                        <img class="mx-auto pl-2 d-block pause" height="50%" src="assets/pause.png" alt="">
+                    </div>
+                
+                </div>
+                
             </div>
             <div class="col flow">
                 <div class="form-group pt-4" >
@@ -84,7 +100,6 @@
     
                         <div id="ResultText">
                         
-                
                             <span class="greyText">
                             </span>
                         
@@ -147,7 +162,10 @@
 <script src="assets/js/script.js"></script>
 <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
     <script>
-        const player = new Plyr('#player');
+        const player = new Plyr('#player',{
+            controls:[ 'progress', 'current-time', 'mute', 'volume', 'captions'],
+            speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] }
+        });
     </script>
 
 </html>

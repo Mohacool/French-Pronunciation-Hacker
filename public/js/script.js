@@ -5,12 +5,12 @@ $(".logo").on('click',function(){
     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
 })
 
-
+// Change the story height
 var mainrowheight = window.innerHeight-$('.logo').height();
 $(".mainrow").css({'height':mainrowheight+'px'});
 console.log('main row set to'+mainrowheight);
 
-
+// =============================== BUTTONS ===========================================
 var mic_on_color = "rgb(220,64,53)";
 var mic_off_color = "#156d74"
 
@@ -40,6 +40,30 @@ $("#circle").on('touchend', function(e){
     console.log('released');
     stopRecording();
 });
+var play = false;
+$('#playbutton').on('click',function(){
+
+    //Play
+    if (play==false){
+        $('.play_arrow').attr('style','display: none !important');
+        $('.pause').attr('style','display: block !important');
+        play=true;
+        player.play();
+    }
+    // Pause
+    else{
+        $('.pause').attr('style','display: none !important');
+        $('.play_arrow').attr('style','display: block !important');
+        play=false;
+        player.pause();
+    }
+   
+    // $("#circle").css({'background':mic_off_color});
+    
+})
+
+
+// =============================== BUTTONS ===========================================
 
 
   
