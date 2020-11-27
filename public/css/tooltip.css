@@ -183,7 +183,7 @@ p {
     height: 158px;
     background-color:lightblue;
     border-radius:10px;
-    
+    display:none;
 }
 
 ul {

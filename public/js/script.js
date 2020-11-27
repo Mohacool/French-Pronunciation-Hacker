@@ -77,7 +77,13 @@ const ps = new PerfectScrollbar('.result_holder', {
 let transcript_length = my_transcript.length;
 console.log(my_transcript);
 
-var homophone_dict = {'25 000': ['25000', '251000', '25miles'], 'a': ['Ah'], 'à': ['Ah'], 'à bord': ['adore'], 'agite': ['àgîtes'], 'aiment': ['M'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'], 'arrivées': ['arrivé'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'Au': ['Oh'], 'au': ['Oh'], 'aux': ['Oh'], 'aux hommes': ['awesome'], 'avons': ['avant'], 'bateau': ['bâteau'], 'beaux': ['beau'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'commencé': ['commencer'], 'commencent': ['commence'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'Crie': ['cri'], 'curieuses': ['curieuse'], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], 'd’anxiété': ["d'anxiété"], 'Danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps'], 'Dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter'], 'de': ['2'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'], 'du port': ['duporc'], 'Edmond': ['Edmonde', 'etdemain'], 'Eh bien': ['etbien'], 'elles': ['elle'], 'en': ['on'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc'], 'gestes': ['geste'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'Hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'], 'intelligents': ['intelligent'], 'je': ['jeux'], 'jetant': ["jet'en"], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'Leclère': ['Leclerc'], 'les': ['mets'], 'leur': ["l'heure"], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit'], 'M': ['monsieur', 'M', 'aime'], 'main': ['mets'], 'Mais': ['mets'], 'malheur': ['alors'], 'manière': ['panière'], 'marchandise': ['marchandises'], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'], 'mortels': ['mortel'], 'mouvement ': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'], 'obéissent': ['obéisse'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'], 'organisé': ['organiser'], 'ou': ['où'], 'personnes': ['personne'], 'peut': ['peu'], 'plate-forme': ['plateforme'], 'point': ['.'], 'préparez': ['préparer'], 'près': ['prêt'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'], 'rapides': ['rapide'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'Répond': ['réponds'], 'répond': ['réponds'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100'], 'savez': ['savais', 'çafait', 'avec'], 'se': ['ce'], 'se demandent': ['sedemande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'vécu': ['déçu'], 'vers': ['verre'], 'vie': ['v'], 'vingt-cinq': ['25', '20V'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'], 'vous': ['veau', 'faux'], 'yeux': ['mieux', 'Dieu']};
+// Main single word homophone dictionary
+var homophone_dict = {'25 000': ['25000', '251000', '25miles'], 'a': ['Ah'], 'à': ['Ah'], 'à bord': ['adore'], 'agite': ['àgîtes'], 'aiment': ['M'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'], 'arrivées': ['arrivé'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'Au': ['Oh'], 'au': ['Oh'], 'aux': ['Oh','au'], 'aux hommes': ['awesome'], 'avons': ['avant'], 'bateau': ['bâteau'], 'beaux': ['beau'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'commencé': ['commencer'], 'commencent': ['commence'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'Crie': ['cri'], 'curieuses': ['curieuse'],"demandent":["demande"], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], 'd’anxiété': ["d'anxiété"], 'Danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps'], 'Dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter'], 'de': ['2'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'], 'du port': ['duporc'], 'Edmond': ['Edmonde', 'etdemain'], 'Eh bien': ['etbien'], 'elles': ['elle'], 'en': ['on','a'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc'], 'gestes': ['geste'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'Hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'], 'intelligents': ['intelligent'], 'je': ['jeux'], 'jetant': ["jet'en"], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'Leclère': ['Leclerc'], 'les': ['mets'], 'leur': ["l'heure"], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit'], 'M': ['monsieur', 'M', 'aime'], 'main': ['mets'], 'Mais': ['mets'], 'malheur': ['alors'], 'manière': ['panière'], 'marchandise': ['marchandises'], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'], 'mortels': ['mortel'], 'mouvement ': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'], 'obéissent': ['obéisse'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'], 'organisé': ['organiser'], 'ou': ['où'], 'personnes': ['personne'], 'peut': ['peu'], 'plate-forme': ['plateforme'], 'point': ['.'], 'préparez': ['préparer'], 'près': ['prêt'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'], 'rapides': ['rapide'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'Répond': ['réponds'], 'répond': ['réponds'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100'], 'savez': ['savais', 'çafait', 'avec'], 'se': ['ce'], 'se demandent': ['se demande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'vécu': ['déçu'], 'vers': ['verre'], 'vie': ['v'], 'vingt-cinq': ['25', '20V'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'], 'vous': ['veau', 'faux'], 'yeux': ['mieux', 'Dieu']};
+
+var homophone_multiword_dict = {'aux hommes':['ozone','ozon','awesome']};
+var multiword_catcher = ['aux'];
+
+
 var annotated_words=["bateau","se demandent","marin","Il a l’air calme","Crie","à bord","malheur","soulagé","la mer ","obéissent","inattendue","épée","survécu","voilà","le comptable","dextérité","saisit","laisse","surtout","des conseils","en jetant un regard","haine","l'île d'Elbe","au lieu de"];
 var annotated_meanings = ["a boat","to ask oneself / to wonder","a sailor / a seaman ","il semble calme = he looks calm","to yell","on board","un problème = a misfortune","rassuré = relieved","the sea","obéir = to obey","unexpected","une épée = a sword","survived (verbe: survivre)","here is…","the accountant","agilité","to seize","laisser = to let / to give","above all","advices (masculin)","take a look","hatred / anger","l'île d'Elbe est fameuse pour être l'île d'exil de Napoléon en 1814-15","instead of"];
 
@@ -251,18 +257,53 @@ function canalyse(transcript){
         }
         // Do homophone check
         else if(stripped_word in homophone_dict){
-            // console.log('This word has homophones: '+stripped_word);
-            // console.log('Homophone: now going through: '+homophone_dict[stripped_word]);
+
+            var multiword_caught = false;
 
 
-            // Go through the homophone possible values dict = {'en':['on','un']}
-            homophone_dict[stripped_word].forEach(function (item, index) {
-                if (detected_word==item){
-                    console.log('Homophone RESOLVED: '+item+' sounds like: '+stripped_word);
-                    $("#story").mark(actual_word,{accuracy:'exactly'});
-                    at_wrd+=1;
+            // Check multi word homophones like [aux hommes]
+            if (multiword_catcher.indexOf(stripped_word)!=-1){
+                
+                console.log('multiword');
+
+                // Check next word  ex. if aux check if hommes is next (only works for 2 words)
+                let whole_word = words[at_wrd]+ ' '+ words[at_wrd+1];
+                if (whole_word in homophone_multiword_dict){
+                    console.log('multiword '+whole_word+'caught');
+
+                    homophone_multiword_dict[whole_word].forEach(function (item, index) {
+                        console.log('multiword checking: '+item);
+                        if (detected_word==item){
+                            multiword_caught = true;
+                            console.log('Homophone (multiword) RESOLVED: '+item+' sounds like: '+whole_word);
+                            $("#story").mark(words[at_wrd],{accuracy:'exactly'});
+                            $("#story").mark(words[at_wrd+1],{accuracy:'exactly'});
+                            at_wrd+=2;
+                        }
+                    })
                 }
-            })
+
+            }
+
+            console.log('######################### This word has homophones: '+stripped_word);
+            console.log('###### Homophone: going through: '+homophone_dict[stripped_word]);
+
+
+            // If no multiword caught then do them in a single fashion
+            if (multiword_caught == false){
+
+                // Go through the homophone possible values dict = {'en':['on','un']}
+                homophone_dict[stripped_word].forEach(function (item, index) {
+                    if (detected_word==item){
+                        console.log('-------------------------------\n');
+                        console.log('Homophone RESOLVED: '+item+' sounds like: '+stripped_word);
+                        console.log('-------------------------------');
+                        $("#story").mark(actual_word,{accuracy:'exactly'});
+                        at_wrd+=1;
+                    }
+                })
+            }
+            
 
         }
         
