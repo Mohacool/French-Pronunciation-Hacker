@@ -40,9 +40,10 @@ $("#circle").on('touchend', function(e){
     console.log('released');
     stopRecording();
 });
+
+// Play button 
 var play = false;
 $('#playbutton').on('click',function(){
-
     //Play
     if (play==false){
         $('.play_arrow').attr('style','display: none !important');
@@ -60,6 +61,15 @@ $('#playbutton').on('click',function(){
    
     // $("#circle").css({'background':mic_off_color});
     
+})
+
+// Skip and Rewind buttons
+$('#leftrewind').on('click',function(){
+    player.rewind(10);
+})
+
+$('#rightrewind').on('click',function(){
+    player.forward(10);
 })
 
 
