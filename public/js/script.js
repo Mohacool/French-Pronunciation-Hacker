@@ -207,20 +207,7 @@ function canalyse(transcript){
         var stripped_word = words[at_wrd].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()«»]/g,"").toLowerCase().trim();
         console.table("Detected: " + detected_word, "Stripped: ",stripped_word);
 
-        // Do homophone check
-        if(stripped_word in homophone_dict){
-            console.log('Homophone found: '+stripped_word);
-            console.log('Homophone: now going through: '+homophone_dict[stripped_word]);
-
-
-            // Go through the homophone possible values dict = {'en':['on','un']}
-            homophone_dict[stripped_word].forEach(function (item, index) {
-                if (detected_word==item){
-                    console.log('Homophone RESOLVED: '+item+' sounds like: '+detected_word);
-                }
-            })
-
-        }
+        
 
         if (detected_word==stripped_word){
             console.log("#####FOUND: "+actual_word);
@@ -258,6 +245,22 @@ function canalyse(transcript){
             // $("#story").mark(actual_word,options);
 
             at_wrd+=1;
+
+        }
+        // Do homophone check
+        else if(stripped_word in homophone_dict){
+            // console.log('Homophone found: '+stripped_word);
+            // console.log('Homophone: now going through: '+homophone_dict[stripped_word]);
+
+
+            // Go through the homophone possible values dict = {'en':['on','un']}
+            homophone_dict[stripped_word].forEach(function (item, index) {
+                if (detected_word==item){
+                    console.log('Homophone RESOLVED: '+item+' sounds like: '+stripped_word);
+                    $("#story").mark(actual_word,{accuracy:'exactly'});
+                    at_wrd+=1;
+                }
+            })
 
         }
         
