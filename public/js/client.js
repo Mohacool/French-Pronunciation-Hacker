@@ -179,9 +179,10 @@ socket.on('speechData', function (data) {
 		}
 		resultText.lastElementChild.appendChild(document.createTextNode('\u002E\u00A0'));
 
-		let curr_transcript = data.results[0].alternatives[0].transcript;
-		console.log("Mine"+ data.results[0].alternatives[0].transcript);
-		$('#myresults').append(curr_transcript);
+		// let curr_transcript = data.results[0].alternatives[0].transcript;
+		// console.log("Mine"+ data.results[0].alternatives[0].transcript);
+		// $('#myresults').append(curr_transcript);
+
 		console.log("Google Speech sent 'final' Sentence.");
 		finalWord = true;
 		endButton.disabled = false;
