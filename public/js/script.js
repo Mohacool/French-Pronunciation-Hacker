@@ -65,11 +65,11 @@ $('#playbutton').on('click',function(){
 
 // Skip and Rewind buttons
 $('#leftrewind').on('click',function(){
-    player.rewind(10);
+    player.rewind(5);
 })
 
 $('#rightrewind').on('click',function(){
-    player.forward(10);
+    player.forward(5);
 })
 
 
