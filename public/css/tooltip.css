@@ -7,10 +7,10 @@
 .flow{
     border:1px solid green;
 
-} */
+}
 .slow{
     border: 1px solid blue !important;
-}
+} */
 
 body{
     background-color:rgba(255,255,255);
@@ -82,8 +82,8 @@ p {
 }
 .story_holder{
     height:300px;
-    overflow-x:hidden;
-    overflow-y:scroll;
+    /* overflow-x:hidden; */
+    /* overflow-y:scroll; */
     transition:all 1s ease;
 }
 .audio{
@@ -171,3 +171,21 @@ p {
 .mytooltip{
     transform:translateY(15px);
 }
+
+.skippedwordsholder{
+    height: 158px;
+    /* width:100px; */
+    /* position:relative; */
+}
+.skippedwords{
+    /* border: 1px solid green; */
+    width: 70%;
+    height: 158px;
+    background-color:lightblue;
+    border-radius:10px;
+    
+}
+
+ul {
+    list-style-type: none;
+  }

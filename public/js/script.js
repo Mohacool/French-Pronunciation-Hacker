@@ -73,6 +73,7 @@ const ps = new PerfectScrollbar('.result_holder', {
     wheelPropagation: false,
 });
 
+
 let transcript_length = my_transcript.length;
 console.log(my_transcript);
 
@@ -182,6 +183,7 @@ var at_wrd = 0;
 var dict = {};
 $("#skipword").on('click',function(){
     // alert('at word '+words[at_wrd]+' and skipping');
+    $('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
     $("#story").mark(words[at_wrd],{
         accuracy:'exactly',
         className: "highlight"

@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="assets/css/perfect-scrollbar.css">
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+<noscript>
+    <style>
+      /**
+      * Reinstate scrolling for non-JS clients
+      */
+      .simplebar-content-wrapper {
+        overflow: auto;
+      }
+    </style>
+  </noscript>
+
     <link rel="stylesheet" href="assets/css/tooltip.css">
 
 
@@ -59,7 +76,7 @@
             <div class="col flow">
                 <div id="move" class="pt-5">
 
-                    <div class="story_holder" style="border:1px solid transparent;">
+                    <div data-simplebar class="story_holder" style="border:1px solid transparent;">
 
                         <!-- <h1 class="book-title text-center">Le Comte de Monte-Cristo</h1>
                         <br>
@@ -74,7 +91,17 @@
                 </div>
             </div>
             <div class="col-2 mt-auto">
-                <button id="skipword">Skip</button>
+                <div class="row">
+                    <button id="skipword" class="mx-auto mb-2">Skip Word</button>
+                        <div data-simplebar class="skippedwords mx-auto">
+                            <ul id="skippedwordslist">
+                                <h5 style="font-size:15px">Skipped words:</h5>
+                                
+    
+                            </ul>
+                        </div>
+                    
+                </div>
                 <img class="mytooltip" width="100%" src="assets/tooltip-right.png" alt="">
                     
             </div>
