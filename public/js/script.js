@@ -249,7 +249,7 @@ function canalyse(transcript){
         }
         // Do homophone check
         else if(stripped_word in homophone_dict){
-            // console.log('Homophone found: '+stripped_word);
+            // console.log('This word has homophones: '+stripped_word);
             // console.log('Homophone: now going through: '+homophone_dict[stripped_word]);
 
 
