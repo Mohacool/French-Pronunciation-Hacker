@@ -150,6 +150,9 @@ socket.on('speechData', function (data) {
 		let empty = document.createElement('span');
 		resultText.appendChild(empty);
 
+		console.log('cheer: '+data.results[0].alternatives[0].transcript);
+
+
 		//add children to empty span
 		let edit = addTimeSettingsInterim(data);
 
@@ -165,10 +168,12 @@ socket.on('speechData', function (data) {
 		let empty = document.createElement('span');
 		resultText.appendChild(empty);
 
+		console.log('beer: '+data.results[0].alternatives[0].transcript);
+
 		//add children to empty span
 		let edit = addTimeSettingsFinal(data);
 
-		console.log('beer: '+data.results[0].alternatives[0].transcript);
+		
 		for (var i = 0; i < edit.length; i++) {
 			if (i === 0) {
 				edit[i].innerText = capitalize(edit[i].innerText)
