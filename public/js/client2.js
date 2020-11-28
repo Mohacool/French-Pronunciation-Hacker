@@ -3,7 +3,7 @@
 //connection to socket
 const socket = io.connect();
 
-var my_full_transcript = [];
+// var my_full_transcript = [];
 
 //================= CONFIG =================
 // Stream Audio
