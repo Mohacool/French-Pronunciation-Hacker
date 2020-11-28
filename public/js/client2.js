@@ -143,6 +143,7 @@ socket.on('speechData', function (data) {
 		console.log("Google Speech sent 'final' Sentence and it is:");
 
 		console.log(finalString);
+		canalyse(finalString);
 		$('#ResultText').append(finalString+' ');
 
 		finalWord = true;
