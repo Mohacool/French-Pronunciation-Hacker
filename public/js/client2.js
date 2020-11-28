@@ -88,7 +88,7 @@ endButton.addEventListener("click", stopRecording);
 endButton.disabled = true;
 
 function startRecording() {
-	if (params.startedRecording){return}
+	// if (params.startedRecording){return}
 	params.startedRecording = true;
 	endButton.disabled = false;
 	initRecording();
@@ -97,7 +97,8 @@ function startRecording() {
 function stopRecording() {
 	endButton.disabled = true;
 
-	if (!streamStreaming){return} // stop disconnecting if already disconnected;
+	// stop disconnecting if already disconnected;
+	// if (!streamStreaming){return} 
 
 	streamStreaming = false;
 	socket.emit('endGoogleCloudStream', '');
