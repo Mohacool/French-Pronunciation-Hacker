@@ -244,6 +244,7 @@ function addTimeSettingsFinal(speechData) {
 	let wholeString = speechData.results[0].alternatives[0].transcript;
 
 	my_transcript.push(wholeString);
+	$("#mytranscript").append(wholeString+' ');
 	// canalyse(my_transcript.join(" "));
 
 	let nlpObject = nlp(wholeString).out('terms');
