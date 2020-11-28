@@ -141,7 +141,9 @@ socket.on('speechData', function (data) {
 		//log final string
 		let finalString = data.results[0].alternatives[0].transcript;
 		console.log("Google Speech sent 'final' Sentence and it is:");
+
 		console.log(finalString);
+		$('#ResultText').append(finalString+' ');
 
 		finalWord = true;
 		endButton.disabled = false;
