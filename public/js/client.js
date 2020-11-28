@@ -167,6 +167,8 @@ socket.on('speechData', function (data) {
 
 		//add children to empty span
 		let edit = addTimeSettingsFinal(data);
+
+		console.log('beer: '+data.results[0].alternatives[0].transcript);
 		for (var i = 0; i < edit.length; i++) {
 			if (i === 0) {
 				edit[i].innerText = capitalize(edit[i].innerText)
