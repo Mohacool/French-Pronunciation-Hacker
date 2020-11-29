@@ -201,13 +201,13 @@ console.log(words);
 
 var at_wrd = 0;
 var dict = {};
-$("#skipword").on('click',function(){
+$(".skipword").on('click',function(){
     // alert('at word '+words[at_wrd]+' and skipping');
     $('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
     $("#story").mark(words[at_wrd],{
         accuracy:'exactly',
         className: "highlight"
-});
+    });
     at_wrd +=1;
 
 })

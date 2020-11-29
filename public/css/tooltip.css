@@ -228,12 +228,13 @@ ul {
     width:60px;
     height:60px;
 }
-#skipword{
+.skipword{
     transform: translateY(0px);
     font-size:14px;
     background-color: #8cdce2;
     border: 0px;
     border-radius: 5px;
+    outline: none !important;
 }
 
 @media only screen and (min-width: 600px) {
@@ -252,7 +253,7 @@ ul {
         height: 70px;
         
     }
-    #skipword{
+    .skipword{
         transform:translateY(-130px);
         
     }
