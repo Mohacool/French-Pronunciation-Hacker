@@ -138,6 +138,7 @@ p {
 }
 #move{
     transition: all ease 0.5s;
+    overflow-y:scroll;
 }
 .logo{
     height:90px;
@@ -242,6 +243,13 @@ ul {
     font-weight:700;
     color: #156d74
 }
+
+@media only screen and (min-width: 420px) {
+    #move{
+        overflow-y:hidden;
+    }
+}
+
 
 @media only screen and (min-width: 600px) {
     /* body {

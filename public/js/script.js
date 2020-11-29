@@ -9,10 +9,21 @@ $(".mobiletitle").on('click',function(){
     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
 })
 
+
+// Load the scroll bar js/css only if SCREEN WIDTH > 420px
+if (screen && screen.width > 420) {
+    // alert('loaded css');
+    document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"\/>');
+    document.write('<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"><\/script>');
+
+}
+
+
+
 // Change the story height
-var mainrowheight = window.innerHeight-$('.logo').height();
-$(".mainrow").css({'height':mainrowheight+'px'});
-console.log('main row set to'+mainrowheight);
+// var mainrowheight = window.innerHeight-$('.logo').height();
+// $(".mainrow").css({'height':mainrowheight+'px'});
+// console.log('main row set to'+mainrowheight);
 
 // =============================== BUTTONS ===========================================
 var mic_on_color = "rgb(220,64,53)";
