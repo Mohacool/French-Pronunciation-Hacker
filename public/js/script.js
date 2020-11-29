@@ -80,14 +80,6 @@ $('#rightrewind').on('click',function(){
 // =============================== BUTTONS ===========================================
 
 
-  
-
-// Initialize ScrollBar
-const ps = new PerfectScrollbar('.result_holder', {
-    wheelPropagation: false,
-});
-
-
 // let transcript_length = my_transcript.length;
 // console.log(my_transcript);
 

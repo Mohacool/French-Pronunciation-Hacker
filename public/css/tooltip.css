@@ -1,4 +1,4 @@
-/* .show{
+.show{
     border:1px solid red;
 }
 .blow{
@@ -10,7 +10,7 @@
 }
 .slow{
     border: 1px solid blue !important;
-} */
+}
 
 
 
@@ -235,6 +235,12 @@ ul {
     border: 0px;
     border-radius: 5px;
     outline: none !important;
+}
+
+.mobile .micdesc{
+    font-family: 'Quicksand', sans-serif;
+    font-weight:700;
+    color: #156d74
 }
 
 @media only screen and (min-width: 600px) {
