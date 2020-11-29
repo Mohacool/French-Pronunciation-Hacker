@@ -109,7 +109,7 @@ function stopRecording() {
 		let track = globalStream.getTracks()[0];
 		track.stop();
 
-		console.log('input= '+input);
+		// console.log('input= '+input);
 
 		input.disconnect(processor);
 		processor.disconnect(context.destination);
