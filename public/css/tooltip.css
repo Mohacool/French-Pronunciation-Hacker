@@ -42,7 +42,8 @@ mark{
 }
 #story{
     line-height:1.5em;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Quicksand', sans-serif;
     font-size:20px;
     
 }
