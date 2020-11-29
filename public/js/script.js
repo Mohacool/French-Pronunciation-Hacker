@@ -88,8 +88,8 @@ var homophone_dict = { 'a': ['Ah'], 'à': ['Ah'], 'à bord': ['adore'], 'agite':
 
 
 // Homophones that <EXIST> in the story as multiple words
-var homophone_multiword_dict = {'aux hommes':['ozone','ozon','awesome']};
-var multiword_catcher = ['aux'];
+var homophone_multiword_dict = {'aux hommes':['ozone','ozon','awesome'],'à bord':['adore']};
+var multiword_catcher = ['aux','à'];
 
 
 
