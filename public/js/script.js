@@ -285,6 +285,7 @@ function canalyse(transcript){
 
                 // Check next word  ex. if aux check if hommes is next (only works for 2 words)
                 let whole_word = words[at_wrd]+ ' '+ words[at_wrd+1];
+                console.log("Whole word = "+whole_word);
                 if (whole_word in homophone_multiword_dict){
                     console.log('multiword '+whole_word+'caught');
 
