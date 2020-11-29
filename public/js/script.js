@@ -4,6 +4,10 @@ $(".logo").on('click',function(){
     alert('Your real dimensions are:'+screen.width+' by '+screen.height);
     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
 })
+$(".mobiletitle").on('click',function(){
+    alert('Your real dimensions are:'+screen.width+' by '+screen.height);
+    alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
+})
 
 // Change the story height
 var mainrowheight = window.innerHeight-$('.logo').height();
