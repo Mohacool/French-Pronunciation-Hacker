@@ -144,7 +144,7 @@ socket.on('speechData', function (data) {
 
 		console.log(finalString);
 		canalyse(finalString);
-		$('#ResultText').append(finalString+' ');
+		$('.ResultText').append(finalString+' ');
 
 		finalWord = true;
 		endButton.disabled = false;

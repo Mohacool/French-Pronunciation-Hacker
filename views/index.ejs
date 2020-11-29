@@ -51,7 +51,8 @@
     <div class="container-fluid h-100 w-100"> 
 
         <div class="row justify-content-end flow"> 
-            <img class="mr-2 logo" src="assets/logo2.png" >
+            <h5 class="pr-2 mobiletitle mobile"> French Pronunciation Hacker</h5>
+            <img class="mr-2 logo desktop" src="assets/logo2.png" >
         </div>
         
         <div class="row show">
@@ -59,7 +60,7 @@
         </div>
         <div class="row show">
             <div class="col-2"></div>
-            <div class="col show">
+            <div class="col show desktop">
                  <audio id="player" controls>
                     <source src="assets/audio/book.mp3" type="audio/mp3" />
                 </audio>
@@ -70,11 +71,11 @@
 
         <div class="row top show">
 
-            <div class="col-2 mt-auto">
-                <img class="mytooltip" width="100%" src="assets/tooltip-left.png" alt="">
+            <div class="col-2 mt-auto desktop">
+                <img class="mytooltip desktop" width="100%" src="assets/tooltip-left.png" alt="">
             </div>
             <div class="col flow">
-                <div id="move" class="pt-5">
+                <div id="move" class="pt-5 pb-4 movemobile">
 
                     <div data-simplebar class="story_holder" style="border:1px solid transparent;">
 
@@ -87,12 +88,13 @@
                             <p id="story"></p>
                         </h3>
                     </div>
+                    
 
                 </div>
             </div>
-            <div class="col-2 mt-auto">
+            <div class="col-2 mt-auto desktop">
                 <div class="row">
-                    <button id="skipword" class="mx-auto mb-2">Skip Word</button>
+                    <!-- <button id="skipword" class="mx-auto mb-2">Skip Word</button> -->
                         <div data-simplebar class="skippedwords mx-auto">
                             <ul id="skippedwordslist">
                                 <h5 style="font-size:15px">Skipped words:</h5>
@@ -102,14 +104,58 @@
                         </div>
                     
                 </div>
-                <img class="mytooltip" width="100%" src="assets/tooltip-right.png" alt="">
+                <img class="mytooltip desktop" width="100%" src="assets/tooltip-right.png" alt="">
                     
             </div>
 
         </div>
 
-        <div class="row bottom flow">
+        <!-- Bottom part for desktop -->
+        <div class="row bottom flow desktop">
             <div class="col-2 show ">
+                <div class="row microw justify-content-center">
+
+                    <div class="circle">
+                        <img class="mx-auto d-block mic" height="50%"src="assets/mic.png" alt="">
+                    </div>
+                    
+                    <button id="startRecButton" type="button" style="display:none"> Start recording</button>
+                    <button id="stopRecButton" type="button" style="display:none"> Stop recording</button>
+                    <div id="recordingStatus" style="display:none"></div>
+                </div>
+                
+                
+            </div>
+            <div class="col flow">
+                
+                <div class="form-group pt-4" >
+                    
+                    <div class="result_holder">
+                       
+                        
+    
+                        <div class="ResultText">
+                            
+                            
+                            <span class="greyText">
+                            </span>
+                        
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    <div class="row">
+                        <button id="skipword" class="mx-auto">Skip Word</button>
+
+                    </div>
+                    <!-- <div class="result_holder" style="background-color:#90dcd9">
+                        <div id="mytranscript"></div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-2 h-100">
+                <!-- <button id="skipword">Skip</button> -->
                 <div class="row microw justify-content-center flow">
                     <img id="leftrewind" src="assets/left-rewind.png" height="25px" alt="">
                     <div id="playbutton">
@@ -121,15 +167,28 @@
                 
                 </div>
                 
+                
             </div>
+        </div>
+
+        <!-- Skip word for mobile -->
+        <div class="row pb-1 mobile">
+            <button id="skipword" class="mx-auto my-0 py-0">Skip Word</button>
+
+        </div>
+
+        <!-- Bottom part for mobile -->
+        <div class="row bottom flow mobile">
             <div class="col flow">
-                <div class="form-group pt-4" >
-        
+                
+                <div class="form-group" >
+                    
                     <div class="result_holder">
-                        
+                       
                         
     
-                        <div id="ResultText">
+                        <div class="ResultText">
+                            
                             
                             <span class="greyText">
                             </span>
@@ -137,29 +196,26 @@
                         </div>
                         
                         
+                        
                     </div>
+                   
                     <!-- <div class="result_holder" style="background-color:#90dcd9">
                         <div id="mytranscript"></div>
                     </div> -->
                 </div>
             </div>
-            <div class="col-2 h-100">
-                <!-- <button id="skipword">Skip</button> -->
-                <div class="row microw justify-content-center">
-
-                    <div id="circle">
-                        <img class="mx-auto d-block mic" height="50%"src="assets/mic.png" alt="">
-                    </div>
-                    
-                    <button id="startRecButton" type="button" style="display:none"> Start recording</button>
-                    <button id="stopRecButton" type="button" style="display:none"> Stop recording</button>
-                    <div id="recordingStatus" style="display:none"></div>
-                </div>
-                
-                
-            </div>
         </div>
 
+        <!-- Mic row for mobile -->
+        <div class="row flow mobile">
+            <div class="col-5 blow">Press here</div>
+            <div class="col-2 blow d-flex justify-content-center px-0 mx-0">
+                <div class="circle" >
+                    <img class="mx-auto d-block mobilemic" height="50%"src="assets/mic.png" alt="">
+                </div>
+            </div>
+            <div class="col-5 blow">Read story</div>
+        </div>
         
     </div>
 
