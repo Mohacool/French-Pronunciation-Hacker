@@ -95,29 +95,33 @@ function startRecording() {
 }
 
 function stopRecording() {
-	endButton.disabled = true;
 
-	// stop disconnecting if already disconnected;
-	// if (!streamStreaming){return} 
+	if (input!=null){
+		endButton.disabled = true;
 
-	streamStreaming = false;
-	socket.emit('endGoogleCloudStream', '');
+		// stop disconnecting if already disconnected;
+		// if (!streamStreaming){return} 
+
+		streamStreaming = false;
+		socket.emit('endGoogleCloudStream', '');
 
 
-	let track = globalStream.getTracks()[0];
-	track.stop();
+		let track = globalStream.getTracks()[0];
+		track.stop();
 
-	console.log('input= '+input);
+		console.log('input= '+input);
 
-	input.disconnect(processor);
-	processor.disconnect(context.destination);
-	context.close().then(function () {
-		input = null;
-		processor = null;
-		context = null;
-		AudioContext = null;
-		startButton.disabled = false;
-	});
+		input.disconnect(processor);
+		processor.disconnect(context.destination);
+		context.close().then(function () {
+			input = null;
+			processor = null;
+			context = null;
+			AudioContext = null;
+			startButton.disabled = false;
+		});
+	}
+	
 }
 
 //================= SOCKET IO =================
