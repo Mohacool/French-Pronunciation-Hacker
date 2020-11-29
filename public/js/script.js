@@ -269,7 +269,7 @@ function canalyse(transcript){
 
         }
         // Do homophone check
-        else if(stripped_word in homophone_dict){
+        else if((stripped_word in homophone_dict) || (multiword_catcher.indexOf(stripped_word)!=-1)){
 
             var multiword_caught = false;
 
