@@ -88,8 +88,8 @@ var homophone_dict = { 'a': ['Ah'], 'à': ['Ah'], 'à bord': ['adore'], 'agite':
 
 
 // Homophones that <EXIST> in the story as multiple words
-var homophone_multiword_dict = {'aux hommes':['ozone','ozon','awesome'], 'dans tes':['Dantès'],'25 miles':['25000'],'25 1000':['25000'],'25 miles':['25000']};
-var multiword_catcher = ['aux','dans','25'];
+var homophone_multiword_dict = {'aux hommes':['ozone','ozon','awesome']};
+var multiword_catcher = ['aux'];
 
 
 
@@ -228,6 +228,7 @@ function canalyse(transcript){
         var stripped_word = words[at_wrd].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()«»]/g,"").toLowerCase().trim();
         console.table("Detected: " + detected_word, "Stripped: ",stripped_word);
 
+        var in_multiword_dict = multiword_catcher.indexOf(stripped_word)!=-1;
         
 
         if (detected_word==stripped_word){
@@ -268,14 +269,14 @@ function canalyse(transcript){
             at_wrd+=1;
 
         }
-        // Do homophone check
-        else if((stripped_word in homophone_dict) || (multiword_catcher.indexOf(stripped_word)!=-1)){
+        // If its in the homophone dictionary or the multi_word dictionary
+        else if((stripped_word in homophone_dict) || in_multiword_dict){
 
             var multiword_caught = false;
 
 
             // Check multi word homophones like [aux hommes]
-            if (multiword_catcher.indexOf(stripped_word)!=-1){
+            if (in_multiword_dict){
                 
                 console.log('multiword');
 
