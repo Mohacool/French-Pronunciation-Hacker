@@ -141,7 +141,7 @@ p {
 #move{
     transition: all ease 0.5s;
     overflow-y:scroll;
-    height: 235px;
+    height: 222px;
 }
 .logo{
     height:90px;
@@ -314,7 +314,11 @@ ul {
 
   }
 
-  
+  @media only screen and (min-height: 568px) {
+    #move{
+        height: 235px;
+    }
+  }
   @media only screen and (min-height: 616px) {
     #move{
         height: 284px;
@@ -328,6 +332,11 @@ ul {
   @media only screen and (min-height: 731px) {
     #move{
         height: 396px;
+    }
+  }
+  @media only screen and (min-height: 805px) {
+    #move{
+        height: 468px;
     }
   }
   @media only screen and (min-height: 812px) {

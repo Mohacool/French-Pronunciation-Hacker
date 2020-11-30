@@ -32,26 +32,33 @@ var mic_off_color = "#156d74"
 $(".circle").mousedown(function(){
     console.log('holding.....');
     $(".circle").css({'background':mic_on_color});
+    $('#status').text('Recording started: (mouse)');
+
     startRecording();
 });
 
 $(".circle").mouseup(function() {
     $(".circle").css({'background':mic_off_color});
     console.log('released');
+    $('#status').text('Recording stopped: (mouse)');
     stopRecording();
 });
+
+$('#status').text('');
 
 $(".circle").on('touchstart', function(e){
     e.preventDefault();
 
     console.log('holding.....');
     $(".circle").css({'background':mic_on_color});
+    $('#status').text('Recording started: (touch)');
     startRecording();
 });
 
 $(".circle").on('touchend', function(e){
     e.preventDefault();
     $(".circle").css({'background':mic_off_color});
+    $('#status').text('Recording stopped: (touch)');
     console.log('released');
     stopRecording();
 });
