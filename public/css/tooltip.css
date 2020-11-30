@@ -257,10 +257,97 @@ ul {
     }
 }
 
-
+/* if window GREATER than 600px (RECENTLY CHANGED) */
 @media only screen and (min-width: 600px) {
     /* body {
       background-color: lightblue;
+    }
+
+    .pause{
+        margin-left: 14px !important;
+        margin-top: 16px !important;
+        height:50% !important;
+    }
+    
+    
+    .mobile{
+        display:none !important;
+    }
+    .desktop{
+        display:flex !important;
+    }
+    .circle {
+    
+        width: 70px;
+        height: 70px;
+        
+    }
+    .play_arrow{
+        margin-top: 27% !important;
+        height: 45% !important;
+    }
+    .playbutton{
+        width: 70px;
+        height: 70px;
+    }
+    .skipword{
+        transform:translateY(-130px);
+        
+    }
+    .booktitle {
+        margin-left: 96px;
+        font-size:43px;
+    }
+
+    .rightrewind{
+        margin-left: 20px;
+        margin-top: 20px;
+        height:25px !important;
+    }
+    .leftrewind{
+        margin-right: 20px;
+        margin-top: 20px;
+        height:25px !important;
+
+    } */
+
+  }
+
+  @media only screen and (min-height: 568px) {
+    #move{
+        height: 235px;
+    }
+  }
+  @media only screen and (min-height: 616px) {
+    #move{
+        height: 284px;
+    }
+  }
+  @media only screen and (min-height: 667px) {
+    #move{
+        height: 335px;
+    }
+  }
+  @media only screen and (min-height: 731px) {
+    #move{
+        height: 396px;
+    }
+  }
+  @media only screen and (min-height: 805px) {
+    #move{
+        height: 468px;
+    }
+  }
+  @media only screen and (min-height: 812px) {
+    #move{
+        height: 474px;
+    }
+  }
+
+  /* if window GREATER than 1200px */
+@media only screen and (min-width: 1200px) {
+    /* body {
+      background-color: rgb(105, 240, 172);
     } */
 
     .pause{
@@ -312,37 +399,6 @@ ul {
 
     }
 
-  }
-
-  @media only screen and (min-height: 568px) {
-    #move{
-        height: 235px;
-    }
-  }
-  @media only screen and (min-height: 616px) {
-    #move{
-        height: 284px;
-    }
-  }
-  @media only screen and (min-height: 667px) {
-    #move{
-        height: 335px;
-    }
-  }
-  @media only screen and (min-height: 731px) {
-    #move{
-        height: 396px;
-    }
-  }
-  @media only screen and (min-height: 805px) {
-    #move{
-        height: 468px;
-    }
-  }
-  @media only screen and (min-height: 812px) {
-    #move{
-        height: 474px;
-    }
   }
 
 

@@ -32,7 +32,7 @@ var mic_off_color = "#156d74"
 $(".circle").mousedown(function(){
     console.log('holding.....');
     $(".circle").css({'background':mic_on_color});
-    $('#status').text('Recording started: (mouse)');
+    // $('#status').text('Recording started: (mouse)');
 
     startRecording();
 });
@@ -40,7 +40,7 @@ $(".circle").mousedown(function(){
 $(".circle").mouseup(function() {
     $(".circle").css({'background':mic_off_color});
     console.log('released');
-    $('#status').text('Recording stopped: (mouse)');
+    // $('#status').text('Recording stopped: (mouse)');
     stopRecording();
 });
 
@@ -51,14 +51,14 @@ $(".circle").on('touchstart', function(e){
 
     console.log('holding.....');
     $(".circle").css({'background':mic_on_color});
-    $('#status').text('Recording started: (touch)');
+    // $('#status').text('Recording started: (touch)');
     startRecording();
 });
 
 $(".circle").on('touchend', function(e){
     e.preventDefault();
     $(".circle").css({'background':mic_off_color});
-    $('#status').text('Recording stopped: (touch)');
+    // $('#status').text('Recording stopped: (touch)');
     console.log('released');
     stopRecording();
 });
@@ -116,7 +116,7 @@ var multiword_catcher = ['aux','à'];
 
 
 
-var annotated_words=["bateau","se demandent","marin","Il a l’air calme","Crie","à bord","malheur","soulagé","la mer ","obéissent","inattendue","épée","survécu","voilà","le comptable","dextérité","saisit","laisse","surtout","des conseils","en jetant un regard","haine","l'île d'Elbe","au lieu de"];
+var annotated_words=["bateau","se demandent","marin","Il a l’air calme","Crie","à bord","malheur","soulagé","la mer","obéissent","inattendue","épée","survécu","voilà","le comptable","dextérité","saisit","laisse","surtout","des conseils","en jetant un regard","haine","l'île d'Elbe","au lieu de"];
 var annotated_meanings = ["a boat","to ask oneself / to wonder","a sailor / a seaman ","il semble calme = he looks calm","to yell","on board","un problème = a misfortune","rassuré = relieved","the sea","obéir = to obey","unexpected","une épée = a sword","survived (verbe: survivre)","here is…","the accountant","agilité","to seize","laisser = to let / to give","above all","advices (masculin)","take a look","hatred / anger","l'île d'Elbe est fameuse pour être l'île d'exil de Napoléon en 1814-15","instead of"];
 
 var numbers=["vingt-quatre","mille-huit-cent-quinze"];
