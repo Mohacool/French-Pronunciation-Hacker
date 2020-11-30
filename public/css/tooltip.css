@@ -325,3 +325,16 @@ ul {
         height: 335px;
     }
   }
+  @media only screen and (min-height: 731px) {
+    #move{
+        height: 396px;
+    }
+  }
+  @media only screen and (min-height: 812px) {
+    #move{
+        height: 474px;
+    }
+  }
+
+
+
