@@ -219,13 +219,38 @@ console.log(words);
 
 var at_wrd = 0;
 var dict = {};
+
+options = {
+    accuracy:'exactly',
+    "exclude":["mark"], 
+    "filter": function(textNode, foundTerm, totalCounter){
+        if (totalCounter<=0){
+            return true;
+        }
+    }
+}
+
+skip_options = {
+    accuracy:'exactly',
+    "exclude":["mark"], 
+    "filter": function(textNode, foundTerm, totalCounter){
+        if (totalCounter<=0){
+            return true;
+        }
+    },
+    className: "highlight"
+}
+
 $(".skipword").on('click',function(){
     // alert('at word '+words[at_wrd]+' and skipping');
     $('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
-    $("#story").mark(words[at_wrd],{
-        accuracy:'exactly',
-        className: "highlight"
-    });
+
+    // $("#story").mark(words[at_wrd],{
+    //     accuracy:'exactly',
+    //     className: "highlight"
+    // });
+
+    $('#story').mark(words[at_wrd],skip_options);
     at_wrd +=1;
 
 })
@@ -252,41 +277,17 @@ function canalyse(transcript){
 
         var in_multiword_dict = multiword_catcher.indexOf(stripped_word)!=-1;
         
+        
 
         if (detected_word==stripped_word){
             console.log("#####FOUND: "+actual_word);
             console.log("Find it in HTML and move it");
-            // var options = {
-            //     "filter": function(node, term, totalCounter, counter){
-            //         console.log('count:'+counter);
-            //         console.log('term:'+term);
-            //         console.log('total:'+totalCounter);
-
-            //         console.log("The word: "+term+"has been found "+counter+"times");
-
-            //         if (!(term in dict)){
-            //             dict[term] = 0;
-            //         }
-            //         console.log(dict);
-
-            //         if(counter >= dict[term]){
-            //             console.log(term+" is >=1 so must be blocked");
-            //             dict[term]+=1;
-            //             return false;
-            //         } else {
-            //             console.log("true");
-            //             // counter+=1;
-            //             return true;
-            //         }
-            //     },
-            //     accuracy:'exactly'
-                
-            // };
             
-            $("#story").mark(actual_word,{accuracy:'exactly'});
+            
+            // $("#story").mark(actual_word,{accuracy:'exactly'});
 
             
-            // $("#story").mark(actual_word,options);
+            $("#story").mark(actual_word,options);
 
             at_wrd+=1;
 
@@ -316,8 +317,8 @@ function canalyse(transcript){
                         if (detected_word==item){
                             multiword_caught = true;
                             console.log('Homophone (multiword) RESOLVED: '+item+' sounds like: '+whole_word);
-                            $("#story").mark(words[at_wrd],{accuracy:'exactly'});
-                            $("#story").mark(words[at_wrd+1],{accuracy:'exactly'});
+                            $("#story").mark(words[at_wrd],options);
+                            $("#story").mark(words[at_wrd+1],options);
                             at_wrd+=2;
                         }
                     })
@@ -338,7 +339,7 @@ function canalyse(transcript){
                         console.log('-------------------------------\n');
                         console.log('Homophone RESOLVED: '+item+' sounds like: '+stripped_word);
                         console.log('-------------------------------');
-                        $("#story").mark(actual_word,{accuracy:'exactly'});
+                        $("#story").mark(actual_word,options);
                         at_wrd+=1;
                     }
                 })
