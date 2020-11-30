@@ -25,11 +25,13 @@ body{
     margin-top:25%;
 }
 .play_arrow{
-    margin-top:27%;
+    margin-top: 30%;
+    height: 24px;
 }
 .pause{
-    margin-left: 14px !important;
-    margin-top: 16px !important;
+    margin-left: 12px;
+    margin-top: 16px;
+    height: 26px;
 }
 mark{
     background-color: #72c157;
@@ -139,6 +141,7 @@ p {
 #move{
     transition: all ease 0.5s;
     overflow-y:scroll;
+    /* height: 240px; */
 }
 .logo{
     height:90px;
@@ -148,11 +151,11 @@ p {
 }
 
 
-#playbutton{
+.playbutton{
     background: #156d74;
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     cursor:pointer;
 }
 .microw{
@@ -182,16 +185,18 @@ ul {
     list-style-type: none;
   }
 
-#leftrewind{
-    margin-right: 20px;
+.leftrewind{
+    margin-right: 10px;
     margin-top: 20px;
-    cursor:pointer;
+    cursor: pointer;
+    height: 18px;
 }
 
-#rightrewind{
-    margin-left: 20px;
+.rightrewind{
+    margin-left: 10px;
     margin-top: 20px;
-    cursor:pointer;
+    cursor: pointer;
+    height: 18px;
 }
 
 
@@ -218,7 +223,9 @@ ul {
     margin-left: 1rem;
 }
 .mobilemic{
-    transform: translateY(14px);
+    /* transform: translateY(14px); */
+    transform: translateY(16px);
+    height: 27px;
 }
 .circle{
     background: lightblue;
@@ -255,6 +262,14 @@ ul {
     /* body {
       background-color: lightblue;
     } */
+
+    .pause{
+        margin-left: 14px !important;
+        margin-top: 16px !important;
+        height:50% !important;
+    }
+    
+    
     .mobile{
         display:none !important;
     }
@@ -267,6 +282,14 @@ ul {
         height: 70px;
         
     }
+    .play_arrow{
+        margin-top: 27% !important;
+        height: 45% !important;
+    }
+    .playbutton{
+        width: 70px;
+        height: 70px;
+    }
     .skipword{
         transform:translateY(-130px);
         
@@ -275,5 +298,30 @@ ul {
         margin-left: 96px;
         font-size:43px;
         /* font-size: 61px; */
+    }
+
+    .rightrewind{
+        margin-left: 20px;
+        margin-top: 20px;
+        height:25px !important;
+    }
+    .leftrewind{
+        margin-right: 20px;
+        margin-top: 20px;
+        height:25px !important;
+
+    }
+
+  }
+
+  
+  @media only screen and (min-height: 616px) {
+    #move{
+        height: 289px;
+    }
+  }
+  @media only screen and (min-height: 667px) {
+    #move{
+        height: 340px;
     }
   }

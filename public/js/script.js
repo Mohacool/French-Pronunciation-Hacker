@@ -58,7 +58,7 @@ $(".circle").on('touchend', function(e){
 
 // Play button 
 var play = false;
-$('#playbutton').on('click',function(){
+$('.playbutton').on('click',function(){
     //Play
     if (play==false){
         $('.play_arrow').attr('style','display: none !important');
@@ -79,11 +79,11 @@ $('#playbutton').on('click',function(){
 })
 
 // Skip and Rewind buttons
-$('#leftrewind').on('click',function(){
+$('.leftrewind').on('click',function(){
     player.rewind(5);
 })
 
-$('#rightrewind').on('click',function(){
+$('.rightrewind').on('click',function(){
     player.forward(5);
 })
 
