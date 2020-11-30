@@ -62,6 +62,7 @@ $(".circle").on('touchend', function(e){
     console.log('released');
     stopRecording();
 });
+$('#status').text('');
 
 // Play button 
 var play = false;
