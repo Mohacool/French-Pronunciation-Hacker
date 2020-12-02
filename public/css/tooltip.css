@@ -82,7 +82,10 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 .story_holder{
-    height:300px;
+    
+    /* height:300px; */
+
+    height:100%;
     /* overflow-x:hidden; */
     /* overflow-y:scroll; */
     transition:all 1s ease;
