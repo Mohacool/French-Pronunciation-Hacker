@@ -31,6 +31,15 @@ app.use('/', function (req, res, next) {
   next(); // console.log(`Request Url: ${req.url}`);
 });
 
+
+// MY NEW ROUTE for a new page
+app.get('/buythebook', function (req, res) {
+  res.render('buythebook', {});
+});
+
+
+
+
 // =========================== SOCKET.IO ================================ //
 
 io.on('connection', function (client) {

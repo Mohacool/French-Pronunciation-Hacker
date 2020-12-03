@@ -364,7 +364,7 @@ ul {
     }
   }
 
-  /* if window GREATER than 1200px */
+  /* DESKTOP MODE */
 @media only screen and (min-width: 1200px) {
     /* body {
       background-color: rgb(105, 240, 172);
@@ -420,6 +420,9 @@ ul {
         margin-top: 20px;
         height:25px !important;
 
+    }
+
+    @media only screen and (min-height: 500px) {
     }
 
   }
