@@ -34,7 +34,8 @@ app.use('/', function (req, res, next) {
 
 // MY NEW ROUTE for a new page
 app.get('/buythebook/', function (req, res) {
-  res.render('buythebook', {});
+  res.send('Hello World!');
+  // res.render('buythebook', {});
   // res.sendFile('buythebook.html',{ root: __dirname });
 });
 
