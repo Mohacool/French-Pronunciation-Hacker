@@ -82,7 +82,7 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 .story_holder{
-    
+
     /* height:300px; */
 
     height:100%;
@@ -145,6 +145,8 @@ p {
     transition: all ease 0.5s;
     overflow-y:scroll;
     height: 222px;
+
+    height: 252px;
 }
 .logo{
     height:90px;
@@ -209,6 +211,10 @@ ul {
 .desktop{
     display:none !important;
 }
+.desktoptitle{
+    color: #156d74;
+    padding-top:18px;
+}
 
 .mobiletitle{
     color: #156d74;
@@ -222,8 +228,24 @@ ul {
 }
 
 .booktitle{
-    font-size:20px;
-    margin-left: 1rem;
+    font-size:27px;
+
+
+    text-decoration: underline;
+    font-family: 'Quicksand', sans-serif;
+    font-weight:800;
+    font-size:23px;
+}
+.buybutton {
+    width: 288px;
+    height: 27px;
+    background-color: #8cdce2;
+    border-radius: 5px;
+}
+.buytext{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 3px !important;
 }
 .mobilemic{
     /* transform: translateY(14px); */
@@ -248,11 +270,6 @@ ul {
     outline: none !important;
 }
 
-.mobile .micdesc{
-    font-family: 'Quicksand', sans-serif;
-    font-weight:700;
-    color: #156d74
-}
 
 @media only screen and (min-width: 420px) {
     #move{
@@ -314,36 +331,36 @@ ul {
 
     } */
 
-  }
+  } 
 
   @media only screen and (min-height: 568px) {
     #move{
-        height: 235px;
+        height: 268px;
     }
   }
   @media only screen and (min-height: 616px) {
     #move{
-        height: 284px;
+        height: 316px;
     }
   }
   @media only screen and (min-height: 667px) {
     #move{
-        height: 335px;
+        height:366px;
     }
   }
   @media only screen and (min-height: 731px) {
     #move{
-        height: 396px;
+        height: 428px;
     }
   }
   @media only screen and (min-height: 805px) {
     #move{
-        height: 468px;
+        height: 504px;
     }
   }
   @media only screen and (min-height: 812px) {
     #move{
-        height: 474px;
+        height: 509px;
     }
   }
 
@@ -353,6 +370,11 @@ ul {
       background-color: rgb(105, 240, 172);
     } */
 
+    .booktitle{
+        font-size:27px;
+    
+       
+    }
     .pause{
         margin-left: 14px !important;
         margin-top: 16px !important;
@@ -385,8 +407,8 @@ ul {
         
     }
     .booktitle {
-        margin-left: 96px;
-        font-size:43px;
+        /* margin-left: 96px;
+        font-size:43px; */
         /* font-size: 61px; */
     }
 
