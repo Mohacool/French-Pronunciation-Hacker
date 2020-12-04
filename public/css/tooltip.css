@@ -27,11 +27,18 @@ body{
 .play_arrow{
     margin-top: 30%;
     height: 24px;
+
+    height: 20px;
 }
 .pause{
     margin-left: 12px;
     margin-top: 16px;
     height: 26px;
+    display:none !important;
+
+    margin-left: 9px;
+    margin-top: 13px;
+    height: 23px;
 }
 mark{
     background-color: #72c157;
@@ -174,9 +181,14 @@ a, a:hover, a:focus, a:active {
 .playbutton{
     background: #156d74;
     border-radius: 50%;
+    cursor:pointer;
+
     width: 60px;
     height: 60px;
-    cursor:pointer;
+    
+
+    width:50px;
+    height:50px;
 }
 .microw{
     padding-top:35px;
@@ -210,6 +222,8 @@ ul {
     margin-top: 20px;
     cursor: pointer;
     height: 18px;
+
+    height:14px;
 }
 
 .rightrewind{
@@ -217,6 +231,8 @@ ul {
     margin-top: 20px;
     cursor: pointer;
     height: 18px;
+
+    height:14px;
 }
 
 
@@ -271,6 +287,9 @@ ul {
     /* transform: translateY(14px); */
     transform: translateY(16px);
     height: 27px;
+
+    transform: translateY(14px);
+    height: 22px;
 }
 .circle{
     background: lightblue;
@@ -280,6 +299,9 @@ ul {
     cursor:pointer;
     width:60px;
     height:60px;
+
+    width:50px;
+    height:50px;
 }
 .skipword{
     transform: translateY(0px);
@@ -288,6 +310,14 @@ ul {
     border: 0px;
     border-radius: 5px;
     outline: none !important;
+}
+
+.buttontexts{
+    font-size:16px;
+}
+
+.ecoute{
+    transform: translateX(26px);
 }
 
 
