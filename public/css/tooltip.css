@@ -1,4 +1,4 @@
-.show{
+/* .show{
     border:1px solid red;
 }
 .blow{
@@ -10,7 +10,7 @@
 }
 .slow{
     border: 1px solid blue !important;
-}
+} */
 
 
 
@@ -166,8 +166,9 @@ p {
 .buytooltip:hover{
     cursor:pointer;
 }
-a{
-    text-decoration: none !important;
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
 }
 
 .playbutton{
