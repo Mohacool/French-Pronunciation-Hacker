@@ -15,12 +15,18 @@
         .boygirl{
             height:200px;
         }
-        .blow{
+        /* .blow{
             border:2px solid blue;
+        } */
+        .smallest{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            left: 50%;
         }
     </style>
     <div class="container-fluid px-0 mx-0 h-100 w-100">
-        <div class="row px-0 mx-0 my-0 py-0 align-items-center">
+        <!-- <div class="row px-0 mx-0 my-0 py-0 align-items-center">
             <div class="col px-0 mx-0 my-0 py-0 vh-100 show justify-content-center ">
                 
                  <div class="smallest blow my-auto">
@@ -32,7 +38,17 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        
+        <div class="smallest blow">
+            <div class="row px-0 mx-0 my-0 w-100 pb-3 d-flex">
+                <img class="boygirl mx-auto" src="assets/tiny/buygirl.png" alt="">
+            </div>
+            <div class="row  px-0 mx-0 my-0 w-100 pt-3 d-flex">
+                <img class="boygirl mx-auto" src="assets/tiny/buyguy.png" alt="">
+            </div>
         </div>
+
         <!-- <div class="smallest">
             <div class="row show px-0 mx-0 my-0 w-100 d-flex">
                 <img class="boygirl mx-auto" src="assets/tiny/buygirl.png" alt="">
