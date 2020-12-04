@@ -166,7 +166,9 @@ p {
 .buytooltip:hover{
     cursor:pointer;
 }
-
+a{
+    text-decoration: none !important;
+}
 
 .playbutton{
     background: #156d74;
@@ -258,6 +260,10 @@ ul {
     font-size: 16px;
     margin-left: 10px;
     margin-top: 3px !important;
+}
+.buytext-mobile{
+    font-size: 10px;
+    text-align: center;
 }
 .mobilemic{
     /* transform: translateY(14px); */
@@ -434,8 +440,24 @@ ul {
 
     }
 
-    @media only screen and (min-height: 500px) {
+    /* height media queries within desktop mode */
+    @media only screen and (min-height: 900px) {
+        #move{
+            height:564px;
+        }
     }
+    @media only screen and (min-height: 1080px) {
+        #move{
+            height:734px;
+        }
+    }
+    @media only screen and (min-height: 1440px) {
+        #move{
+            height:1084px;
+        }
+    }
+    
+    
 
   }
 
