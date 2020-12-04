@@ -154,6 +154,18 @@ p {
     object-fit:scale-down;
     right:0;
 }
+.cart{
+    transition: all ease 0.5s;
+    transform:translateY(0px);
+}
+.cart:hover{
+    transform:translateY(-10px);
+    transition: all ease 0.5s;
+    cursor:pointer;
+}
+.buytooltip:hover{
+    cursor:pointer;
+}
 
 
 .playbutton{
