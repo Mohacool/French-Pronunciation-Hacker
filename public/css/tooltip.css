@@ -385,6 +385,9 @@ ul {
         transform: translateY(16px);
         height: 26px;
     }
+    .buttontexts {
+        font-size: 20px;
+    }
     
   }
   
