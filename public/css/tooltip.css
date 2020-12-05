@@ -345,7 +345,7 @@ ul {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   
     body{
-        background-color:rgb(108, 177, 108);
+        background-color:rgba(108, 177, 108, 0.493);
     }
     .playbutton {
         
