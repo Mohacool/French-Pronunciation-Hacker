@@ -14,6 +14,7 @@
         }
         .boygirl{
             height:200px;
+            cursor:pointer;
         }
         /* .blow{
             border:2px solid blue;
@@ -29,6 +30,10 @@
         }
         .medium{
             display:none;
+        }
+        a, a:hover, a:focus, a:active {
+            text-decoration: none;
+            color: inherit;
         }
         @media only screen and (min-width: 600px) {
             /* body{
@@ -62,30 +67,49 @@
         </div> -->
         
         <div class="smallest blow">
-            <div class="row px-0 mx-0 my-0 w-100 pb-3 d-flex">
-                <img class="boygirl mx-auto" src="assets/tiny/buygirl.png" alt="">
-            </div>
-            <div class="row px-0 mx-0 my-0 w-100 pt-3 d-flex">
-                <img class="boygirl mx-auto" src="assets/tiny/buyguy.png" alt="">
-            </div>
+            <a href="https://bit.ly/MohaFredAudiobook">
+                <div class="row px-0 mx-0 my-0 w-100 pb-3 d-flex">
+                    <img class="boygirl mx-auto" src="assets/tiny/buygirl.png" alt="">
+                </div>
+            </a>
+            
+            <a href="https://bit.ly/MohaFredBook">
+                <div class="row px-0 mx-0 my-0 w-100 pt-3 d-flex">
+                    <img class="boygirl mx-auto" src="assets/tiny/buyguy.png" alt="">
+                </div>
+            </a>
+            
         </div>
 
         <div class="medium blow">
             <div class="row h-100 w-100 px-0 mx-0 py-0 my-0">
                 <div class="col blow vh-100 justify-content-center d-flex">
-                    <img class="boygirl mx-auto my-auto" src="assets/tiny/buygirl.png" alt="">
+                    
+                    <img id="girl" class="boygirl mx-auto my-auto" src="assets/tiny/buygirl.png" alt="">
 
                 </div>
                 <div class="col blow px-0 mx-0 d-flex">
                     <img class="mx-auto bookcover my-auto" src="assets/tiny/bookcover.jpg" alt="">
                 </div>
                 <div class="col blow vh-100 justify-content-center d-flex">
-                    <img class="boygirl mx-auto my-auto" src="assets/tiny/buyguy.png" alt="">
+                    <img id="boy" class="boygirl mx-auto my-auto" src="assets/tiny/buyguy.png" alt="">
 
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        let boy = document.getElementById('boy');
+        let girl = document.getElementById('girl');
+
+        boy.onclick = function(e){    
+            window.location.href = "https://bit.ly/MohaFredBook";
+        }
+        girl.onclick = function(e){    
+            window.location.href = "https://bit.ly/MohaFredAudiobook";
+        }
+    </script>
+
    
 </body>
 </html>
