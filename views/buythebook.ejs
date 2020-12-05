@@ -24,6 +24,27 @@
             transform: translateY(-50%) translateX(-50%);
             left: 50%;
         }
+        .bookcover {
+            width:100%;
+        }
+        .medium{
+            display:none;
+        }
+        @media only screen and (min-width: 600px) {
+            body{
+                background-color:rgb(166, 216, 197);
+            }
+            .smallest{
+                display:none;
+            }
+            .medium{
+                display:block;
+            }
+            .boygirl{
+                width:65%;
+                height:unset;
+            }
+        }
     </style>
     <div class="container-fluid px-0 mx-0 h-100 w-100">
         <!-- <div class="row px-0 mx-0 my-0 py-0 align-items-center">
@@ -44,20 +65,26 @@
             <div class="row px-0 mx-0 my-0 w-100 pb-3 d-flex">
                 <img class="boygirl mx-auto" src="assets/tiny/buygirl.png" alt="">
             </div>
-            <div class="row  px-0 mx-0 my-0 w-100 pt-3 d-flex">
+            <div class="row px-0 mx-0 my-0 w-100 pt-3 d-flex">
                 <img class="boygirl mx-auto" src="assets/tiny/buyguy.png" alt="">
             </div>
         </div>
 
-        <!-- <div class="smallest">
-            <div class="row show px-0 mx-0 my-0 w-100 d-flex">
-                <img class="boygirl mx-auto" src="assets/tiny/buygirl.png" alt="">
+        <div class="medium blow">
+            <div class="row h-100 w-100 px-0 mx-0 py-0 my-0">
+                <div class="col blow vh-100 justify-content-center d-flex">
+                    <img class="boygirl mx-auto my-auto" src="assets/tiny/buygirl.png" alt="">
+
+                </div>
+                <div class="col blow px-0 mx-0 d-flex">
+                    <img class="mx-auto bookcover my-auto" src="assets/tiny/bookcover.jpg" alt="">
+                </div>
+                <div class="col blow vh-100 justify-content-center d-flex">
+                    <img class="boygirl mx-auto my-auto" src="assets/tiny/buyguy.png" alt="">
+
+                </div>
             </div>
-            <div class="row show px-0 mx-0 my-0 w-100 d-flex">
-                <img class="boygirl mx-auto" src="assets/tiny/buyguy.png" alt="">
-            </div>
-        </div> -->
-        
+        </div>
     </div>
    
 </body>
