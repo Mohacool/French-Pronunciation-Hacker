@@ -198,6 +198,7 @@ a, a:hover, a:focus, a:active {
 
 .mytooltip{
     transform:translateY(15px);
+    object-fit:scale-down;
 }
 
 .skippedwordsholder{
