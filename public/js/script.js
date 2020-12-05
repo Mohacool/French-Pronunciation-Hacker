@@ -8,6 +8,10 @@ $(".mobiletitle").on('click',function(){
     alert('Your real dimensions are:'+screen.width+' by '+screen.height);
     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
 })
+$(".desktoptitle").on('click',function(){
+    alert('Your real dimensions are:'+screen.width+' by '+screen.height);
+    alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
+})
 
 
 // Load the scroll bar js/css only if SCREEN WIDTH > 420px
