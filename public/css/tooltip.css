@@ -345,6 +345,31 @@ ul {
     body{
         background-color:rgb(108, 177, 108);
     }
+    .playbutton {
+        
+        width: 60px;
+        height: 60px;
+      
+    }
+    .play_arrow {
+        margin-top: 30%;
+        height: 24px;
+        margin-left: 16px;
+    }
+    .playrow {
+        padding-right: 100px !important;
+    }
+    .leftrewind {
+   
+        height: 19px;
+    }
+    .rightrewind{
+        height: 19px;
+    }
+    .ecoute {
+        transform: translateX(28px);
+        font-size: 20px;
+    }
     
   }
   
