@@ -340,6 +340,14 @@ ul {
         padding-right: 50% !important;
     }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+    body{
+        background-color:rgb(108, 177, 108);
+    }
+    
+  }
+  
 
 /* if window GREATER than 600px (RECENTLY CHANGED) */
 @media only screen and (min-width: 600px) {
