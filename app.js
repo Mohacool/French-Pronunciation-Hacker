@@ -24,13 +24,20 @@ app.set('view engine', 'ejs');
 // =========================== ROUTERS ================================ //
 
 app.get('/', function (req, res) {
-  res.render('index', {});
+  res.render('index', {name: 'Kyle'});
 });
 
 app.use('/', function (req, res, next) {
   next(); // console.log(`Request Url: ${req.url}`);
 });
 
+app.get('/login',(req,res) => {
+  res.render('login');
+})
+
+app.get('/register',(req,res) => {
+  res.render('register');
+})
 
 // MY NEW ROUTE for a new page
 app.get('/buythebook/', function (req, res) {
