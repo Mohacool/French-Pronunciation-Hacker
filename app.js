@@ -19,6 +19,8 @@ const io = require('socket.io')(server);
 app.use('/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
+app.use(express.urlencoded({ extended: false}))
+
 
 
 // =========================== ROUTERS ================================ //
@@ -36,14 +38,25 @@ app.get('/login/', function (req, res) {
   res.render('login', {});
 });
 
+app.post('/login', function (req,res){
+
+});
+
+
 app.get('/register/', function (req, res) {
   res.render('register', {});
+});
+
+app.post('/register', function (req,res){
+
 });
 
 // MY NEW ROUTE for a new page
 app.get('/buythebook/', function (req, res) {
   res.render('buythebook', {});
 });
+
+
 
 
 
