@@ -1,7 +1,14 @@
 // 'use strict';
+if (process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+}
 
-const express = require('express'); // const bodyParser = require('body-parser'); // const path = require('path');
+const express = require('express'); // const path = require('path');
+const bodyParser = require('body-parser');
+
 const environmentVars = require('dotenv').config();
+
+
 // var secure = require('express-force-https');
 
 // Google Cloud
@@ -18,6 +25,92 @@ const io = require('socket.io')(server);
 
 app.use('/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
+
+// ==============  OLD Database Connection ==================
+// const mongoose = require('mongoose')
+// mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true})
+// const db = mongoose.connection
+// db.on('error',error => console.error(error))
+// db.once('open',() => console.log('Connected to Mongoose'))
+
+// New connection database
+const mongoose = require('mongoose')
+const User = require('./model/user')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+
+
+mongoose.connect('mongodb://localhost:27017/login-app-db', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+
+// Login user
+app.post('/api/login', async(req,res) => {
+
+    const { username, password } = req.body
+
+    // lean returns simpler version of json
+    const user = await User.findOne( {username}).lean()
+
+    if (!user){
+        return res.json ({ status:'error', error: 'Invalid username/password'})
+    }
+
+    if ( await bcrypt.compare(password, user.password)){
+        // username, password combination is succesful
+        const token = jwt.sign({
+          id: user._id, 
+          username: user.username
+        }, process.env.JWT_SECRET)
+
+        return res.json ({ status:'ok', data: token})
+    }
+
+    res.json({ status: 'error', error: 'Invalid username/password'})
+})
+
+// ================  REGISTER USER
+app.use(bodyParser.json())
+app.post('/api/register', async (req,res) =>{
+    // User.find, User.delete 
+
+    // You need to hash the passwords
+    const { username, password: plainTextPassword } = req.body
+
+    if (!username || typeof username !== 'string'){
+        return res.json ({ status: 'error', error: 'Invalid username'})
+    }
+    if (!plainTextPassword || typeof plainTextPassword !== 'string'){
+        return res.json ({ status: 'error', error: 'Invalid password'})
+    }
+    if (plainTextPassword.length <5){
+        return res.json ({ 
+          status: 'error', 
+          error: 'Password too small. Should be atleast 6 characters'
+        })
+    }
+
+    const password = await bcrypt.hash(plainTextPassword,10)
+
+    console.log(req.body)
+
+    try {
+      const response = await User.create({
+        username,
+        password
+      })
+      console.log('User created succesfully: ', response)
+    } catch(error){
+        if (error.code === 11000){
+          // Duplicate key
+          return res.json ({status:'error', error: 'Username already in use'})
+        }
+        throw error
+    }
+
+    res.json({status:'ok'})
+
+
+})
+
 
 app.use(express.urlencoded({ extended: false}))
 
