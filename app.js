@@ -24,18 +24,18 @@ app.set('view engine', 'ejs');
 // =========================== ROUTERS ================================ //
 
 app.get('/', function (req, res) {
-  res.render('index.ejs', { name: 'Kyle'});
+  res.render('index', {name: 'Kyle'});
 });
 
 app.use('/', function (req, res, next) {
   next(); // console.log(`Request Url: ${req.url}`);
 });
 
-app.get('/login',(req,res) => {
+app.get('/login/',(req,res) => {
   res.render('login');
 })
 
-app.get('/register',(req,res) => {
+app.get('/register/',(req,res) => {
   res.render('register');
 })
 
