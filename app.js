@@ -31,13 +31,14 @@ app.use('/', function (req, res, next) {
   next(); // console.log(`Request Url: ${req.url}`);
 });
 
-app.get('/login/',(req,res) => {
-  res.render('login');
-})
 
-app.get('/register/',(req,res) => {
-  res.render('register');
-})
+app.get('/login/', function (req, res) {
+  res.render('login', {});
+});
+
+app.get('/register/', function (req, res) {
+  res.render('register', {});
+});
 
 // MY NEW ROUTE for a new page
 app.get('/buythebook/', function (req, res) {
