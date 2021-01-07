@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 // =========================== ROUTERS ================================ //
 
 app.get('/', function (req, res) {
-  res.render('index', {name: 'Kyle'});
+  res.render('index.ejs', { name: 'Kyle'});
 });
 
 app.use('/', function (req, res, next) {
