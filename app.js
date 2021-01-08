@@ -39,11 +39,52 @@ const User = require('./model/user')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const jwt_secret = process.env.JWT_SECRET
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
-mongoose.connect('mongodb://localhost:27017/login-app-db', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+
+
+mongoose.connect(process.env.MONGO_DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+
+// Change password
+app.post('/api/change-password', async (req,res) =>{
+  const { token, newpassword: plainTextPassword } = req.body
+
+  
+  if (!plainTextPassword || typeof plainTextPassword !== 'string'){
+      return res.json ({ status: 'error', error: 'Invalid password'})
+  }
+  if (plainTextPassword.length <5){
+      return res.json ({ 
+        status: 'error', 
+        error: 'Password too small. Should be atleast 6 characters'
+      })
+  }
+  try {
+      const user = jwt.verify(token, jwt_secret)
+      console.log('JWT decoded', user)
+
+      const _id = user.id
+      const password = await bcrypt.hash(plainTextPassword)
+
+      await User.updateOne( 
+        { _id}, 
+        {
+          $set: {password}
+
+        }
+      )
+      res.json({status:'ok'})
+
+  } catch(error){
+      res.json({status:'error', error:';'})
+  }
+  
+})
 
 // Login user
-app.post('/api/login', async(req,res) => {
+app.post('/api/login', async (req,res) => {
 
     const { username, password } = req.body
 
@@ -59,7 +100,7 @@ app.post('/api/login', async(req,res) => {
         const token = jwt.sign({
           id: user._id, 
           username: user.username
-        }, process.env.JWT_SECRET)
+        }, jwt_secret)
 
         return res.json ({ status:'ok', data: token})
     }
@@ -68,7 +109,7 @@ app.post('/api/login', async(req,res) => {
 })
 
 // ================  REGISTER USER
-app.use(bodyParser.json())
+
 app.post('/api/register', async (req,res) =>{
     // User.find, User.delete 
 
@@ -131,18 +172,19 @@ app.get('/login/', function (req, res) {
   res.render('login', {});
 });
 
-app.post('/login', function (req,res){
 
-});
 
 
 app.get('/register/', function (req, res) {
   res.render('register', {});
 });
 
-app.post('/register', function (req,res){
 
+app.get('/change-password/', function (req, res) {
+  res.render('change-password', {});
 });
+
+
 
 // MY NEW ROUTE for a new page
 app.get('/buythebook/', function (req, res) {

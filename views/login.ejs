@@ -52,6 +52,7 @@
             if (result.status==='ok'){
                 //everything went fine
                 console.log("got the token: ", result.data)
+                localStorage.setItem('token', result.data)
                 // alert('Success')
             }
             else{
