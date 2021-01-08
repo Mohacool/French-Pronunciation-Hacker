@@ -111,6 +111,8 @@ app.post('/api/login', async (req,res) => {
 // ================  REGISTER USER
 
 app.post('/api/register', async (req,res) =>{
+
+    console.log('starting register')
     // User.find, User.delete 
 
     // You need to hash the passwords
