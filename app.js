@@ -42,6 +42,7 @@ const jwt = require('jsonwebtoken')
 const jwt_secret = process.env.JWT_SECRET
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false}))
 
 
 
@@ -159,14 +160,14 @@ app.post('/api/register', async (req,res) =>{
 })
 
 
-app.use(express.urlencoded({ extended: false}))
+
 
 
 
 // =========================== ROUTERS ================================ //
 
 app.get('/', function (req, res) {
-  res.render('index', {name: 'Kyle'});
+  res.render('index');
 });
 
 app.use('/', function (req, res, next) {
