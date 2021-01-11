@@ -69,13 +69,9 @@ app.post('/api/change-password', async (req,res) =>{
       const _id = user.id
       const password = await bcrypt.hash(plainTextPassword)
 
-      await User.updateOne( 
-        { _id}, 
-        {
-          $set: {password}
+      // Update the entry in the databse
+      await User.updateOne( { _id}, {$set: {password}})
 
-        }
-      )
       res.json({status:'ok'})
 
   } catch(error){
@@ -117,7 +113,7 @@ app.post('/api/register', async (req,res) =>{
     // User.find, User.delete 
 
     // You need to hash the passwords
-    const { username, password: plainTextPassword } = req.body
+    const { username, password: plainTextPassword, email, password2 } = req.body
 
     if (!username || typeof username !== 'string'){
         return res.json ({ status: 'error', error: 'Invalid username'})
@@ -125,12 +121,22 @@ app.post('/api/register', async (req,res) =>{
     if (!plainTextPassword || typeof plainTextPassword !== 'string'){
         return res.json ({ status: 'error', error: 'Invalid password'})
     }
+    if (!email){
+      return res.json ({status: 'error', error:'You must provide an email'})
+    }
     if (plainTextPassword.length <5){
         return res.json ({ 
           status: 'error', 
           error: 'Password too small. Should be atleast 6 characters'
         })
     }
+    if (plainTextPassword !== password2){
+      return res.json ({ 
+        status: 'error', 
+        error: 'Passwords dont match'
+      })
+    }
+    // Check if email is in form blahblah@xxxxxx.com (maybe regex?)
 
     const password = await bcrypt.hash(plainTextPassword,10)
 
@@ -140,7 +146,8 @@ app.post('/api/register', async (req,res) =>{
 
       const response = await User.create({
         username,
-        password
+        password,
+        email
       })
 
       console.log('User created succesfully: ', response)

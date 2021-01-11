@@ -27,7 +27,9 @@
     <h1>Registration</h1>
     <form id="reg-form">
         <input type="text" autocomplete="off" id="username" placeholder="Username">
+        <input type="text" autocomplete="off" id="email" placeholder="Email">
         <input type="password" autocomplete="off" id="password" placeholder="Password">
+        <input type="password" autocomplete="off" id="password2" placeholder="Retype your password">
         <input type="submit" value="Submit Form">
     </form>
     <script>
@@ -38,7 +40,9 @@
             event.preventDefault();
 
             const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const password2 = document.getElementById('password2').value;
 
             const result = await fetch('/api/register',{
                 method: 'POST',
@@ -47,7 +51,9 @@
                 },
                 body: JSON.stringify({
                     username,
-                    password
+                    password,
+                    email,
+                    password2
                 })
             }).then((res) => res.json())
 
