@@ -151,6 +151,7 @@ app.post('/api/register', async (req,res) =>{
       })
 
       console.log('User created succesfully: ', response)
+      // res.redirect('/login')
 
     } catch(error){
         console.log(error);
@@ -161,8 +162,8 @@ app.post('/api/register', async (req,res) =>{
         return res.json ({status:'error', error: 'error general'})
         // throw error
     }
-
     res.json({status:'ok'})
+    
 
 
 })
@@ -186,8 +187,6 @@ app.use('/', function (req, res, next) {
 app.get('/login/', function (req, res) {
   res.render('login', {});
 });
-
-
 
 
 app.get('/register/', function (req, res) {
