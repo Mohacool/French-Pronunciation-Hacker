@@ -99,7 +99,7 @@ app.post('/api/login', async (req,res) => {
           username: user.username
         }, jwt_secret)
 
-        return res.json ({ status:'ok', data: token})
+        return res.json ({ status:'ok', data: token, user})
     }
 
     res.json({ status: 'error', error: 'Invalid username/password'})

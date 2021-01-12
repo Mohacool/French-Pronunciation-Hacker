@@ -11,6 +11,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-184913227-1');
+
     </script>
 
     <!-- Google Tag Manager -->
@@ -86,6 +87,8 @@
         <div class="row justify-content-end flow"> 
             <h5 class="pr-2 mobiletitle mobile"> French Pronunciation Hacker</h5>
             <h1 class="mx-auto desktoptitle desktop">French Pronunciation Hacker</h1>
+            <button type="button" id="logout">Logout</button>
+            <h5 id="username"></h5>
             <!-- <div id="status"></div> -->
             <!-- <img class="mr-2 logo desktop" src="assets/tiny/logo2.png" > -->
         </div>
@@ -96,7 +99,7 @@
         <div class="row show">
             <div class="col-2"></div>
             <div class="col show desktop">
-                 <audio id="player" controls>
+                 <audio id="player" controls style="display:none;">
                     <source src="https://res.cloudinary.com/mohacool/video/upload/v1606927697/book_zm4242.mp3" type="audio/mp3" />
                 </audio>
             </div>
@@ -351,12 +354,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
 
 <script>
-    
+    const username = localStorage.getItem('username')
+    if (!username){
+        document.getElementById('username').innerHTML = "";
+    }
+    else{
+        document.getElementById('username').innerHTML = `Hello ${username}`;
+    }
     $(function () {
         $('[data-toggle="tooltip"]').tooltip({
             html:true
         });
     })
+    
+    const logout = document.getElementById("logout");
+    const token = localStorage.getItem("token");
+   
+    logout.addEventListener("click", function () {
+        localStorage.clear();
+        // window.location.href = "./";
+        // change the logout button to login button
+        document.getElementById('logout').innerHTML = "login";
+    });
+
+    if (!token){
+            document.getElementById('logout').innerHTML = "login";
+        }
     
 </script>
 
