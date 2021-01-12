@@ -143,8 +143,8 @@ p {
     padding-top: 5px;
     padding-bottom: 5px;
     height: 100px;
-    /* overflow-y: scroll; */
-    overflow: hidden;
+    overflow-y: scroll;
+    /* overflow: hidden; */
     position:relative;
 }
 .scroll_div{
