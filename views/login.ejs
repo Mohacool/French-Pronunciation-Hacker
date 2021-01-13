@@ -1,20 +1,4 @@
-<!-- <h1>Login </h1>
-
-<form action="/register" method="POST">
-
-    <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit"> Login </button>
-</form>
-<a href="/register">Register</a> -->
-
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -69,6 +53,213 @@
         }
     </script>
 </body>
-</html>
+</html> -->
 
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 255, 255);
+}
+
+.form{
+  z-index: 1;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  width: 320px;
+  text-align: left;
+}
+
+.form i{
+  z-index: 1;
+  color: #ccc;
+  font-size: 65px;
+  margin-bottom: 30px;
+}
+
+.form .signup-form{
+  display: none;
+}
+
+.form .user-input{
+  width: 320px;
+  height: 55px;
+  margin-bottom: 15px;
+  outline: none;
+  border: none;
+  background: rgb(236 233 233);
+  color: black;
+  font-size: 18px;
+  text-align: left;
+  padding-left:15px;
+  border-radius: 10px;
+  transition: 0.5s;
+  transition-property: border-left, border-right, box-shadow;
+}
+
+
+
+.form .options-01{
+  margin-bottom: 50px;
+}
+
+.form .options-01 input{
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.form .options-01 .remember-me{
+  color: #bbb;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  float: left;
+  cursor: pointer;
+}
+
+.form .options-01 a{
+  color: #888;
+  font-size: 14px;
+  font-style: italic;
+  float: right;
+}
+
+.form .btn{
+  outline: none;
+  border: none;
+  width: 320px;
+  height: 55px;
+  background: #4285F4;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  transition-property: border-left, border-right, box-shadow;
+}
+
+
+
+.form .options-02{
+  color: #bbb;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.form .options-02 a{
+  color: #4285F4;
+}
+
+/* Responsive CSS */
+
+@media screen and (max-width: 500px){
+  .form{
+    width: 95%;
+  }
+
+  .form .user-input{
+    width: 100%
+  }
+
+  .form .btn{
+    width: 100%;
+  }
+  input{
+      text-align:left;
+      text-align:center;
+  }
+ 
+
+
+
+}
+    </style>
+    <style>
+        .desktoptitle{
+        color: #156d74;
+        padding-top:18px;
+        position: absolute;
+        top: 0;
+        }
+        .options-01{
+            display:none;
+        }
+        .createprofile{
+            padding-bottom:20px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="desktoptitle desktop">French Pronunciation Hacker (BETA)</h1>
+    <!--form area start-->
+    <div class="form">
+        <!--login form start-->
+        <h2 class="createprofile">Créer un profil</h2>
+        <form class="login-form" action="" method="post">
+          <input class="user-input" type="text" name="" placeholder="Age" required>
+          <input class="user-input" type="text" name="" placeholder="Nom" required>
+          <input class="user-input" type="email" name="" placeholder="Email" required>
+          <input class="user-input" type="password" name="" placeholder="Mot de passe (password)" required>
+          <input class="user-input" type="password" name="" placeholder="Confirm password" required>
+
+
+          <div class="options-01">
+            <label class="remember-me"><input type="checkbox" name="">Remember me</label>
+            <a href="#">Forgot your password?</a>
+          </div>
+          <input class="btn" type="submit" name="" value="REGISTER">
+          <div class="options-02 createacc">
+            <p>Not Registered? <a href="#">Create an Account</a></p>
+          </div>
+        </form>
+        <!--login form end-->
+        
+        <!--signup form start-->
+        <form class="signup-form" action="" method="post">
+          <!-- <input class="user-input" type="text" name="" placeholder="Username" required> -->
+          <input class="user-input" type="email" name="" placeholder="Email Address" required>
+          <input class="user-input" type="password" name="" placeholder="Password" required>
+          <input class="btn" type="submit" name="" value="LOGIN">
+          <div class="options-02 signin">
+            <p>Already Registered? <a href="#">Sign In</a></p>
+          </div>
+        </form>
+        <!--signup form end-->
+      </div>
+      <!--form area end-->
+  
+      <script type="text/javascript">
+      $('.options-02 a').click(function(){
+            $('form').animate({
+            height: "toggle", opacity: "toggle"
+            }, "slow");
+            // $('.createprofile').text('se connecter')
+      });
+      $('.createacc').click(function(){
+          $('.createprofile').text('Se connecter')
+      })
+      $('.signin').click(function(){
+          $('.createprofile').text('Créer un profil')
+      })
+      </script>
+</body>
+</html>
