@@ -20,6 +20,78 @@ body{
     --plyr-color-main:#156d74;
 }
 
+/* Duo buttons */ 
+
+.signin_container{
+    position:absolute;
+    right:20px;
+    top:20px;
+    display:flex;
+    /* justify-content:center;
+    align-items:center;
+    width:100%;
+    height:150px; */
+    display:none;
+}
+.register_container{
+    position:absolute;
+    right:160px;
+    top:20px;
+    display:flex;
+    /* justify-content:center;
+    align-items:center;
+    width:100%;
+    height:150px; */
+    display:none;
+}
+
+.duo_button{
+    width: 130px;
+    
+    background-color: #8cdce2;
+    text-align: center;
+    padding: 4px;
+    border-radius: 9px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    /* font-weight: 800; */
+    position: relative;
+    height: 30px;
+}
+.duo_button.register{
+    background-color:#2b9299;
+}
+.duo_button:hover{
+    cursor:pointer;
+    background-color:#5bd6df;
+}
+.duo_button.register:hover{
+    background-color:#1e777e;
+}
+.duo_button::after{
+    content: "";
+    width: 130px;
+    border-radius: 10.5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #156d74;
+
+    padding: 1px;
+    z-index: -1;
+    height: 32px;
+}
+
+.duo_button.register::after{
+    background-color: #0b4b50;
+}
+.duo_button:active{
+    bottom:-4px;
+}
+.duo_button:active::after{
+    height:30px;
+}
+
 
 .mic{
     margin-top:25%;
@@ -144,8 +216,12 @@ p {
     padding-bottom: 5px;
     height: 100px;
     overflow-y: scroll;
+    /* overflow-y:hidden; */
     /* overflow: hidden; */
     position:relative;
+}
+.outer{
+    overflow-y:hidden;
 }
 .scroll_div{
     width:100%;
@@ -494,7 +570,17 @@ ul {
         transform: translateX(17px);
     }
     
-    
+    /* duo buttons */
+    .signin_container{
+        right:20px;
+        top:20px;
+        display:flex;
+    }
+    .register_container{
+        right:160px;
+        top:20px;
+        display:flex;
+    }
     
     .mobile{
         display:none !important;

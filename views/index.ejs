@@ -36,10 +36,12 @@
 
     
 
-
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap" rel="stylesheet">
 
 <noscript>
     <style>
@@ -77,13 +79,25 @@
     </nav> -->
 
     
-    <div class="container-fluid h-100 w-100"> 
+    <div class="container-fluid h-100 w-100">
+        <div class="signin_container">
+            <div id="signin" class="duo_button">
+                Sign In
+            </div>
+        </div> 
+        
+        <div class="register_container">
+            <div id="register" class="duo_button register">
+                Sign Up
+            </div>
+        </div> 
+        
 
         <!-- Title and Logo -->
         <div class="row justify-content-end flow"> 
             <h5 class="pr-2 mobiletitle mobile"> French Pronunciation Hacker</h5>
             <h1 class="mx-auto desktoptitle desktop">French Pronunciation Hacker</h1>
-            <button style="display:none;" type="button" id="logout">Logout</button>
+            <button style='display:none' type="button" id="logout">Logout</button>
             <script>
                  const token = localStorage.getItem("token");
                 if (!token){
@@ -130,7 +144,7 @@
 
                     </div> -->
 
-                    <div class="story_holder" style="border:1px solid transparent;">
+                    <div data-simplebar class="story_holder" style="border:1px solid transparent;">
 
                         <!-- <h1 class="book-title text-center">Le Comte de Monte-Cristo</h1>
                         <br>
@@ -183,21 +197,24 @@
             <div class="col flow">
                 
                 <div class="form-group pt-4" >
+
+                    <div class="outer">
                     
-                    <div data-simplebar class="result_holder">
-                       
+                        <div class="result_holder">
                         
-    
-                        <div class="ResultText">
+                            
+        
+                            <div class="ResultText">
+                                
+                                
+                                <span class="greyText">
+                                </span>
+                            
+                            </div>
                             
                             
-                            <span class="greyText">
-                            </span>
-                        
+                            
                         </div>
-                        
-                        
-                        
                     </div>
                     <div class="row">
                         <button class="mx-auto skipword">Skip Word</button>
@@ -391,6 +408,7 @@
             controls:[ 'progress', 'current-time', 'mute', 'volume', 'captions'],
             speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] }
         });
+
     </script>
 
 </html>
