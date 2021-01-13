@@ -380,6 +380,7 @@
     else{
         document.getElementById('username').innerHTML = `Hello ${username}`;
     }
+    /* Tooltips activate */
     $(function () {
         $('[data-toggle="tooltip"]').tooltip({
             html:true
@@ -395,6 +396,18 @@
         // change the logout button to login button
         document.getElementById('logout').innerHTML = "login";
     });
+
+    $('#signin').on('click',function(){
+        window.location.href = "./login";
+        localStorage.setItem('signup', false);
+    })
+    $('#register').on('click',function(){
+        window.location.href = "./login";
+        localStorage.setItem('signup', true);
+        
+    })
+
+
 
    
     

@@ -63,6 +63,7 @@ body{
 }
 .duo_button:hover{
     cursor:pointer;
+    color:white;
     background-color:#5bd6df;
 }
 .duo_button.register:hover{
@@ -325,6 +326,7 @@ ul {
     color: #156d74;
     padding-top:18px;
 }
+
 
 .mobiletitle{
     color: #156d74;

@@ -62,6 +62,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script>
+        
+    </script>
     <style>
         *{
   margin: 0;
@@ -199,10 +202,17 @@ body{
         position: absolute;
         top: 0;
         }
+        .subtitle{
+            position:absolute;
+            top:0;
+            padding-top:55px;
+        }
+
         .options-01{
             display:none;
         }
         .createprofile{
+            padding-top:20px;
             padding-bottom:20px;
             text-align:center;
         }
@@ -210,6 +220,7 @@ body{
 </head>
 <body>
     <h1 class="desktoptitle desktop">French Pronunciation Hacker (BETA)</h1>
+    <h3 class="subtitle"> User registration Coming Soon!</h3>
     <!--form area start-->
     <div class="form">
         <!--login form start-->
@@ -227,20 +238,20 @@ body{
             <a href="#">Forgot your password?</a>
           </div>
           <input class="btn" type="submit" name="" value="REGISTER">
-          <div class="options-02 createacc">
-            <p>Not Registered? <a href="#">Create an Account</a></p>
+          <div class="options-02 signin">
+            <p>Already Registered? <a href="#">Sign In</a></p>
           </div>
         </form>
         <!--login form end-->
-        
+
         <!--signup form start-->
         <form class="signup-form" action="" method="post">
           <!-- <input class="user-input" type="text" name="" placeholder="Username" required> -->
           <input class="user-input" type="email" name="" placeholder="Email Address" required>
           <input class="user-input" type="password" name="" placeholder="Password" required>
           <input class="btn" type="submit" name="" value="LOGIN">
-          <div class="options-02 signin">
-            <p>Already Registered? <a href="#">Sign In</a></p>
+          <div class="options-02 createacc">
+            <p> Not Registered? <a href="#">Create an Account</a></p>
           </div>
         </form>
         <!--signup form end-->
@@ -248,18 +259,36 @@ body{
       <!--form area end-->
   
       <script type="text/javascript">
-      $('.options-02 a').click(function(){
-            $('form').animate({
-            height: "toggle", opacity: "toggle"
-            }, "slow");
-            // $('.createprofile').text('se connecter')
-      });
-      $('.createacc').click(function(){
-          $('.createprofile').text('Se connecter')
-      })
-      $('.signin').click(function(){
-          $('.createprofile').text('Créer un profil')
-      })
+
+            /* Toggle slide up and slide down effects*/
+            $('.options-02 a').click(function(){
+                $('form').animate({
+                height: "toggle", opacity: "toggle"
+                }, "slow");
+                // $('.createprofile').text('se connecter')
+            });
+
+            /* Change form title */
+            $('.createacc').click(function(){
+                $('.createprofile').text('Créer un profil')
+                
+            })
+            $('.signin').click(function(){
+                $('.createprofile').text('Se connecter')
+            })
+
+        // Check 
+        const signup = localStorage.getItem("signup");
+        if (signup){
+            if (signup=='false'){
+                // Toggle the switch between signup/signin
+                $('form').animate({
+                height: "toggle", opacity: "toggle"
+                },0);
+            }        
+        }
+
+
       </script>
 </body>
 </html>
