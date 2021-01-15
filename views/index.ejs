@@ -135,9 +135,16 @@
 
         <div class="row top show">
 
-            <div class="col-2 mt-auto desktop">
+            <!-- lazy load -->
+            <!-- <div class="col-2 mt-auto desktop">
                 <img class="mytooltip tooltip-left desktop" width="100%" src="assets/tiny/tooltip-left2.png" alt="left tooltip">
+            </div> -->
+
+            <div class="col-2 mt-auto desktop">
+                <div id="tooltipleft">
+                </div>
             </div>
+
             <div class="col flow">
                 <div id="move" class="pt-5 pb-4 movemobile">
 
@@ -182,8 +189,11 @@
                         </div>
                     
                 </div> -->
-                <img class="mytooltip tooltip-right desktop" width="100%" src="assets/tiny/tooltip-right2.png" alt="right tooltip">
-                    
+
+                <!-- lazy load -->
+                <!-- <img class="mytooltip tooltip-right desktop" width="100%" src="assets/tiny/tooltip-right2.png" alt="right tooltip"> -->
+                <div id="tooltipright">
+                </div>
             </div>
 
         </div>
@@ -254,12 +264,16 @@
         </div>
 
         <div class="row desktop flow">
-            <a href="buythebook" target="_blank" class="mx-auto">
+            <!-- lazy load -->
+            <!-- <a href="buythebook" target="_blank" class="mx-auto">
                 <div class="mx-auto" >
                     <img class="cart" src="assets/cart.png" height="40px" alt="cart button">
                     <img class="buytooltip" src="assets/tiny/buytooltip.png" height="70px" alt="Buying tooltip">
                 </div>
-            </a>
+            </a> -->
+            <div id="buybook" class="mx-auto">
+                
+            </div>
             
             
         </div>
@@ -416,6 +430,17 @@
         localStorage.setItem('signup', true);
         
     })
+
+    if (window.innerWidth>=1024){
+        $('#tooltipleft').html(`<img class="mytooltip tooltip-left desktop" width="100%" src="assets/tiny/tooltip-left2.png" alt="left tooltip">`);
+        $('#tooltipright').html(`<img class="mytooltip tooltip-right desktop" width="100%" src="assets/tiny/tooltip-right2.png" alt="right tooltip">`);
+        $('#buybook').html(`<a href="buythebook" target="_blank" class="mx-auto">
+                <div class="mx-auto" >
+                    <img class="cart" src="assets/cart.png" height="40px" alt="cart button">
+                    <img class="buytooltip" src="assets/tiny/buytooltip.png" height="70px" alt="Buying tooltip">
+                </div>
+            </a>`);
+    }
 
 
 
