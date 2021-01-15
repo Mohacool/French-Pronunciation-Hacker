@@ -25,10 +25,19 @@
 
     <meta charset="utf-8">
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
-    <title>Fr Pronunciation Hacker</title>
+    <title>French Pronunciation Hacker</title>
     <meta name="description" content="Practice and improve your french pronunciation using french pronunciation hacker. French story adapted for intermediates. ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="rcU2suQIGFO-3QKC5uYkmavSYxOZmo499VPCPTd4IPo" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -39,7 +48,6 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap" rel="stylesheet">
 
@@ -98,12 +106,14 @@
             <h5 class="pr-2 mobiletitle mobile"> French Pronunciation Hacker</h5>
             <h1 class="mx-auto desktoptitle desktop">French Pronunciation Hacker</h1>
             <button style='display:none' type="button" id="logout">Logout</button>
-            <script>
+
+            <!-- <script>
                  const token = localStorage.getItem("token");
                 if (!token){
                         document.getElementById('logout').innerHTML = "login";
                     }
-            </script>
+            </script> -->
+
             <h5 id="username"></h5>
             <!-- <div id="status"></div> -->
             <!-- <img class="mr-2 logo desktop" src="assets/tiny/logo2.png" > -->
@@ -126,7 +136,7 @@
         <div class="row top show">
 
             <div class="col-2 mt-auto desktop">
-                <img class="mytooltip tooltip-left desktop" width="100%" src="assets/tiny/tooltip-left2.png" alt="">
+                <img class="mytooltip tooltip-left desktop" width="100%" src="assets/tiny/tooltip-left2.png" alt="left tooltip">
             </div>
             <div class="col flow">
                 <div id="move" class="pt-5 pb-4 movemobile">
@@ -144,7 +154,7 @@
 
                     </div> -->
 
-                    <div data-simplebar class="story_holder" style="border:1px solid transparent;">
+                    <div data-simplebar class="story_holder">
 
                         <!-- <h1 class="book-title text-center">Le Comte de Monte-Cristo</h1>
                         <br>
@@ -172,7 +182,7 @@
                         </div>
                     
                 </div> -->
-                <img class="mytooltip tooltip-right desktop" width="100%" src="assets/tiny/tooltip-right2.png" alt="">
+                <img class="mytooltip tooltip-right desktop" width="100%" src="assets/tiny/tooltip-right2.png" alt="right tooltip">
                     
             </div>
 
@@ -184,7 +194,7 @@
                 <div class="row microw rowmic justify-content-center">
 
                     <div class="circle">
-                        <img class="mx-auto d-block mic" height="50%"src="assets/tiny/mic.png" alt="">
+                        <img class="mx-auto d-block mic" height="50%"src="assets/tiny/mic.png" alt="microphone button">
                     </div>
                     
                     <button id="startRecButton" type="button" style="display:none"> Start recording</button>
@@ -229,12 +239,12 @@
             <div class="col-2 h-100">
                 <!-- <button id="skipword">Skip</button> -->
                 <div class="row microw rowplay justify-content-center flow">
-                    <img class="leftrewind" src="assets/tiny/left-rewind-min.png" height="25px" alt="">
+                    <img class="leftrewind" src="assets/tiny/left-rewind-min.png" height="25px" alt="left rewind button">
                     <div class="playbutton">
-                        <img class="mx-auto pl-2 d-block play_arrow" height="45%" src="assets/tiny/play_arrow.png" alt="">
-                        <img class="mx-auto pl-2 d-block pause" height="50%" src="assets/tiny/pause.png" alt="">
+                        <img class="mx-auto pl-2 d-block play_arrow" height="45%" src="assets/tiny/play_arrow.png" alt="play button">
+                        <img class="mx-auto pl-2 d-block pause" height="50%" src="assets/tiny/pause.png" alt="pause button">
                     </div>
-                    <img class="rightrewind" src="assets/tiny/right-rewind-min.png" height="25px" alt="">
+                    <img class="rightrewind" src="assets/tiny/right-rewind-min.png" height="25px" alt="right rewind button">
 
                 
                 </div>
@@ -246,8 +256,8 @@
         <div class="row desktop flow">
             <a href="buythebook" target="_blank" class="mx-auto">
                 <div class="mx-auto" >
-                    <img class="cart" src="assets/cart.png" height="40px" alt="">
-                    <img class="buytooltip" src="assets/tiny/buytooltip.png" height="70px" alt="">
+                    <img class="cart" src="assets/cart.png" height="40px" alt="cart button">
+                    <img class="buytooltip" src="assets/tiny/buytooltip.png" height="70px" alt="Buying tooltip">
                 </div>
             </a>
             
@@ -294,7 +304,7 @@
             <div class="col blow justify-content-center  my-0 py-0 px-0 mx-0">
                 <div class="row-12 flow d-block">
                     <div class="circle mx-auto" >
-                        <img class="mx-auto d-block mobilemic" height="50%"src="assets/tiny/mic.png" alt="">
+                        <img class="mx-auto d-block mobilemic" height="50%"src="assets/tiny/mic.png" alt="microphone">
                     </div>
                 </div>
                 <div class="row d-flex px-0 mx-0">
@@ -309,7 +319,7 @@
                 <a href="buythebook" style="cursor:pointer">
 
                     <div class="row flow px-0 mx-0">
-                        <img class="mx-auto" src="assets/cart.png" height="35px" alt="">
+                        <img class="mx-auto" src="assets/cart.png" height="35px" alt="cart">
                     </div>
                     <div class="row flow px-0 mx-0">
                         <h5 class="buytext-mobile mx-auto">Buy complete <br> Book + Audiobook</h5>
@@ -320,12 +330,12 @@
             </div>
             <div class="col blow d-flex justify-content-center my-0 px-0 py-0 mx-0">
                 <div class="row d-flex flow px-1 mx-0 playrow">
-                    <img class="leftrewind" src="assets/tiny/left-rewind-min.png" alt="">
+                    <img class="leftrewind" src="assets/tiny/left-rewind-min.png" alt="left rewind button">
                     <div class="playbutton">
-                        <img class=" pl-2 d-block play_arrow" src="assets/tiny/play_arrow.png" alt="">
-                        <img class="pl-2 d-block pause"  src="assets/tiny/pause.png" alt="">
+                        <img class=" pl-2 d-block play_arrow" src="assets/tiny/play_arrow.png" alt="play button">
+                        <img class="pl-2 d-block pause"  src="assets/tiny/pause.png" alt="pause button">
                     </div>
-                    <img class="rightrewind" src="assets/tiny/right-rewind-min.png" alt="">
+                    <img class="rightrewind" src="assets/tiny/right-rewind-min.png" alt="right rewind button">
                     <h5 class="pt-1 buttontexts ecoute">ECOUTE</h5>
                 </div>
                 <!-- <div class="row d-flex">
