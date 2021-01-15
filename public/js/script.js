@@ -126,7 +126,7 @@ var audio_words = ["monsieur","est-il","Naples","survécu","laisse","comptable",
 var audio_files = ["monsieur.mp3","est-il.mp3","Naples.mp3","survécu.mp3","laisse.mp3","comptable.mp3","leau.mp3","semble.mp3","Immédiatement.mp3"];
 
 $.ajax({
-    url: "assets/chapter1.txt",
+    url: "assets/chapter1new.txt",
     dataType: "text",
     async: false,
     success: (content) => {
