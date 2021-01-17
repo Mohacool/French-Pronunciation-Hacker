@@ -113,10 +113,10 @@ app.post('/api/register', async (req,res) =>{
     // User.find, User.delete 
 
     // You need to hash the passwords
-    const { username, password: plainTextPassword, email, password2 } = req.body
+    const { name, password: plainTextPassword, email, password2 } = req.body
 
-    if (!username || typeof username !== 'string'){
-        return res.json ({ status: 'error', error: 'Invalid username'})
+    if (!name || typeof name !== 'string'){
+        return res.json ({ status: 'error', error: 'Invalid name'})
     }
     if (!plainTextPassword || typeof plainTextPassword !== 'string'){
         return res.json ({ status: 'error', error: 'Invalid password'})
@@ -145,7 +145,7 @@ app.post('/api/register', async (req,res) =>{
     try {
 
       const response = await User.create({
-        username,
+        name,
         password,
         email
       })
@@ -157,7 +157,7 @@ app.post('/api/register', async (req,res) =>{
         console.log(error);
         if (error.code === 11000){
           // Duplicate key
-          return res.json ({status:'error', error: 'Username already in use'})
+          return res.json ({status:'error', error: 'Email already in use'})
         }
         return res.json ({status:'error', error: 'error general'})
         // throw error
