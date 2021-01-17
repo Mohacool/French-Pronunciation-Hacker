@@ -83,20 +83,20 @@ app.post('/api/change-password', async (req,res) =>{
 // Login user
 app.post('/api/login', async (req,res) => {
 
-    const { username, password } = req.body
+    const { email, password } = req.body
 
     // lean returns simpler version of json
-    const user = await User.findOne( {username}).lean()
+    const user = await User.findOne( {email}).lean()
 
     if (!user){
         return res.json ({ status:'error', error: 'Invalid username/password'})
     }
 
     if ( await bcrypt.compare(password, user.password)){
-        // username, password combination is succesful
+        // email, password combination is succesful
         const token = jwt.sign({
           id: user._id, 
-          username: user.username
+          email: user.email
         }, jwt_secret)
 
         return res.json ({ status:'ok', data: token, user})

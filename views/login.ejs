@@ -225,8 +225,8 @@ body{
     <div class="form">
         <!--signup form start-->
         <h2 class="createprofile">Créer un profil</h2>
-        <form id="login-form" class="login-form">
-          <input id="name" class="user-input" autocomplete="off" type="text" name="" placeholder="Username" required>
+        <form id="signup-form">
+          <input id="name" class="user-input" autocomplete="off" type="text" name="" placeholder="Name" required>
           <input id="age" class="user-input" autocomplete="off" type="number" name="" placeholder="Age" required>
           <input id="email" class="user-input" autocomplete="off" type="email" name="" placeholder="Email" required>
           <input id="password" class="user-input" autocomplete="off" type="password" name="" placeholder="Mot de passe (password)" required>
@@ -245,10 +245,10 @@ body{
         <!--login form end-->
 
         <!--login form start-->
-        <form class="signup-form" action="" method="post">
+        <form id="login-form" class="signup-form">
           <!-- <input class="user-input" type="text" name="" placeholder="Username" required> -->
-          <input class="user-input" type="email" name="" placeholder="Email Address" required>
-          <input class="user-input" type="password" name="" placeholder="Password" required>
+          <input id="login_email" class="user-input" type="email" name="" placeholder="Email Address" required>
+          <input id="login_password" class="user-input" type="password" name="" placeholder="Password" required>
           <input class="btn" type="submit" name="" value="LOGIN">
           <div class="options-02 createacc">
             <p> Not Registered? <a href="#">Create an Account</a></p>
@@ -260,7 +260,8 @@ body{
   
       <script type="text/javascript">
 
-			const signupform = document.getElementById('login-form');
+			// ================== SIGNUP HANDLER ===========================
+			const signupform = document.getElementById('signup-form');
 			signupform.addEventListener('submit',registerUser);
 
 			async function registerUser(event) {
@@ -289,11 +290,55 @@ body{
 					console.log(result)
 				
 					alert('Success')
+					$('form').animate({
+					height: "toggle", opacity: "toggle"
+					}, "slow");
+					$('.createprofile').text('Se connecter');
 				}
 				else{
 					alert(result.error);
 				}
 			}
+
+
+			// ================== LOG IN HANDLER ===========================
+			const loginform = document.getElementById('login-form');
+			loginform.addEventListener('submit',login);
+
+			async function login(event) {
+				event.preventDefault();
+
+				const email = document.getElementById('login_email').value;
+				const password = document.getElementById('login_password').value;
+
+				const result = await fetch('/api/login',{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						email,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status==='ok'){
+					//everything went fine
+					console.log("got the token: ", result.data)
+					localStorage.setItem('token', result.data)
+
+					// username, location, .....
+					localStorage.setItem('username', result.user.username)
+					console.log(result.user.username)
+
+					window.location.href = "./"
+					// alert('Success')
+				}
+				else{
+					alert(result.error);
+				}
+			}
+
 			// ------------------------ SIGN IN / SIGN UP TOGGLE -------------------
 
             /* Toggle slide up and slide down effects*/
