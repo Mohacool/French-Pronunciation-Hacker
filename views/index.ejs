@@ -111,10 +111,15 @@
                  const token = localStorage.getItem("token");
                 if (!token){
                     // document.getElementById('logout').innerHTML = "login";
-                    var register = document.getElementById("registerbutton");
-                    register.style.display = "flex";
-                    var signin = document.getElementById("signinbutton");
-                    signin.style.display = "flex";
+
+                    // If not signed in and screen bigger than 1024 show the signin/signup options
+                    if (window.innerWidth>=1024){
+                        var register = document.getElementById("registerbutton");
+                        register.style.display = "flex";
+                        var signin = document.getElementById("signinbutton");
+                        signin.style.display = "flex";
+                    }
+                    
                 }
             </script>
 
@@ -424,8 +429,12 @@
     }
     else{
         const name = parseJwt(token).name;
+
+        
         document.getElementById('username').innerHTML = `Hello ${name}`;
         $("#signout_button").show();
+        
+        
     }
     /* Tooltips activate */
     $(function () {
@@ -477,6 +486,13 @@
                     <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
                 </div>
             </a>`);
+            $('#registerbutton').css('display', 'flex');
+            $('#signinbutton').css('display', 'flex');
+        }
+        // If window is resized remove the buttons
+        else{
+            $('#registerbutton').css('display', 'none');
+            $('#signinbutton').css('display', 'none');
         }
     })
 
