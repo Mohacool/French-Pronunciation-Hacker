@@ -44,6 +44,10 @@ body{
     height:150px; */
     display:none;
 }
+#username{
+    margin:20px;
+    position:absolute;
+}
 
 .duo_button{
     width: 130px;
@@ -577,11 +581,13 @@ ul {
         right:20px;
         top:20px;
         display:flex;
+        display:none;
     }
     .register_container{
         right:160px;
         top:20px;
         display:flex;
+        display:none;
     }
     
     .mobile{

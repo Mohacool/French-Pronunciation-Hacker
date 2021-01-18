@@ -96,7 +96,8 @@ app.post('/api/login', async (req,res) => {
         // email, password combination is succesful
         const token = jwt.sign({
           id: user._id, 
-          email: user.email
+          email: user.email,
+          name: user.name
         }, jwt_secret)
 
         return res.json ({ status:'ok', data: token, user})
