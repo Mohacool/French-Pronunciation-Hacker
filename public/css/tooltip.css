@@ -48,6 +48,14 @@ body{
     margin:20px;
     position:absolute;
 }
+#signout_button{
+    display:none;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    margin: 30px;
+    margin-top: 50px;
+}
 
 .duo_button{
     width: 130px;

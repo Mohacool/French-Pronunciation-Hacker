@@ -119,6 +119,7 @@
             </script>
 
             <h5 id="username"></h5>
+            <button id="signout_button" onclick="signout()">Signout</button>
             <!-- <div id="status"></div> -->
             <!-- <img class="mr-2 logo desktop" src="assets/tiny/logo2.png" > -->
         </div>
@@ -401,6 +402,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
 
 <script>
+
     function parseJwt (token) {
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -410,14 +412,20 @@
 
         return JSON.parse(jsonPayload);
     };
+    function signout(){
+        localStorage.clear();
+        location.reload();
+    }
     // const token = localStorage.getItem('token')
 
     if (!token){
         document.getElementById('username').innerHTML = "";
+        $("#signout_button").hide();
     }
     else{
         const name = parseJwt(token).name;
         document.getElementById('username').innerHTML = `Hello ${name}`;
+        $("#signout_button").show();
     }
     /* Tooltips activate */
     $(function () {
