@@ -778,5 +778,63 @@ ul {
 }
 
 
+.objectives_holder{
+    width:75%;
+    height:250px;
+}
+/* General objective button layout*/
+.objective_button, .objective_button:hover, .objective_button:active, .objective_button:focus{
+    box-shadow:unset !important;
+    border: 5px solid #8cdce2;
+    border-color:#8cdce2 !important;
+    
+    background-color:white;
+    width:100%;
+    height:48px;
+    cursor:pointer;
+    color:black !important;
+    /* font-family:  */
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Objective button CLICKED color */
+.objective_button:active, .objective_button:focus{
+    background-color: #cff2f5 !important;
+    
+}
+/* Objective button 1 */
+.objective_button1, .objective_button1:hover, .objective_button1:active, .objective_button1:focus{
+    border-bottom:2.5px solid #8cdce2;
+    border-radius:10px 10px 0px 0px;
+    
+}
+/* Objective button 2,3 */
+.objective_button2, .objective_button2:hover,.objective_button2:active, .objective_button2:focus,  .objective_button3, .objective_button3:hover, .objective_button3:active, .objective_button3:hover, .objective_button3:focus{
+    border-radius:0px;
+    border-top:0px;
+    border-bottom:2.5px solid #8cdce2;
+}
+/* Objective button 4 */
+.objective_button4, .objective_button4:hover, .objective_button4:active, .objective_button4:focus{
+    border-radius:0px 0px 10px 10px;
+    border-top:0px;
+}
+
+.objective_button:focus{
+    background-color:#8cdce2;
+}
+.objective_button:active{
+    background-color:#8cdce2;
+}
+
+
+@media (min-width: 768px) {
+    .modal-xl {
+      width: 60%;
+     max-width:1000px;
+    }
+  }
+
+
 
 

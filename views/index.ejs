@@ -88,17 +88,40 @@
 
     
     <div class="container-fluid h-100 w-100">
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 
                 <div class="modal-body">
                 
-                <h2 class="mx-auto">Choose your objective</h2>
-                <br>
-                <div class="duo_button objective_buttons">10 minutes a day</div>
+                    <h4 class="justify-content-center d-flex">Bienvenue! Choisis un objectif pour progresser en francais:</h4>
+                    <br>
+                    <!-- <div class="duo_button objective_buttons">10 minutes a day</div> -->
+
+                    <div class="objectives_holder mx-auto">
+                        <button type="button" class="btn btn-primary objective_button objective_button1">
+                            <span class="float-left">Tranquille</span> <span class="float-right">5 minutes / jour</span>
+                        </button>
+                        <button type="button" class="btn btn-primary objective_button objective_button2">
+                            <span class="float-left">Regulier</span> <span class="float-right">10 minutes / jour</span>
+                        </button>
+                        <button type="button" class="btn btn-primary objective_button objective_button3">
+                            <span class="float-left">Serieux</span> <span class="float-right">15 minutes / jour</span>
+                        </button>
+                        <button type="button" class="btn btn-primary objective_button objective_button4">
+                            <span class="float-left">Champion</span> <span class="float-right">20 minutes / jour</span>
+                        </button>
+                        <div class="duo_button objective_buttons mt-3">Continue</div>
+
+                    </div>
+                    
+                    <!-- <div class="objectives_holder mx-auto">
+                        <button type="button" class="btn btn-primary objective_button pt-0 mt-0">
+                            <span class="float-left">Hello</span> <span class="float-right">Jello</span>
+
+                        </button>
+                    </div> -->
                 </div>
                
             </div>
@@ -172,7 +195,7 @@
                 <img class="mytooltip tooltip-left desktop" width="100%" src="assets/tiny/tooltip-left2.png" alt="left tooltip">
             </div> -->
 
-            <div class="col-2 mt-auto desktop">
+            <div class="col-2 mt-auto desktop" data-toggle="modal" data-target="#exampleModal">
                 <div id="tooltipleft">
                 </div>
             </div>
@@ -517,6 +540,7 @@
             $('#signinbutton').css('display', 'none');
         }
     })
+
 
 
 
