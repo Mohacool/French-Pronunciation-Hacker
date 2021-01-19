@@ -23,7 +23,7 @@ if (screen && screen.width > 420) {
     document.write('<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"><\/script>');
 }
 
-
+var audio = new Audio('assets/correct.wav');
 
 // Change the story height
 // var mainrowheight = window.innerHeight-$('.logo').height();
@@ -309,6 +309,8 @@ function canalyse(transcript){
             // Problem here is the
 
             $("#story").mark(mark_word,options);
+            
+            audio.play();
 
             at_wrd+=1;
 
@@ -340,6 +342,7 @@ function canalyse(transcript){
                             console.log('Homophone (multiword) RESOLVED: '+item+' sounds like: '+whole_word);
                             $("#story").mark(words[at_wrd],options);
                             $("#story").mark(words[at_wrd+1],options);
+                            audio.play();
                             at_wrd+=2;
                         }
                     })
@@ -361,6 +364,7 @@ function canalyse(transcript){
                         console.log('Homophone RESOLVED: '+item+' sounds like: '+stripped_word);
                         console.log('-------------------------------');
                         $("#story").mark(actual_word,options);
+                        audio.play();
                         at_wrd+=1;
                     }
                 })
