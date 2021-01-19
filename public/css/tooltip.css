@@ -746,6 +746,37 @@ ul {
     opacity: 1;
 }
 
+/* */
+/*
+ * Force Bootstrap v4 transitions
+ * (ignores prefers-reduced-motion media feature)
+ * https://gist.github.com/robssanches/33c6c1bf4dd5cf3c259009775883d1c0
+ */
+
+ .fade {
+	transition:opacity 0.15s linear !important;
+}
+
+.badge {
+	transition:color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+.progress-bar {
+	transition:width 0.6s ease !important;
+}
+.progress-bar-animated {
+	-webkit-animation:progress-bar-stripes 1s linear infinite !important;
+	animation:progress-bar-stripes 1s linear infinite !important;
+}
+.modal.fade .modal-dialog {
+	transition:-webkit-transform 0.3s ease-out !important;
+	transition:transform 0.3s ease-out !important;
+	transition:transform 0.3s ease-out,-webkit-transform 0.3s ease-out !important;
+}
+/* i added this */
+.objective_buttons{
+    width:100%;
+}
+
 
 
 
