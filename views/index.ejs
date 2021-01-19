@@ -98,7 +98,7 @@
                     <h4 class="justify-content-center d-flex">Bienvenue! Choisis un objectif pour progresser en francais:</h4>
                     <br>
                     <!-- <div class="duo_button objective_buttons">10 minutes a day</div> -->
-
+                    <h5 class="no_objective_selected justify-content-center ">Please select an objective </h5>
                     <div class="objectives_holder mx-auto">
                         <button type="button" class="btn btn-primary objective_button objective_button1">
                             <span class="float-left">Tranquille</span> <span class="float-right">5 minutes / jour</span>
@@ -112,7 +112,7 @@
                         <button type="button" class="btn btn-primary objective_button objective_button4">
                             <span class="float-left">Champion</span> <span class="float-right">20 minutes / jour</span>
                         </button>
-                        <div class="duo_button objective_buttons mt-3">Continue</div>
+                        <div class="duo_button objective_buttons objective_continue mt-3">Continue</div>
 
                     </div>
                     
@@ -541,7 +541,31 @@
         }
     })
 
+    // ================ OBJECTIVE ===================
+    var objective_selected = 0;
+    $('.objective_button').on('click',function(){
 
+        // remove the 'no objective selected ' msg
+        $('.no_objective_selected').css('display','none');
+
+        const objective_class= this.className.split(" ").slice(-1)[0];
+        objective_selected = objective_class.slice(-1); // set the number:  objective_button1 => 1
+        // alert(objective_class);
+        
+        // Keep the selected button highlighted
+        $('.objective_button').css('background-color','white');
+        $('.'+objective_class).css('background-color','#cff2f5'); // selected color
+    })
+
+    $('.objective_continue').on('click',function(){
+        if (objective_selected == 0){
+            $('.no_objective_selected').css('display','flex');
+        }
+        else{
+            $('.no_objective_selected').css('display','none');
+
+        }
+    })
 
 
    

@@ -826,6 +826,11 @@ ul {
 .objective_button:active{
     background-color:#8cdce2;
 }
+.no_objective_selected{
+    color:rgb(238, 42, 42);
+    transition:1s ease;
+    display:none;
+}
 
 
 @media (min-width: 768px) {
