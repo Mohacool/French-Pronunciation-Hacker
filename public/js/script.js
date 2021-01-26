@@ -271,7 +271,13 @@ function highlight(num_words,skip_indeces){
 }
 
 
+$(".reset").on('click',function(){
+    localStorage.setItem('words_completed',0);
+    localStorage.setItem('skipped_words',[]);
+    update_progress();
+    location.reload();
 
+})
 
 $(".skipword").on('click',function(){
 
