@@ -1,17 +1,18 @@
 
 
-$(".logo").on('click',function(){
-    alert('Your real dimensions are:'+screen.width+' by '+screen.height);
-    alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
-})
-$(".mobiletitle").on('click',function(){
-    alert('Your real dimensions are:'+screen.width+' by '+screen.height);
-    alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
-})
-$(".desktoptitle").on('click',function(){
-    alert('Your real dimensions are:'+screen.width+' by '+screen.height);
-    alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
-})
+// $(".logo").on('click',function(){
+//     alert('Your real dimensions are:'+screen.width+' by '+screen.height);
+//     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
+// })
+// $(".mobiletitle").on('click',function(){
+//     alert('Your real dimensions are:'+screen.width+' by '+screen.height);
+//     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
+// })
+// $(".desktoptitle").on('click',function(){
+//     alert('Your real dimensions are:'+screen.width+' by '+screen.height);
+//     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
+// })
+
 
 
 
@@ -103,12 +104,14 @@ $('.rightrewind').on('click',function(){
 
 // =============================== BUTTONS ===========================================
 
+var checkpoints = [14,41,71,117,141,175,185,222,228,249,257,266,273,282,294];
+
 
 // let transcript_length = my_transcript.length;
 // console.log(my_transcript);
 
 // Main single word homophone dictionary
-var homophone_dict = { 'a': ['Ah','à'], 'à': ['Ah'], 'à bord': ['adore'], 'enfance':['enfant'], 'agite': ['àgîtes'], 'aiment': ['M'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'], 'arrivées': ['arrivé'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'au': ['Oh'], 'aux': ['Oh','au'], 'aux hommes': ['awesome'], 'avons': ['avant'],'avance':['avant'],'alors':['allô'], 'bateau': ['bâteau'], 'beaux': ['beau'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'],'certaines':['certains'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'combattre':['combat'], 'commencé': ['commencer'], 'commencent': ['commence'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'crie': ['cri','prix'], 'curieuses': ['curieuse'],"demandent":["demande"], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], 'd’anxiété': ["d'anxiété","densité"], 'Danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps','don'], 'dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter','dans'], 'de': ['2'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'],'donne':['dans'], 'du port': ['duporc'], 'Edmond': ['Edmonde', 'etdemain'], 'Eh': ['et'], 'elles': ['elle'], 'en': ['on','a'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc'], 'gestes': ['geste'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'Hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'], 'intelligents': ['intelligent'], 'je': ['jeux'], 'jetant': ["jet'en"], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'Leclère': ['Leclerc'], 'les': ['mets'], 'leur': ["l'heure"], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit'], 'M': ['monsieur', 'M', 'aime'], 'main': ['mets'], 'Mais': ['mets'], 'malheur': ['alors'], 'manière': ['panière'], 'marchandise': ['marchandises'], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'], 'mortels': ['mortel'], 'mouvement ': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'], 'obéissent': ['obéisse'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'], 'organisé': ['organiser'], 'ou': ['où'], 'personnes': ['personne'], 'peut': ['peu'], 'plate-forme': ['plateforme'],'plateforme':['plate-forme'], 'point': ['.'], 'port':['porc'], 'préparez': ['préparer'], 'près': ['prêt'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'], 'rapides': ['rapide'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'Répond': ['réponds'], 'répond': ['réponds'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100'], 'savez': ['savais', 'çafait', 'avec'], 'se': ['ce'], 'se demandent': ['se demande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'vécu': ['déçu'], 'vers': ['verre'], 'vie': ['v'], 'vingt-cinq': ['25', '20V'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'], 'vous': ['veau', 'faux'], 'yeux': ['mieux', 'Dieu']};
+var homophone_dict = { 'a': ['Ah','à'], 'à': ['Ah'], 'à bord': ['adore'], 'enfance':['enfant'], 'agite': ['àgîtes'], 'aiment': ['M'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'], 'arrivées': ['arrivé','arrivés'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'au': ['Oh'], 'aux': ['Oh','au'], 'aux hommes': ['awesome'], 'avons': ['avant'],'avance':['avant'],'alors':['allô'], 'bateau': ['bâteau'], 'beaux': ['beau'],'bord':['bon'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'],'capitaine':['capitale'],'certaines':['certains'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'combattre':['combat'], 'commencé': ['commencer'], 'commencent': ['commence'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'crie': ['cri','prix'], 'curieuses': ['curieuse'],"demandent":["demande"], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], 'd’anxiété': ["d'anxiété","densité"], 'Danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps','don'], 'dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter','dans'], 'de': ['2'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'],'donne':['dans'], 'du port': ['duporc'], 'Edmond': ['Edmonde', 'etdemain'], 'Eh': ['et'], 'elles': ['elle'], 'en': ['on','a'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc'], 'gestes': ['geste'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'Hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'], 'intelligents': ['intelligent'], 'je': ['jeux'], 'jetant': ["jet'en"], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'leclère': ['leclerc'], 'les': ['mets'], 'leur': ["l'heure"], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit'], 'M': ['monsieur', 'M', 'aime'], 'main': ['mets'], 'Mais': ['mets'], 'malheur': ['alors'], 'manière': ['panière'], 'marchandise': ['marchandises'], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'], 'mortels': ['mortel'],'morrel':['morel'], 'mouvement ': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'], 'obéissent': ['obéisse'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'], 'organisé': ['organiser'], 'ou': ['où'], 'personnes': ['personne'], 'peut': ['peu'], 'plate-forme': ['plateforme'],'plateforme':['plate-forme'], 'point': ['.'], 'port':['porc'], 'préparez': ['préparer'], 'près': ['prêt'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'], 'rapides': ['rapide'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'répond': ['réponds'],'regardant':['regardons'],'répond': ['réponds'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100'], 'savez': ['savais', 'çafait', 'avec'], 'se': ['ce'], 'se demandent': ['se demande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'vécu': ['déçu'], 'vers': ['verre'], 'vie': ['v'], 'vingt-cinq': ['25', '20V'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'], 'vous': ['veau', 'faux'], 'yeux': ['mieux', 'Dieu']};
 
 
 // Homophones that <EXIST> in the story as multiple words
@@ -223,7 +226,9 @@ console.log(words);
 
 
 var at_wrd = 0;
+
 var dict = {};
+var skipped_indeces = [];
 
 options = {
     
@@ -248,7 +253,66 @@ skip_options = {
     "ignorePunctuation":[",",".","'","’"]
 }
 
+// Highlights up to num_words, and skipping the words in skip_indeces
+function highlight(num_words,skip_indeces){
+
+    console.log("=========HIGHLIGHT COMMENCING=========");
+    at_wrd = num_words;
+    for (i=0;i<num_words;i++){
+        let mark = words[i].replace("'","’").replace(",","").replace("?","");
+        if (skip_indeces.includes(i+1)){
+            $('#story').mark(mark,skip_options);
+        }
+        else{
+            $('#story').mark(mark,options);
+        }
+
+    }
+}
+
+
+
+
 $(".skipword").on('click',function(){
+
+    
+    
+    skipped_indeces.push(at_wrd+1); // keep track of which words were skipped 
+
+    // Set the localstorage variable => Use JSON.parse to get list back
+
+    // If signed in
+    if (token!=null){
+        var old_skipped_words;
+        if (localStorage.getItem('skipped_words').length==0){
+            old_skipped_words = [];
+        }
+        else{
+            old_skipped_words = JSON.parse(localStorage.getItem('skipped_words'));
+        }
+        // if already filled then append old to new 
+        if (old_skipped_words.length >=1){
+
+            // Merge the old indices with new and remove duplicates
+            const full_skipped_words = [...new Set([...old_skipped_words,...skipped_indeces])];
+
+            localStorage.setItem('skipped_words', JSON.stringify(full_skipped_words));
+        }
+        // if empty then create it
+        else{
+            // if not then create (setItem)
+            localStorage.setItem('skipped_words', JSON.stringify(skipped_indeces));
+        }
+        
+        console.log('old');
+        console.log(localStorage.getItem('skipped_words'));
+
+        console.log('new');
+        console.log(skipped_indeces);
+
+        
+    }
+
     // alert('at word '+words[at_wrd]+' and skipping');
     $('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
 
@@ -257,7 +321,7 @@ $(".skipword").on('click',function(){
     //     className: "highlight"
     // });
 
-    let mark_word = words[at_wrd].replace("'","’").replace(",","");
+    let mark_word = words[at_wrd].replace("'","’").replace(",","").replace("?","");
     // console.log("this going in: " + mark_word);
     $('#story').mark(mark_word,skip_options);
 
@@ -265,9 +329,25 @@ $(".skipword").on('click',function(){
     // $('#story').mark(words[at_wrd],skip_options);
 
 
-    at_wrd +=1;
+    at_wrd +=1; // increment the word count
+
+    // If signed in 
+    if (token !=null){
+        localStorage.setItem('words_completed',at_wrd); // store the words_completed in local
+        checkpoint_update(at_wrd); // Update the progress if at_wrd is a checkpoint
+    }
+    
+
 
 })
+
+function checkpoint_update(word_num){
+    // If the word number is in the list of checkpoints then update the progress
+    if (checkpoints.includes(word_num)){
+        update_progress();
+    }
+}
+
 function canalyse(transcript){
     console.log('canalyse run');
     // Split up the words detected
@@ -278,14 +358,17 @@ function canalyse(transcript){
 
     words_detected.forEach(function (item, index) {
         var detected_word = item.toLowerCase();
+
+        // detected_word = detected_word.replace("'","’"); //added jan23 2021
         
         // Actual word that is in the HTML
         var actual_word = words[at_wrd];
         
         // Cleaned up word used for comparison
-        var stripped_word = words[at_wrd].replace(/[.,\/#!?$%\^&\*;:{}=_`~()«»]/g,"").toLowerCase().trim();
+        var stripped_word = words[at_wrd].replace(/[.,\/#!$%\^&\*;:{}=_`~()«»]/g,"").toLowerCase().trim();
 
-        stripped_word = stripped_word.replace('’',"'"); //Fix different apostrophe error
+        stripped_word = stripped_word.replace("’","'").replace(",","").replace("?",""); // jan23 2021 removed
+        // stripped_word = stripped_word.replace(",",""); //Fix different apostrophe error
 
         console.table("Detected: " + detected_word, "Stripped: ",stripped_word);
 
@@ -298,7 +381,7 @@ function canalyse(transcript){
             console.log("Find it in HTML and move it");
 
             // Clean up the detected word so it can be used for highlighting
-            let mark_word = detected_word.replace("'","’");
+            let mark_word = detected_word.replace("'","’").replace(",","");
             
             
             // $("#story").mark(actual_word,{accuracy:'exactly'});
@@ -313,6 +396,7 @@ function canalyse(transcript){
             audio.play();
 
             at_wrd+=1;
+            
 
         }
         // If its in the homophone dictionary or the multi_word dictionary
@@ -344,6 +428,7 @@ function canalyse(transcript){
                             $("#story").mark(words[at_wrd+1],options);
                             audio.play();
                             at_wrd+=2;
+                            
                         }
                     })
                 }
@@ -366,6 +451,7 @@ function canalyse(transcript){
                         $("#story").mark(actual_word,options);
                         audio.play();
                         at_wrd+=1;
+                        
                     }
                 })
             }
@@ -374,6 +460,12 @@ function canalyse(transcript){
         }
         
     })
+    // If signed in
+    if (token!=null){
+        localStorage.setItem('words_completed',at_wrd);
+        checkpoint_update(at_wrd);
+    }
+    
 }
 
 $(".annotate").hover(function(e){
@@ -415,6 +507,36 @@ $(".story_holder").scroll(function(e){
 
 function playAudio(url) {
     new Audio(url).play();
+}
+
+const words_complete = parseInt(localStorage.getItem('words_completed'));
+const skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
+
+// If there is word PROGRESS stored in localStorage
+
+
+
+
+
+// If signed in
+if (token!=null){
+
+    // GET PROGRESS FROM LOCAL STORAGE IF AVAILABLE
+    if (words_complete != null && !isNaN(words_complete)){
+        
+        // Highlight the progress
+        if (skip_indices==null || skip_indices==[]){
+            highlight(words_complete,[]);
+        }
+        else{
+            highlight(words_complete,skip_indices);
+        }
+    }
+    // GET PROGRESS FROM DATABASE
+    // else{
+
+    //     // POST METHOD /getProgress lol
+    // }
 }
 
 

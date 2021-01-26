@@ -39,10 +39,13 @@ const User = require('./model/user')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const ObjectId = require('mongodb').ObjectId;
+
 const jwt_secret = process.env.JWT_SECRET
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.urlencoded({ extended: false}))
+
 
 
 
@@ -107,7 +110,6 @@ app.post('/api/login', async (req,res) => {
 })
 
 // ================  REGISTER USER
-
 app.post('/api/register', async (req,res) =>{
 
     console.log('starting register')
@@ -169,7 +171,54 @@ app.post('/api/register', async (req,res) =>{
 
 })
 
+// ================  Update USER PROGRESS
+app.post('/api/update_progress', async (req,res) =>{
 
+	const { token, words_complete, skip_indices} = req.body
+	try {
+		const user = jwt.verify(token, jwt_secret)
+		console.log('JWT decoded', user)
+  
+		const _id = user.id
+
+		// console.log('words completed'+words_complete)
+
+		// Update the entries in the databse
+		await User.updateOne( { _id}, {$set: {'current_spot':words_complete}})
+		await User.updateOne( { _id}, {$set: {'skipped':skip_indices}})
+  
+		res.json({status:'ok'})
+  
+	} catch(error){
+		res.json({status:'error', error:';'})
+	}
+
+	console.log("Starting update_progress")
+	// console.log(req.body)
+
+})
+
+app.post('/api/get_progress', async (req,res) =>{
+	const { token } = req.body
+
+	const user = jwt.verify(token, jwt_secret)
+	console.log('JWT decoded', user)
+	const _id = user.id
+
+	try{
+
+		// Get the row in DB for the user
+		const user_row = await User.find({"_id" : ObjectId(_id)})
+		
+		res.json({status:'ok',user_row:user_row})
+
+
+	} catch(error){
+		res.json({status:'error', error:';'})
+	}
+	
+
+})
 
 
 

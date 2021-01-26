@@ -141,6 +141,7 @@ socket.on('speechData', function (data) {
 
 	if (dataFinal === false) {
 		let interimString = data.results[0].alternatives[0].transcript;
+		// canalyse(interimString); //Added jan 23
 		console.log(interimString);
 
 	} else if (dataFinal === true) {

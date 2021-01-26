@@ -224,7 +224,7 @@ body{
     <!--form area start-->
     <div class="form">
         <!--signup form start-->
-        <h2 class="createprofile">Se connecter</h2>
+        <h2 class="createprofile">Créer un profil</h2>
         <form id="signup-form">
           <input id="name" class="user-input" autocomplete="off" type="text" name="" placeholder="Name" required>
           <input id="age" class="user-input" autocomplete="off" type="number" name="" placeholder="Age" required>
@@ -303,7 +303,16 @@ body{
 
 			// ================== LOG IN HANDLER ===========================
 			const loginform = document.getElementById('login-form');
-			loginform.addEventListener('submit',login);
+
+			loginform.addEventListener('submit',login); // handle the logging in 
+
+			// get progress from mongo
+			// loginform.addEventListener('submit',dostuff); 
+
+			function dostuff(){
+				
+				alert('grab data from mongo');
+			}
 
 			async function login(event) {
 				event.preventDefault();
@@ -326,10 +335,39 @@ body{
 					//everything went fine
 					console.log("got the token: ", result.data)
 					localStorage.setItem('token', result.data)
+					const token = result.data
+
+					// jan 26
+					console.log("===================== FETCHING PROGRESS=====================");
+
+					const result2 = await fetch('/api/get_progress',{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							token
+						})
+						}).then((res) => res.json())
+						.then(function (data) {  
+							console.log('Request success: ', data)
+							// console.log(data.user_row[0].skipped)
+
+							// grab data and put in local storage here
+							const skipped_words = JSON.stringify(data.user_row[0].skipped) //JSON stringify (make into array)
+							const words_completed = data.user_row[0].current_spot
+
+							localStorage.setItem('skipped_words',skipped_words)
+							localStorage.setItem('words_completed',words_completed)
+							
+						}) 
+					// jan 26 end
+
 
 					// username, location, .....
-					localStorage.setItem('username', result.user.username)
-					console.log(result.user.username)
+					// localStorage.setItem('username', result.user.username)
+					// console.log(result.user.username)
+					
 
 					window.location.href = "./"
 					// alert('Success')
@@ -365,8 +403,13 @@ body{
                     // Toggle the switch between signup/signin
                     $('form').animate({
                     height: "toggle", opacity: "toggle"
-                    },0);
-                }        
+					},0);
+					$('.createprofile').text('Se connecter')
+				}
+				else{
+					
+					$('.createprofile').text('Créer un profil')
+				}     
 			} 
 			
 

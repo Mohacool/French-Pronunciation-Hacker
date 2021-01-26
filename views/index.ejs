@@ -135,18 +135,16 @@
             <div class="modal-content">
                 
                 <div class="modal-body">
-                
-                    <h4 class="justify-content-center d-flex">Create an Account!</h4>
+
+                    <br>
+                    <h4 class="justify-content-center d-flex">Pour tracer ta progression et ton objectif: </h4>
                     <br>
                     <!-- <div class="duo_button objective_buttons">10 minutes a day</div> -->
                     
-                    
-                    <div class="objectives_holder mx-auto">
-                        <button type="button" class="btn btn-primary objective_button pt-0 mt-0">
-                            <h1>Create an Account Button</h1>
+                    <div class="duo_button createacc_button mx-auto">créer un compte</div>
 
-                        </button>
-                    </div>
+                    <br>
+                    <div class="duo_button not_now mx-auto">Pas maintenant</div>
                 </div>
                
             </div>
@@ -478,6 +476,7 @@
 
 <script>
 
+    
     function parseJwt (token) {
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -487,9 +486,86 @@
 
         return JSON.parse(jsonPayload);
     };
+
+
+    async function get_progress(){
+        var token = localStorage.getItem('token');
+        if (token!=null){
+            console.log("===================== FETCHING PROGRESS=====================");
+
+            const result = await fetch('/api/get_progress',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    token
+                })
+                }).then((res) => res.json())
+                .then(function (data) {  
+                    console.log('Request success: ', data);  
+                }) 
+
+        }
+ 
+        
+    }
+    // THIS FUNCTION ONLY WORKS WHEN SIGNED IN (only when token exists)
+    async function update_progress() {
+        var token = localStorage.getItem('token');
+
+        if (token!=null){
+            console.log("=====================UPDATING PROGRESS=====================");
+        
+            var words_complete = parseInt(localStorage.getItem('words_completed'));
+            var skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
+            
+            var id = parseJwt(localStorage.getItem('token')).id; // used to update the database later
+            console.log(id);
+
+        
+
+            // IF USER HAS MADE PROGRESS (If either values exists)
+            if (words_complete !=null || skip_indices !=null){
+
+                if (words_complete == null){
+                    words_complete = 0
+                }
+                if (skip_indices == null){
+                    skip_indices = []
+                }
+
+
+                const result = await fetch('/api/update_progress',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        words_complete,
+                        skip_indices,
+                        token
+                    })
+                }).then((res) => res.json())
+
+            }
+        }
+ 
+    }
+
     function signout(){
+
+
+        // CHECK IF TOKEN EXISTS
+
+        // Update the current user spot in the database when they sign out
+        update_progress();
+
         localStorage.clear();
         location.reload();
+        
+
+        
     }
     // const token = localStorage.getItem('token')
 
@@ -531,6 +607,11 @@
         window.location.href = "./login";
         localStorage.setItem('signup', true);
         
+    })
+
+    $('.createacc_button').on('click',function(){
+        window.location.href = "./login";
+        localStorage.setItem('signup', true);
     })
 
 
@@ -595,6 +676,11 @@
         }
         
     })
+    $('.not_now').on('click',function(){
+        $('#createaccModal').modal('hide');
+    })
+
+    
 
 
    
@@ -609,6 +695,8 @@
             controls:[ 'progress', 'current-time', 'mute', 'volume', 'captions'],
             speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] }
         });
+
+        
 
     </script>
 

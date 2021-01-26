@@ -777,6 +777,23 @@ ul {
     width:100%;
 }
 
+.createacc_button, .not_now{
+    width:40%;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
+.not_now{
+    background-color:#f2f1eb;
+    color:black;
+}
+.not_now:hover{
+    background-color: #c7c6bc;
+    color:black;
+}
+
 
 .objectives_holder{
     width:75%;
