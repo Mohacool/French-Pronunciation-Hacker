@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+    body{
+        background-color:#15b9c1;
+        /* background-color:#2A9D8F;
+        background-color:#7DCFB6; */
+    }
+    .title{
+        font-family: 'Roboto', sans-serif;
+        font-weight:800;
+        padding-top:25px;
+        text-align: center;
+        
+    }
+    .sub{
+        font-size:17px;
+        color:white;
+        font-weight:400;
+        font-style:italic;
+    }
+    .description{
+        font-family: 'Roboto', sans-serif;
+        font-weight:800;
+        font-size:23px;
+        color:white;
+        text-align:center;
+    }
+    .main{
+        font-size:26px;
+    }
+    .container{
+        padding-top:50%;
+        
+    }
+    .duo_button.green {
+        background-color:#60dc5e !important;
+        /* background-color:#E9C46A !important;
+        background-color:#2EB270 !important; */
+    }
+    .duo_button.green::after{
+        background-color:#31902f !important;
+        /* background-color:#b88c1d !important;
+        background-color:#0a6638 !important; */
+    }
+    .duo_button.blue{
+        background-color:#7EDDD2 !important;
+        background-color:#ECE4B7 !important;
+    }
+    
+    .duo_button.blue::after{
+        background-color:#69685d !important;
+    }
+    .duo_button.big{
+        height:50px;
+        background-color:#e99434 !important;
+    }
+    .duo_button.big::after{
+        height:50px;
+        background-color:#b36627 !important;
+    }
+    /* button */
+    .duo_button{
+        width: 200px;
+        
+        background-color: #8cdce2;
+        text-align: center;
+        padding: 4px;
+        border-radius: 9px;
+        font-family: 'Raleway', sans-serif;
+        color: white;
+        /* font-weight: 800; */
+        position: relative;
+        height: 30px;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+
+        font-family: 'Roboto', sans-serif;
+        font-weight:800;
+        color:black;
+    }
+    .duo_button::after{
+        content: "";
+        width: 198px;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #156d74;
+
+        padding: 1px;
+        z-index: -1;
+        height: 30px;
+    }
+    .buttons{
+        
+        display:flex;
+        align-items:center;
+        justify-content: center;
+    }
+    .get_started, .signin{
+        font-size:12px;
+        
+    }
+    .signin{
+        
+    }
+    .pt-2{
+        padding-top:2em;
+    }
+    .pt-3{
+        padding-top:3em;
+    }
+    .pt-1{
+        padding-top:1em;
+    }
+</style>
+<body>
+    <div class="title">
+        <h1 class="main">French Pronunciation Hacker</h1>
+        <h1 class="sub">Pratique et améliore ta prononciation.</h1>
+    </div>
+    <div class="container">
+        
+        <div class="description">
+            Progresse en français avec des
+ histoires captivantes!     
+        </div>
+        <div class="buttons get_started pt-2">
+            <div class="duo_button green">
+                GET STARTED
+            </div>
+        </div>
+        <div class="buttons signin pt-1">
+            <div class="duo_button blue">
+                SIGN IN
+            </div>
+        </div>
+        <div class="buttons signin pt-3">
+            <div class="duo_button big">
+                Comment apprendre 
+                le français rapidement ?
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

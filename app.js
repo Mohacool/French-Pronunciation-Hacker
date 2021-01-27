@@ -238,6 +238,10 @@ app.get('/login/', function (req, res) {
   res.render('login', {});
 });
 
+app.get('/landing/', function (req, res) {
+	res.render('landing', {});
+  });
+
 
 app.get('/register/', function (req, res) {
   res.render('register', {});
