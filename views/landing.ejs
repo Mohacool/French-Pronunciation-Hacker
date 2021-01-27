@@ -66,11 +66,11 @@
         background-color:#69685d !important;
     }
     .duo_button.big{
-        height:50px;
+        height:65px;
         background-color:#e99434 !important;
     }
     .duo_button.big::after{
-        height:50px;
+        height:65px;
         background-color:#b36627 !important;
     }
     /* button */
@@ -85,7 +85,7 @@
         color: white;
         /* font-weight: 800; */
         position: relative;
-        height: 35px;
+        height: 40px;
         display:flex;
         align-items:center;
         justify-content: center;
@@ -93,6 +93,9 @@
         font-family: 'Roboto', sans-serif;
         font-weight:800;
         color:black;
+        cursor:pointer;
+
+        border-radius: 13px;
     }
     .duo_button::after{
         content: "";
@@ -105,7 +108,15 @@
 
         padding: 1px;
         z-index: -1;
-        height: 35px;
+        height: 40px;
+
+        border-radius: 14px;
+    }
+    .duo_button:active{
+        bottom:-4px;
+    }
+    .duo_button:active::after{
+        height:38px;
     }
     .buttons{
         
@@ -114,7 +125,7 @@
         justify-content: center;
     }
     .get_started, .signin{
-        font-size:15px;
+        font-size:17px;
         
     }
     .signin{
