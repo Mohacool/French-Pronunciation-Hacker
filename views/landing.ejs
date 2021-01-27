@@ -148,15 +148,15 @@
         padding-top:1em;
     }
     .content {
-        border: 1px solid pink;
+        /* border: 1px solid pink; */
         height:100vh;
         top:0;
         overflow:hidden;
         position: relative;
     }
     .content_inner{
-        border: 1px solid pink;
-        
+        /* border: 1px solid pink; */
+        height: 100%;
         top:0;
         overflow:hidden;
         position: relative;
@@ -219,6 +219,7 @@
 
         position: absolute;
         top:20vh;
+        height: 76vh;
     }
     
     .second.animate {
@@ -233,7 +234,7 @@
         color:black;
         font-size:50px;
     }
-    .how_text{
+    .how_text,.how_textEN{
         font-family: 'Roboto', sans-serif;
         font-weight:800;
         color:white;
@@ -241,6 +242,13 @@
         
         padding-left: 30px;
         padding-right: 30px;
+    }
+    .how_textEN{
+        display:none;
+    }
+    
+    .how_text.smaller, .how_textEN.smaller{
+        font-size:25.5px;
     }
     .slider_boxes{
         /* border:1px solid red; */
@@ -258,6 +266,13 @@
         margin-right:10px;
         margin-left:10px;
         opacity:0.4;
+    }
+    .bottom_buttons{
+        left: 0;
+        right: 0;
+        margin: auto;
+        position:absolute;
+        bottom:10px;
     }
 </style>
 <body>
@@ -300,30 +315,36 @@
                 <div class="content_inner">
                     <div class="first_inner">
                         <h1 class="number">1</h1>
-                        <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures. </p>
+                        <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures </p>
+                        <p class="how_textEN">A question of time. It's different if you study 1hrs, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
                     </div>
                     <div class="second_inner">
                         <h1 class="number">2</h1>
-                        <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures. </p>
+                        <p class="how_text smaller">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
+                        <p class="how_textEN smaller">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
                     </div>
                     <div class="third_inner">
                         <h1 class="number">3</h1>
-                        <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures. </p>
+                        <p class="how_text smaller">Il est nécessaire de trouver des activités et ressources adaptées à ton niveau pour étudier le français. Un peu de difficulté, ça va. Mais si c’est trop difficile, l’étudiant ne va rien comprendre, et sa concentration ne va pas être bonne </p>
+                        <p class="how_textEN smaller">It is necessary to find activities and resources that are adapted to your level for studying french. A little difficulty is good. But if its too difficult the student will understanding nothing and their concentration won't be good </p>
                     </div>
                 </div>
                 
                 
-                <div class="slider_boxes">
-                    <div class="slider slider1"></div>
-                    <div class="slider slider2"></div>
-                    <div class="slider slider3"></div>
+                
+                <div class="bottom_buttons">
+                    <div class="slider_boxes">
+                        <div class="slider slider1"></div>
+                        <div class="slider slider2"></div>
+                        <div class="slider slider3"></div>
+                    </div>
+                    <div class="back">back</div>
+                    <div class="translate">TRANSLATE</div>
                 </div>
-                <div class="back">back</div>
-                <div class="next">next</div>
+                
+                
 
-                <div class="firsty">first</div>
-                <div class="secondy">second</div>
-                <div class="thirdy">third</div>
+               
             </div>
             
         </div>
@@ -334,7 +355,7 @@
     <script>
         $(document).ready(function () {
 
-            
+            var EN = false;
             // $('.content').on('click', '.first', function (ev) {
             //     $(this).toggleClass('animate');
             //     $('.second').toggleClass('animate');
@@ -345,7 +366,10 @@
             $('.duo_button.big').on('click', function (ev) {
                 $('.first').toggleClass('animate');
                 $('.second').toggleClass('animate');
-                $('.slider1').css('opacity',1);
+                if ($('.slider2').css('opacity')=="0.4" && $('.slider3').css('opacity')=="0.4"){
+                    $('.slider1').css('opacity',1);
+                }
+                
             }).on('click', '.second', function (ev) {
                 $(this).toggleClass('animate');
                 $('.first').toggleClass('animate');
@@ -359,6 +383,8 @@
                 $('.second_inner').toggleClass('animate');
                 
             })
+
+            //Functions for motion
             function first(){
                 $('.first_inner').css('-webkit-transform','translate3d(0, 0, 0)');
                 $('.first_inner').css('-ms-transform','translate3d(0, 0, 0)');
@@ -420,14 +446,28 @@
                 $('.slider3').css('opacity',1);
             }
             
-            $('.firsty').on('click',function(){
-               first();
+            $('.slider1').on('click',function(){
+                first();
             })
-            $('.secondy').on('click',function(){
+            $('.slider2').on('click',function(){
                 second();
             })
-            $('.thirdy').on('click',function(){
+            $('.slider3').on('click',function(){
                 third();
+            })
+            $('.translate').on('click',function(){
+                if (EN==false){
+                    $('.how_text').css('display','none');
+                    $('.how_textEN').css('display','block');
+                    EN = true;
+                }
+                else{
+                    $('.how_text').css('display','block');
+                    $('.how_textEN').css('display','none');
+                    EN = false;
+                }
+               
+
             })
         });
     </script>
