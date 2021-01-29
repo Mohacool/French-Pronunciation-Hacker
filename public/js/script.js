@@ -137,7 +137,8 @@ $.ajax({
     async: false,
     success: (content) => {
 
-
+        // alert(content.length);
+        console.log(content);
         let lines=content.split('\n');
 
         // var chapters = ["1 L’ARRIVÉE"];
@@ -147,9 +148,11 @@ $.ajax({
 
         // lines = lines.map( element => element.replace("",'<br>'));
 
+        console.log(lines.length)
+
         lines = lines.filter(e=> e.length!=1);
 
-        
+        console.log(lines.length)
 
        
         lines = lines.map( element => element.replace("*",'&emsp;&emsp;'));
@@ -171,7 +174,7 @@ $.ajax({
         console.log("Checkpoint1-----------------");
         console.log(lines);
 
-
+        console.log(lines.length);
 
         // Go through every annotation in annotation_list and replace the annotations in the big string
 
@@ -183,9 +186,11 @@ $.ajax({
             console.log(full_annotation);
 
             if (!lines.includes(full_annotation)){
-                console.log(full_annotation);
+                console.log("#########################",full_annotation);
                 full_annotation = full_annotation.replace("'","’");
             }
+            console.log(full_annotation);
+            
             // in the loop keep replacing blah[1],blah[2],blah[3]....
             lines = lines.replace(full_annotation,
                 `<span class='annotate ${annot_number}' data-toggle="tooltip" data-placement="top" title="Tooltip on top">
@@ -209,12 +214,25 @@ $.ajax({
 
 
         
-
-        $("#story").html(lines);
+        // put all the computed html into the story
+        //$("#story").html(lines);
     }
     
     
 })
+
+$.ajax({
+    // url: "assets/chapter1new.txt",
+    url: "assets/storycomplete.txt",
+    dataType: "text",
+    async: false,
+    success: (content) => {
+        $('#story').html(content);
+    }
+
+})
+
+// Try speeding up read in already done txt
 
 var sentence = $("#story").text(); // Fetch the story from the html 
 console.log(sentence);
