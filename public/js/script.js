@@ -118,10 +118,12 @@ var homophone_dict = { 'a': ['Ah','à'], 'à': ['Ah'], 'à bord': ['adore'], 'en
 var homophone_multiword_dict = {'aux hommes':['ozone','ozon','awesome'],'à bord':['adore']};
 var multiword_catcher = ['aux','à'];
 
-
-
+// OLD 
 var annotated_words=["bateau","se demandent","marin","Il a l’air calme","Crie","à bord","malheur","soulagé","la mer","obéissent","inattendue","épée","survécu","voilà","le comptable","dextérité","saisit","laisse","surtout","des conseils","en jetant un regard","haine","l'île d'Elbe","au lieu de"];
 var annotated_meanings = ["a boat","to ask oneself / to wonder","a sailor / a seaman ","il semble calme = he looks calm","to yell","on board","un problème = a misfortune","rassuré = relieved","the sea","obéir = to obey","unexpected","une épée = a sword","survived (verbe: survivre)","here is…","the accountant","agilité","to seize","laisser = to let / to give","above all","advices (masculin)","take a look","hatred / anger","l'île d'Elbe est fameuse pour être l'île d'exil de Napoléon en 1814-15","instead of"];
+// NEW
+var annotated_words = ['bateau', 'se demandent', 'marin', "Il a l'air calme", 'Crie', 'à bord', 'malheur', 'soulagé', 'la mer', 'obéissent', 'inattendue', 'épée', 'survécu', 'voilà', 'le comptable', 'dextérité', 'saisit', 'laisse', 'surtout', 'des conseils', 'en jetant un regard', 'haine', "l'île d'Elbe", 'au lieu de', 'il a eu tort', 'aussi bien que moi', 'aller à terre', "l'ancre", 'fait un pas', 'Napoléon', 'selon', 'Morrell et fils', 'vieillard', "à n'importe qui", 'voilà les', "je dois m'occuper d'eux", 'vous permettez', 'bien que', 'enfermé', 'rien ne lui manque', 'retarder', 'mes affaires', 'un congé', 'faites attention', 'vous venez juste de répondre', 'les larmes aux yeux', 'la comptabilité', 'Cela dépend du sens', "j'ai eu tort", 'voyons', 'en tout point', 'Néanmoins', 'son génie de la haine', 'inquiet', "je ne t'attendais", 'Allez', 'tant mieux', 'Seigneur', 'en effet', 'on dirait', 'francs', 'murmure', 'se jetant à genoux', 'déchiré', 'tout de suite', "c'est-à-dire", "s'éclaire", 'une boite', 'des lèvres', 'peu importe', 'barbue', 'tailleur', 'léger', 'tellement', 'en jetant un œil', 'pièces', 'négligemment', 'bourse', "j'avais hâte", "on a tort", 'Tant mieux', 'fera plaisir', "ne manquent pas d'amoureux", 'sous lequel', 'fidèle', 'peu importe', 'il est trop pressé', 'il me semble', 'banquier', 'peut-être même', 'ce quartier', 'les nouvelles'];
+var annotated_meanings = ['a boat', 'to ask oneself / to wonder', 'a sailor / a seaman', 'il semble came = he looks calm', 'crier = to yell', 'on board', 'un problème = a mistfortune', 'rassuré = relieved', 'the sea', 'obéir = to obey', 'unexpected', 'une épée = a sword', 'survived (verbe: survivre)', 'here is…', 'the accountant', 'agilité', 'to seize', 'laisser = to let / to give', 'above all', 'advices (masculin)', 'take a look', 'hatred / anger', "l'île d'Elbe est fameuse pour être l'île d'exil de Napoléon en 1814-15", 'instead of', 'avoir tort = to be wrong', 'as good as me', 'go ashore', 'une ancre = a anchor', 'faire un pas en arrière = take a step back', "l'Empereur = Napoléon ; exilé en 1815", 'according to', 'Morrel and sons', 'old man', 'to anyone', 'here are the ', 'I have to take care of them', 'would you mind ?', 'although', 'locked up', 'nothing is missing to him', 'to delay', 'my business', 'des vacances', 'be careful', 'you just answered ', 'tears in the eyes', 'the accounting ', 'it depends on the meaning', 'I was wrong', "let's see ", 'in every way', 'nevertheless', 'his evil genius', 'worried', "I wasn't expecting you", 'allez ! = come on ! ', 'good', 'Dieu', 'indeed', 'it looks like', 'Le franc : ancienne unité monétaire de France ', 'to whisper / to murmur', 'throw oneself on the knees', 'tear the heart ', 'right now', 'that is to say', 'light up', 'a box', 'lips', 'whatever', 'avec une barbe = with a beard', 'a tailor', 'light / small', 'so much', 'taking a look', 'the coins', 'négliger = to neglect', 'a purse', 'avoir hâte = to look forward to', 'one is wrong to', 'all good', 'faire plaisir = to please', "don't lack lovers", 'under which', 'faithful', 'whatever / anyway', 'être pressé = to be in a hurry', ' it seems to me', 'banker', 'maybe even less', 'this neighborhood', 'news'];
 
 var numbers=["vingt-quatre","mille-huit-cent-quinze"];
 
@@ -180,6 +182,10 @@ $.ajax({
             let full_annotation = word+"["+annot_number+"]";
             console.log(full_annotation);
 
+            if (!lines.includes(full_annotation)){
+                console.log(full_annotation);
+                full_annotation = full_annotation.replace("'","’");
+            }
             // in the loop keep replacing blah[1],blah[2],blah[3]....
             lines = lines.replace(full_annotation,
                 `<span class='annotate ${annot_number}' data-toggle="tooltip" data-placement="top" title="Tooltip on top">
