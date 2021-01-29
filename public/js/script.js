@@ -130,8 +130,9 @@ var numbers=["vingt-quatre","mille-huit-cent-quinze"];
 var audio_words = ["monsieur","est-il","Naples","survécu","laisse","comptable","l’eau","semble","Immédiatement"];
 var audio_files = ["monsieur.mp3","est-il.mp3","Naples.mp3","survécu.mp3","laisse.mp3","comptable.mp3","leau.mp3","semble.mp3","Immédiatement.mp3"];
 
+/*
 $.ajax({
-    // url: "assets/chapter1new.txt",
+    
     url: "assets/chapter1to4.txt",
     dataType: "text",
     async: false,
@@ -220,7 +221,7 @@ $.ajax({
     
     
 })
-
+*/
 $.ajax({
     // url: "assets/chapter1new.txt",
     url: "assets/storycomplete.txt",
