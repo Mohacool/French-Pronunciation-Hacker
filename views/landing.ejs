@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bienvenue!</title>
 
     
 
@@ -16,6 +16,7 @@
         padding: 0;
         box-sizing: border-box;
         text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
    
     }
     body{
@@ -29,6 +30,7 @@
         padding-top:25px;
         text-align: center;
         cursor:pointer;
+        text-decoration:none;
         
     }
     .sub{
@@ -115,6 +117,9 @@
         background-color:#7EDDD2 !important;
         background-color:#ECE4B7 !important;
     }
+    .new_duo.blue::after{
+        background-color:#69685d !important;
+    }
     .new_duo.big{
         height:65px;
         background-color:#e99434 !important;
@@ -127,9 +132,7 @@
         height:65px;
     }
     
-    .new_duo.blue::after{
-        background-color:#69685d !important;
-    }
+    
     
     .buttons{
         display:flex;
@@ -287,12 +290,48 @@
     .new_duo.translate::after{
         background-color:rgb(149, 39, 20);
     }
+    .new_duo.back{
+        width:200px;
+        background-color:#ECE4B7 !important;
+        
+        margin-right: 44px;
+        height:inherit;
+        
+        justify-content: center;
+
+    }
+    .new_duo.back::after{
+        width:200px;
+        background-color:#69685d !important;
+    }
+    
+
+  
+        
     .translate{
         display:flex;
         justify-content: center;
     }
     .translate_globe{
         height:40px;
+    }
+    .desktop_how{
+        display: flex;
+        width: 100%;
+        height: 400px;
+        display:none;
+    }
+    .column {
+        flex: 1;
+        
+    }
+    @media only screen and (min-width: 1025px) {
+        .desktop_how{
+            display:flex;
+        }
+        .mobile_how{
+            display:none;
+        }
     }
 
     
@@ -334,34 +373,57 @@
             </div>
 
             <div class="second">
-                <div class="content_inner">
-                    <div class="first_inner">
+                
+                <div class="mobile_how">
+                    <div class="content_inner">
+                        <div class="first_inner">
+                            <h1 class="number">1</h1>
+                            <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures </p>
+                            <p class="how_textEN">A question of time. It's different if you study 1hr, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
+                        </div>
+                        <div class="second_inner">
+                            <h1 class="number">2</h1>
+                            <p class="how_text smaller">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
+                            <p class="how_textEN smaller">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
+                        </div>
+                        <div class="third_inner">
+                            <h1 class="number">3</h1>
+                            <p class="how_text smaller">Il est nécessaire de trouver des activités et ressources adaptées à ton niveau pour étudier le français. Un peu de difficulté, ça va. Mais si c’est trop difficile, l’étudiant ne va rien comprendre, et sa concentration ne va pas être bonne </p>
+                            <p class="how_textEN smaller">It is necessary to find activities and resources that are adapted to your level for studying french. A little difficulty is good. But if its too difficult the student will understanding nothing and their concentration won't be good </p>
+                        </div>
+                    </div>
+    
+                    
+                </div>
+                <div class="desktop_how">
+                    <div class="column">
                         <h1 class="number">1</h1>
                         <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures </p>
                         <p class="how_textEN">A question of time. It's different if you study 1hr, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
                     </div>
-                    <div class="second_inner">
+                    <div class="column">
                         <h1 class="number">2</h1>
-                        <p class="how_text smaller">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
-                        <p class="how_textEN smaller">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
+                            <p class="how_text smaller">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
+                            <p class="how_textEN smaller">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
                     </div>
-                    <div class="third_inner">
+                    <div class="column">
                         <h1 class="number">3</h1>
                         <p class="how_text smaller">Il est nécessaire de trouver des activités et ressources adaptées à ton niveau pour étudier le français. Un peu de difficulté, ça va. Mais si c’est trop difficile, l’étudiant ne va rien comprendre, et sa concentration ne va pas être bonne </p>
                         <p class="how_textEN smaller">It is necessary to find activities and resources that are adapted to your level for studying french. A little difficulty is good. But if its too difficult the student will understanding nothing and their concentration won't be good </p>
                     </div>
                 </div>
-                
-                
-                
-                <div class="bottom_buttons">
-                    <div class="slider_boxes">
+
+                <div class="bottom_buttons ">
+                    <div class="slider_boxes mobile_how">
                         <div class="slider slider1"></div>
                         <div class="slider slider2"></div>
                         <div class="slider slider3"></div>
                     </div>
                     <!-- <div class="back">back</div> -->
                     <div class="buttons">
+                        <div class="new_duo back desktop_how">
+                            BACK
+                        </div>
                         <div class="new_duo translate">
                             <span class="lang1">Fr</span>
                             <img class="translate_globe" src="assets/translate.png" alt="">
@@ -370,10 +432,7 @@
                     </div>
                     
                 </div>
-                
-                
-
-               
+  
             </div>
             
         </div>
