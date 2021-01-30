@@ -28,6 +28,7 @@
         font-weight:800;
         padding-top:25px;
         text-align: center;
+        cursor:pointer;
         
     }
     .sub{
@@ -279,6 +280,20 @@
         position:absolute;
         bottom:10px;
     }
+    .new_duo.translate, .new_duo.translate::after{
+        width:200px;
+        background-color:tomato;
+    }
+    .new_duo.translate::after{
+        background-color:rgb(149, 39, 20);
+    }
+    .translate{
+        display:flex;
+        justify-content: center;
+    }
+    .translate_globe{
+        height:40px;
+    }
 
     
 </style>
@@ -300,12 +315,12 @@
                     Progresse en français avec des
                         histoires captivantes!     
                 </div>
-                <div class="buttons get_started pt-2">
+                <div id="getstarted" class="buttons get_started pt-2">
                     <div class="new_duo green">
                         GET STARTED
                     </div>
                 </div>
-                <div class="buttons signin pt-1">
+                <div id="signin" class="buttons signin pt-1">
                     <div class="new_duo blue">
                         SIGN IN
                     </div>
@@ -323,7 +338,7 @@
                     <div class="first_inner">
                         <h1 class="number">1</h1>
                         <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures </p>
-                        <p class="how_textEN">A question of time. It's different if you study 1hrs, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
+                        <p class="how_textEN">A question of time. It's different if you study 1hr, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
                     </div>
                     <div class="second_inner">
                         <h1 class="number">2</h1>
@@ -345,8 +360,15 @@
                         <div class="slider slider2"></div>
                         <div class="slider slider3"></div>
                     </div>
-                    <div class="back">back</div>
-                    <div class="translate">TRANSLATE</div>
+                    <!-- <div class="back">back</div> -->
+                    <div class="buttons">
+                        <div class="new_duo translate">
+                            <span class="lang1">Fr</span>
+                            <img class="translate_globe" src="assets/translate.png" alt="">
+                            <span class="lang2">En</span>
+                        </div>
+                    </div>
+                    
                 </div>
                 
                 
@@ -385,6 +407,11 @@
                 $('.second').toggleClass('animate');
                 $('.first').toggleClass('animate');
             })
+            $('.title').on('click',function(){
+                $('.second').toggleClass('animate');
+                $('.first').toggleClass('animate');
+            })
+
             $('.next').on('click',function(){
                 $('.first_inner').toggleClass('animate');
                 $('.second_inner').toggleClass('animate');
@@ -467,11 +494,15 @@
                     $('.how_text').css('display','none');
                     $('.how_textEN').css('display','block');
                     EN = true;
+                    $('.lang1').text('En');
+                    $('.lang2').text('Fr');
                 }
                 else{
                     $('.how_text').css('display','block');
                     $('.how_textEN').css('display','none');
                     EN = false;
+                    $('.lang1').text('Fr');
+                    $('.lang2').text('En');
                 }
                
 
