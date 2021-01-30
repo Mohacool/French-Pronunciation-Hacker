@@ -16,7 +16,7 @@
         padding: 0;
         box-sizing: border-box;
         text-decoration: none;
-        overflow-x:hidden;
+   
     }
     body{
         background-color:#15b9c1;
@@ -43,7 +43,8 @@
         color:white;
         text-align:center;
 
-        padding-top:50%;
+        /* padding-top:50%; */
+        padding-top:20vh;
     }
     .main{
         font-size:26px;
@@ -52,43 +53,20 @@
         /* padding-top:50%; */
         
     }
-    .duo_button.green {
-        background-color:#60dc5e !important;
-        /* background-color:#E9C46A !important;
-        background-color:#2EB270 !important; */
-    }
-    .duo_button.green::after{
-        background-color:#31902f !important;
-        /* background-color:#b88c1d !important;
-        background-color:#0a6638 !important; */
-    }
-    .duo_button.blue{
-        background-color:#7EDDD2 !important;
-        background-color:#ECE4B7 !important;
-    }
     
-    .duo_button.blue::after{
-        background-color:#69685d !important;
-    }
-    .duo_button.big{
-        height:65px;
-        background-color:#e99434 !important;
-    }
-    .duo_button.big::after{
-        height:65px;
-        background-color:#b36627 !important;
-    }
+    
+    
     /* button */
     .duo_button{
         width: 300px;
         
         background-color: #8cdce2;
         text-align: center;
-        /* padding: 4px; */
+        
         border-radius: 9px;
         font-family: 'Raleway', sans-serif;
         color: white;
-        /* font-weight: 800; */
+        
         position: relative;
         height: 40px;
         display:flex;
@@ -103,6 +81,76 @@
         cursor:pointer;
 
         border-radius: 13px;
+    }
+    .new_duo{
+        
+        text-align:center;
+        padding:10px;
+        align-items:center;
+        border-radius:13px;
+        color:white;
+        text-decoration:none;
+        font-family: 'Roboto', sans-serif;
+        position:relative;
+        cursor:pointer;
+        -webkit-tap-highlight-color: transparent;
+
+        font-family: 'Roboto', sans-serif;
+        font-weight:800;
+
+        color:black;
+        background-color:green;
+
+        width:300px;
+        height:40px;
+    }
+    .new_duo::after{
+        content: "";
+        width:300px;
+        height:43px;
+        border-radius:13px;
+        position:absolute;
+        top:0;
+        left:0;
+        background-color:rgb(5, 75, 5);
+        z-index:-1;
+    }
+    .new_duo:active{
+        bottom:-3px;
+    }
+    .new_duo:active::after{
+        height:40px;
+    }
+
+    /* ~~~~~~~~~~~~~~~ button colors ~~~~~~~~~~~~~ */
+    .new_duo.green {
+        background-color:#60dc5e !important;
+        /* background-color:#E9C46A !important;
+        background-color:#2EB270 !important; */
+    }
+    .new_duo.green::after{
+        background-color:#31902f !important;
+        /* background-color:#b88c1d !important;
+        background-color:#0a6638 !important; */
+    }
+    .new_duo.blue{
+        background-color:#7EDDD2 !important;
+        background-color:#ECE4B7 !important;
+    }
+    .new_duo.big{
+        height:65px;
+        background-color:#e99434 !important;
+    }
+    .new_duo.big::after{
+        height:68px;
+        background-color:#b36627 !important;
+    }
+    .new_duo.big:active::after{
+        height:65px;
+    }
+    
+    .new_duo.blue::after{
+        background-color:#69685d !important;
     }
     .duo_button::after{
         content: "";
@@ -132,6 +180,7 @@
         display:flex;
         align-items:center;
         justify-content: center;
+        
     }
     .get_started, .signin{
         font-size:17px;
@@ -298,17 +347,17 @@
                         histoires captivantes!     
                 </div>
                 <div class="buttons get_started pt-2">
-                    <div class="duo_button green">
+                    <div class="new_duo green">
                         GET STARTED
                     </div>
                 </div>
                 <div class="buttons signin pt-1">
-                    <div class="duo_button blue">
+                    <div class="new_duo blue">
                         SIGN IN
                     </div>
                 </div>
                 <div class="buttons signin pt-3">
-                    <div class="duo_button big">
+                    <div class="new_duo big">
                         Comment apprendre 
                         le français rapidement ?
                     </div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        .container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            
+        }
+        .duo_button{
+            width:300px;
+            height:15px;
+            background-color:green;
+            text-align:center;
+            padding:15px;
+            align-items:center;
+            border-radius:13px;
+            color:white;
+            text-decoration:none;
+            font-family: 'Roboto', sans-serif;
+            position:relative;
+            cursor:pointer;
+        }
+        .duo_button::after{
+            content: "";
+            width:300px;
+            height:18px;
+            border-radius:13px;
+            position:absolute;
+            top:0;
+            left:0;
+            background-color:rgb(5, 75, 5);
+            padding:15px;
+            z-index:-1;
+        }
+        .duo_button:active{
+            bottom:-3px;
+        }
+        .duo_button:active::after{
+            height:15px;
+        }
+    </style>
+    <div class="container">
+        <div class="duo_button">
+            GET STARTED
+        </div>
+    </div>
+</body>
+</html>
