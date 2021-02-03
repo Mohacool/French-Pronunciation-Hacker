@@ -207,7 +207,7 @@ app.post('/api/register', async (req,res) =>{
       }catch(error){
         console.log(error);
   
-        return res.json ({status:'error', error: 'error general'})
+        return res.json ({status:'error', error: error})
         // throw error
     }
     res.json({status:'ok',msg:info.messageId})
