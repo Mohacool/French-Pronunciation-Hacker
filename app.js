@@ -193,7 +193,7 @@ app.post('/api/register', async (req,res) =>{
       let info = await transporter.sendMail({
         from: 'french@pronunciationhacker.a2hosted.com', // sender address
         to: "moha.salama@mail.utoronto.ca", // list of receivers
-        subject: "Hello ✔", // Subject line
+        subject: "French Pronunciation Hacker Welcome!", // Subject line
         text: "Hello world?", // plain text body
         html: "<b>Hello world?</b>", // html body
       });
@@ -210,7 +210,7 @@ app.post('/api/register', async (req,res) =>{
         return res.json ({status:'error', error: 'error general'})
         // throw error
     }
-    res.json({status:'ok'})
+    res.json({status:'ok',msg:info.messageId})
     
 
 
