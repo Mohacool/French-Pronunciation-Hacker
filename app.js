@@ -182,8 +182,8 @@ app.post('/api/register', async (req,res) =>{
         from: 'french@pronunciationhacker.a2hosted.com', // sender address
         to: "moha.salama@mail.utoronto.ca", // list of receivers
         subject: "French Pronunciation Hacker Welcome!", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
+        text: `Welcome ${name}!`, // plain text body
+        html: `<b>Hello world?</b>`, // html body
       });
 
       console.log("Message sent: %s", info.messageId);
@@ -206,11 +206,6 @@ app.post('/api/register', async (req,res) =>{
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Feb 2 mailing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     
-
-
-  
-    
-
 
 })
 
