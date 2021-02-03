@@ -186,9 +186,7 @@ app.post('/api/register', async (req,res) =>{
         html: `<b>Hello world?</b>`, // html body
       });
 
-      console.log("Message sent: %s", info.messageId);
-
-
+      // console.log("Message sent: %s", info.messageId);
 
       // res.redirect('/login')
 
