@@ -172,6 +172,7 @@ app.post('/api/register', async (req,res) =>{
           user: 'french@pronunciationhacker.a2hosted.com', 
           pass: process.env.SERVER_PASSWORD
         },
+        // put this back in for LOCAL TESTING
         // tls:{
         //   rejectUnauthorized:false
         // }
@@ -181,7 +182,7 @@ app.post('/api/register', async (req,res) =>{
       let info = await transporter.sendMail({
         from: 'french@pronunciationhacker.a2hosted.com', // sender address
         to: "moha.salama@mail.utoronto.ca", // list of receivers
-        subject: "French Pronunciation Hacker Welcome!", // Subject line
+        subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
         text: `Welcome ${name}!`, // plain text body
         html: `<b>Hello world?</b>`, // html body
       });
