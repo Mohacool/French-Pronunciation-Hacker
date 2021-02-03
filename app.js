@@ -150,6 +150,8 @@ app.post('/api/register', async (req,res) =>{
 
     try {
 
+      // Create User
+
       const response = await User.create({
         name,
         password,
@@ -157,23 +159,9 @@ app.post('/api/register', async (req,res) =>{
       })
 
       console.log('User created succesfully: ', response)
-      // res.redirect('/login')
 
-    } catch(error){
-        console.log(error);
-        if (error.code === 11000){
-          // Duplicate key
-          return res.json ({status:'error', error: 'Email already in use'})
-        }
-        return res.json ({status:'error', error: 'error general'})
-        // throw error
-    }
-    // res.json({status:'ok'})
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Feb 2 mailing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    try {
-
+      // Send welcome email
 
       // create reusable transporter object using the default SMTP transport
       let transporter = nodemailer.createTransport({
@@ -199,18 +187,28 @@ app.post('/api/register', async (req,res) =>{
       });
 
       console.log("Message sent: %s", info.messageId);
-      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
-      // Preview only available when sending through an Ethereal account
-      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-      // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-      }catch(error){
+
+
+      // res.redirect('/login')
+
+    } catch(error){
         console.log(error);
-  
-        return res.json ({status:'error', error: error})
+        if (error.code === 11000){
+          // Duplicate key
+          return res.json ({status:'error', error: 'Email already in use'})
+        }
+        return res.json ({status:'error', error: 'error general'})
         // throw error
     }
-    res.json({status:'ok',msg:info.messageId})
+    res.json({status:'ok'})
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Feb 2 mailing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    
+
+
+  
     
 
 
