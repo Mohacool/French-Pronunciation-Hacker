@@ -56,7 +56,9 @@ body{
     margin: 30px;
     margin-top: 50px;
 }
-
+.register, .signin{
+    cursor:pointer;
+}
 .duo_button{
     width: 130px;
     
@@ -425,10 +427,16 @@ ul {
     transform: translateX(23px);
 }
 
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 
 @media only screen and (min-width:370px){
     .navbar_title{
-        color: #156d74;
         font-size: 1.25rem;
     }
 }
