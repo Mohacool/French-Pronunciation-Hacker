@@ -347,6 +347,7 @@ ul {
 }
 .navbar_title{
     color: #156d74;
+    font-size: 16px;
 }
 .movemobile{
     padding-top:0px !important;
@@ -425,6 +426,12 @@ ul {
 }
 
 
+@media only screen and (min-width:370px){
+    .navbar_title{
+        color: #156d74;
+        font-size: 1.25rem;
+    }
+}
 @media only screen and (min-width: 420px) {
     #move{
         overflow-y:hidden;
