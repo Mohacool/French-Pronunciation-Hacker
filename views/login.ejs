@@ -60,7 +60,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>French Pronunciation Hacker</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     <script>
         
@@ -158,6 +168,17 @@ body{
   transition: 0.5s;
   transition-property: border-left, border-right, box-shadow;
 }
+/* CHANGE BUTTON STYLE */
+.form .btn{
+    border-radius: 15px;
+    background-color: #5bd6df;
+    box-shadow: 0px 2px 0px 0px #17767d;
+}
+/* change input style */
+.form .user-input {
+    width: 100%;
+    border-radius: 15px;
+}
 
 
 
@@ -189,6 +210,9 @@ body{
       text-align:left;
       text-align:center;
   }
+  .x_button{
+    padding: 70px 80px;
+  }
  
 
 
@@ -216,12 +240,30 @@ body{
             padding-bottom:20px;
             text-align:center;
         }
+        .x_button{
+          position:absolute;
+          top: 0;
+          left: 0;
+          padding: 29px 26px;
+          
+        }
+        .x{
+          cursor:pointer;
+        }
+        
     </style>
 </head>
 <body>
     <!-- <h1 class="desktoptitle desktop">French Pronunciation Hacker (BETA)</h1>
     <h3 class="subtitle"> User registration Coming Soon!</h3> -->
     <!--form area start-->
+    <div class="x_button">
+      <a href="./">
+        <img class="x" src="/assets/x_button.png" height="30px" alt="">
+      </a>
+      
+      
+    </div>
     <div class="form">
         <!--signup form start-->
         <h2 class="createprofile">Créer un profil</h2>
@@ -250,6 +292,7 @@ body{
           <input id="login_email" class="user-input" type="email" name="" placeholder="Email Address" required>
           <input id="login_password" class="user-input" type="password" name="" placeholder="Password" required>
           <input class="btn" type="submit" name="" value="LOGIN">
+         
           <div class="options-02 createacc">
             <p> Not Registered? <a href="#">Create an Account</a></p>
           </div>
