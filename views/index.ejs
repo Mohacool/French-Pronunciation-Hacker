@@ -605,11 +605,21 @@
 
     function adjust_elements(){
 
-        // Desktop  = show sign in/ sign out buttons
+        // Desktop
         if(window.innerWidth>=1024){
-            $('#registerbutton').css('display', 'flex');
-            $('#signinbutton').css('display', 'flex');
+
+            // NOT SIGNED IN
+            if (!token){
+                $('#registerbutton').css('display', 'flex');
+                $('#signinbutton').css('display', 'flex');
+            }
+            else{
+                $('#registerbutton').css('display', 'none');
+                $('#signinbutton').css('display', 'none');
+            }
+            
         }
+        // MOBILE
         else{
             $('#registerbutton').css('display', 'none');
             $('#signinbutton').css('display', 'none');
