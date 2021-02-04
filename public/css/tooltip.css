@@ -345,6 +345,9 @@ ul {
     padding-top:5px;
     padding-bottom: 28px;
 }
+.navbar_title{
+    color: #156d74;
+}
 .movemobile{
     padding-top:0px !important;
     padding-left:10px !important;

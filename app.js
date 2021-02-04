@@ -184,7 +184,20 @@ app.post('/api/register', async (req,res) =>{
         to: "moha.salama@mail.utoronto.ca", // list of receivers
         subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
         text: `Welcome ${name}!`, // plain text body
-        html: `<b>Hello world?</b>`, // html body
+        html: // html body
+          ` <img src="cid:image_header"/><br>
+          Bienvenue ${name} &#x1F60A; &#128075; et bravo pour ton ambition d'apprendre le français ! <br><br>
+          Continue ! C'est une question de temps, de concentration et de pratiquer avec des ressources adaptées ! <br><br>
+          Notre objectif est de t'aider à progresser rapidement en français. Alors, n'hésite pas à envoyer ton commentaire ou ta recommandation pour améliorer le site internet. <br><br>
+          Pour apprendre rapidement le français, c'est bien de fixer un objectif en minutes pour pratiquer chaque jour, par exemple 15 minutes ! <br><br>
+          À bientôt !<br>
+          Moha et Fred`, 
+
+        attachments: [{
+          filename: 'image_header.png',
+          path: 'https://res.cloudinary.com/mohacool/image/upload/v1612404266/email_header_mrige7.png',
+          cid: 'image_header' //same cid value as in the html img src
+      }]
       });
 
       // console.log("Message sent: %s", info.messageId);
@@ -202,7 +215,7 @@ app.post('/api/register', async (req,res) =>{
     }
     res.json({status:'ok'})
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Feb 2 mailing~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
 
     
 
