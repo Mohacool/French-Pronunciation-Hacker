@@ -102,7 +102,7 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link signin">Sign In</a>
+              <a class="nav-link signin signin_mobile">Sign In</a>
             </li>
             <li class="nav-item">
               <a class="nav-link register">Sign Up</a>
@@ -602,24 +602,49 @@
 
         
     }
+
+    function adjust_elements(){
+
+        // Desktop  = show sign in/ sign out buttons
+        if(window.innerWidth>=1024){
+            $('#registerbutton').css('display', 'flex');
+            $('#signinbutton').css('display', 'flex');
+        }
+        else{
+            $('#registerbutton').css('display', 'none');
+            $('#signinbutton').css('display', 'none');
+            $('#username').hide();
+            $("#signout_button").hide();
+        }
+    }
     // const token = localStorage.getItem('token')
 
     // IF NOT SIGNED IN
     if (!token){
         document.getElementById('username').innerHTML = "";
         $("#signout_button").hide();
-    }
+
+        adjust_elements();
+      
+    }   
     // IF SIGNED IN
     else{
         const name = parseJwt(token).name;
 
-        
+        // SIGNED IN => DESKTOP
         document.getElementById('username').innerHTML = `Hello ${name}`;
-        document.getElementById('hello_mobile').innerHTML = `Hello ${name}`;
         $("#signout_button").show();
+
+        // SIGNED IN => MOBILE
+        document.getElementById('hello_mobile').innerHTML = `Hello ${name}`;
+        $('.signin_mobile').hide();
+
         
+        adjust_elements();
         
     }
+
+
     /* Tooltips activate */
     $(function () {
         $('[data-toggle="tooltip"]').tooltip({
@@ -664,7 +689,12 @@
                 </div>
             </a>`);
     }
+    
+
+    // RESIZE
     $(window).on('resize', function(){
+
+        // DESKTOP 
         if (window.innerWidth>=1024){
             $('#tooltipleft').html(`<img class="mytooltip tooltip-left desktop" width="100%" src="https://res.cloudinary.com/mohacool/image/upload/v1610676021/tooltip-left2_phowje.png" alt="left tooltip">`);
             $('#tooltipright').html(`<img class="mytooltip tooltip-right desktop" width="100%" src="https://res.cloudinary.com/mohacool/image/upload/v1610676039/tooltip-right2_wukzkc.png" alt="right tooltip">`);
@@ -674,13 +704,33 @@
                     <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
                 </div>
             </a>`);
-            $('#registerbutton').css('display', 'flex');
-            $('#signinbutton').css('display', 'flex');
+            
+            // If not signed in keep buttons
+            if (!token){
+                $('#registerbutton').css('display', 'flex');
+                $('#signinbutton').css('display', 'flex');
+            }
+            // If signed in 
+            else{
+                $('#username').show();
+                $("#signout_button").show();
+            }
+            
         }
-        // If window is resized remove the buttons
+        // MOBILE
         else{
+            // Remove sign in sign out buttons
             $('#registerbutton').css('display', 'none');
             $('#signinbutton').css('display', 'none');
+            // If signed in + [ON MOBILE]
+            if (token){
+                
+
+                // Remove desktop version of HELLO
+                $('#username').hide();
+                $("#signout_button").hide();
+            }
+            
         }
     })
 
