@@ -85,7 +85,7 @@
             <img src="assets/logo.png" height="90px" alt="" style="max-width:100%;object-fit:scale-down">
         </a>
     </nav> -->
-
+    
     <nav class="navbar navbar-expand-lg navbar-light mobile">
         <a class="navbar-brand" href="#">
             
@@ -105,8 +105,11 @@
               <a class="nav-link signin signin_mobile">Sign In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link register">Sign Up</a>
+              <a class="nav-link register register_mobile">Sign Up</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link signout_mobile" onclick="signout()">Sign Out</a>
+              </li>
             <!-- <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
             </li> -->
@@ -633,6 +636,7 @@
     if (!token){
         document.getElementById('username').innerHTML = "";
         $("#signout_button").hide();
+        $('.signout_mobile').hide();
 
         adjust_elements();
       
@@ -641,13 +645,25 @@
     else{
         const name = parseJwt(token).name;
 
-        // SIGNED IN => DESKTOP
+
+        // --------------------- DESKTOP ---------------------
+
+        // SIGNED IN
         document.getElementById('username').innerHTML = `Hello ${name}`;
         $("#signout_button").show();
 
-        // SIGNED IN => MOBILE
+
+        // --------------------- MOBILE ---------------------
+
+        // SIGNED IN
         document.getElementById('hello_mobile').innerHTML = `Hello ${name}`;
-        $('.signin_mobile').hide();
+
+        // Hide sign in, sign up
+        $('.signin').hide();
+        $('.register').hide();
+
+        // Show mobile sign_out
+        $('.signout_mobile').show();
 
         
         adjust_elements();

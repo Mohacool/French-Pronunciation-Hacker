@@ -56,7 +56,7 @@ body{
     margin: 30px;
     margin-top: 50px;
 }
-.register, .signin{
+.register, .signin, .signout_mobile{
     cursor:pointer;
 }
 .duo_button{
