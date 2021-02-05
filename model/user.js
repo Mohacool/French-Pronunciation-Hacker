@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema(
     password: {type:String, required: true},
     email: {type:String, required: true, unique:true, lowercase:true},
     current_spot: {type:Number,default:0},
-    skipped: {type:Array,default:[]}
+    skipped: {type:Array,default:[]},
+    daily_objective: {type:Number,default:0}
     },
     { collection: 'users', timestamps: true}
 )

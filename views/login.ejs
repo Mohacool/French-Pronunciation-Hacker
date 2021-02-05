@@ -1,59 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-    
-</head>
-<body>
-    <h1>Login</h1>
-    <form id="login">
-        <input type="text" autocomplete="off" id="username" placeholder="Username">
-        <input type="password" autocomplete="off" id="password" placeholder="Password">
-        <input type="submit" value="Submit Form">
-    </form>
-    <script>
-        const form=document.getElementById('login');
-        form.addEventListener('submit',login);
-
-        async function login(event) {
-            event.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            const result = await fetch('/api/login',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
-            }).then((res) => res.json())
-
-            if (result.status==='ok'){
-                //everything went fine
-                console.log("got the token: ", result.data)
-                localStorage.setItem('token', result.data)
-
-                // username, location, .....
-            localStorage.setItem('username', result.user.username)
-            console.log(result.user.username)
-
-                window.location.href = "./"
-                // alert('Success')
-            }
-            else{
-                alert(result.error);
-            }
-        }
-    </script>
-</body>
-</html> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,10 +15,9 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
-    <script>
-        
-    </script>
+   
     <style>
         *{
   margin: 0;
@@ -175,6 +118,9 @@ body{
     background-color: #5bd6df;
     box-shadow: 0px 2px 0px 0px #17767d;
 }
+.form .btn:hover{
+  background-color: #3fb7c0;
+}
 /* change input style */
 .form .user-input {
     width: 100%;
@@ -251,6 +197,14 @@ body{
         .x{
           cursor:pointer;
         }
+        .register{
+          background-color:#2b9299 !important;
+          box-shadow: 0px 2px 0px 0px #0b4b50 !important;
+          
+        }
+        .register:hover{
+          background-color:#1a7279 !important;
+        }
         
     </style>
 </head>
@@ -280,7 +234,7 @@ body{
             <label class="remember-me"><input type="checkbox" name="">Remember me</label>
             <a href="#">Forgot your password?</a>
           </div>
-          <input class="btn" type="submit" name="" value="REGISTER">
+          <input class="btn register" type="submit" name="" value="REGISTER">
           <div class="options-02 signin">
             <p>Already Registered? <a href="#">Sign In</a></p>
           </div>
@@ -314,7 +268,17 @@ body{
 				const name = document.getElementById('name').value;
 				const email = document.getElementById('email').value;
 				const password = document.getElementById('password').value;
-				const password2 = document.getElementById('password2').value;
+                const password2 = document.getElementById('password2').value;
+
+                var daily_objective;
+                
+                // Objective 
+                if (!localStorage.getItem('daily_objective')){
+                    daily_objective = 0;
+                }
+                else{
+                    daily_objective = localStorage.getItem('daily_objective');
+                }
 
 				const result = await fetch('/api/register',{
 					method: 'POST',
@@ -325,7 +289,8 @@ body{
 						name,
 						password,
 						email,
-						password2
+                        password2,
+                        daily_objective
 					})
 				}).then((res) => res.json())
 
@@ -333,14 +298,34 @@ body{
 					//everything went fine
 					console.log(result)
 				
-					alert('Success')
-					$('form').animate({
+                    // alert('Success')
+                    Swal.fire({
+                        title: 'Account Created!',
+                        text: 'Login Now',
+                        icon: 'success',
+                        timer:3000,
+                        showConfirmButton: false
+                    })
+                    setTimeout(function(){
+                        $('form').animate({
 					height: "toggle", opacity: "toggle"
 					}, "slow");
 					$('.createprofile').text('Se connecter');
+                        }, 3100);
+					// $('form').animate({
+					// height: "toggle", opacity: "toggle"
+					// }, "slow");
+					// $('.createprofile').text('Se connecter');
 				}
 				else{
-					alert(result.error);
+                    Swal.fire({
+                        title: result.error,
+                        text: 'Please try again',
+                        icon: 'error',
+                        timer:3000,
+                        showConfirmButton: false
+                    })
+					// alert(result.error);
 				}
 			}
 

@@ -119,7 +119,7 @@ app.post('/api/register', async (req,res) =>{
     // User.find, User.delete 
 
     // You need to hash the passwords
-    const { name, password: plainTextPassword, email, password2 } = req.body
+    const { name, password: plainTextPassword, email, password2, daily_objective } = req.body
 
     if (!name || typeof name !== 'string'){
         return res.json ({ status: 'error', error: 'Invalid name'})
@@ -144,6 +144,8 @@ app.post('/api/register', async (req,res) =>{
     }
     // Check if email is in form blahblah@xxxxxx.com (maybe regex?)
 
+    
+
     const password = await bcrypt.hash(plainTextPassword,10)
 
     console.log(req.body)
@@ -155,13 +157,15 @@ app.post('/api/register', async (req,res) =>{
       const response = await User.create({
         name,
         password,
-        email
+        email,
+        daily_objective
       })
 
       console.log('User created succesfully: ', response)
 
 
-      // Send welcome email
+
+      // ================== SEND WELCOME EMAIL ==========================
 
       // create reusable transporter object using the default SMTP transport
       let transporter = nodemailer.createTransport({
@@ -181,7 +185,7 @@ app.post('/api/register', async (req,res) =>{
       // send mail with defined transport object
       let info = await transporter.sendMail({
         from: 'french@pronunciationhacker.a2hosted.com', // sender address
-        to: "moha.salama@mail.utoronto.ca", // list of receivers
+        to: email, // list of receivers
         subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
         text: `Welcome ${name}!`, // plain text body
         html: // html body
@@ -215,9 +219,6 @@ app.post('/api/register', async (req,res) =>{
     }
     res.json({status:'ok'})
 
-    
-
-    
 
 })
 
