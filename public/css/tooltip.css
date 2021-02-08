@@ -427,6 +427,8 @@ ul {
     transform: translateX(23px);
 }
 
+
+/* ------overwrite bootstrap things----------------- */
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
@@ -448,7 +450,15 @@ ul {
     outline: none !important;
   box-shadow: none !important;
 }
-
+.dropdown-item:hover{
+    cursor:pointer !important;
+}
+.dropdown-item.active, .dropdown-item:active {
+    color: unset;
+    text-decoration: unset;
+    background-color: unset;
+}
+/* ------overwrite bootstrap things (END)---------------- */
 
 @media only screen and (min-width:370px){
     .navbar_title{

@@ -173,7 +173,7 @@ app.post('/api/register', async (req,res) =>{
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: 'french@pronunciationhacker.a2hosted.com', 
+          user: 'fred@frenchpronunciationhacker.com', 
           pass: process.env.SERVER_PASSWORD
         },
         // put this back in for LOCAL TESTING
@@ -184,7 +184,7 @@ app.post('/api/register', async (req,res) =>{
 
       // send mail with defined transport object
       let info = await transporter.sendMail({
-        from: 'french@pronunciationhacker.a2hosted.com', // sender address
+        from: 'fred@frenchpronunciationhacker.com', // sender address
         to: email, // list of receivers
         subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
         text: `Welcome ${name}!`, // plain text body

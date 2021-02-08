@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenue!</title>
-    
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -283,14 +283,13 @@
         
         padding-left: 30px;
         padding-right: 30px;
+
+        font-size:21px;
     }
     .how_textEN{
         display:none;
     }
     
-    .how_text.smaller, .how_textEN.smaller{
-        font-size:25.5px;
-    }
     .slider_boxes{
         /* border:1px solid red; */
         width:100%;
@@ -373,6 +372,14 @@
         flex: 1;
         
     }
+
+    /* IF HEIGHT GREATER THAN 600PX*/
+    @media only screen and (min-height:600px){
+        .how_text,.how_textEN, .how_text.smaller, .how_textEN.smaller{
+            font-size:25.5px;
+        }
+        
+    }
     @media only screen and (min-width: 1024px) {
         .desktop_how{
             display:flex;
@@ -431,13 +438,13 @@
                         </div>
                         <div class="second_inner">
                             <h1 class="number">2</h1>
-                            <p class="how_text smaller">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
-                            <p class="how_textEN smaller">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
+                            <p class="how_text">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
+                            <p class="how_textEN">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
                         </div>
                         <div class="third_inner">
                             <h1 class="number">3</h1>
-                            <p class="how_text smaller">Il est nécessaire de trouver des activités et ressources adaptées à ton niveau pour étudier le français. Un peu de difficulté, ça va. Mais si c’est trop difficile, l’étudiant ne va rien comprendre, et sa concentration ne va pas être bonne </p>
-                            <p class="how_textEN smaller">It is necessary to find activities and resources that are adapted to your level for studying french. A little difficulty is good. But if its too difficult the student will understanding nothing and their concentration won't be good </p>
+                            <p class="how_text">Il est nécessaire de trouver des activités et ressources adaptées à ton niveau pour étudier le français. Un peu de difficulté, ça va. Mais si c’est trop difficile, l’étudiant ne va rien comprendre, et sa concentration ne va pas être bonne </p>
+                            <p class="how_textEN">It is necessary to find activities and resources that are adapted to your level for studying french. A little difficulty is good. But if its too difficult the student will understanding nothing and their concentration won't be good </p>
                         </div>
                     </div>
     

@@ -570,7 +570,8 @@ if (token!=null){
     //     // POST METHOD /getProgress lol
     // }
 }
-
-
+ function startTimer(){
+     
+ }
 
 
