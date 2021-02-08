@@ -17,7 +17,12 @@
     
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://use.typekit.net/yue6eem.css">
 </head>
 <style>
     *{
@@ -30,29 +35,38 @@
     }
     body{
         background-color:#15b9c1;
-        background-color:#78d8dd;
+        background-color:#78D8DD;
         /* background-color:#2A9D8F;
         background-color:#7DCFB6; */
         /* background-color:#18A999;
         background-color:#43AA8B; */
+        background-color:#66cccc;
     }
     .title{
         font-family: 'Roboto', sans-serif;
+        font-family: 'DM Serif Text', serif;
         font-weight:800;
         padding-top:25px;
         text-align: center;
         cursor:pointer;
         text-decoration:none;
+
+        font-family: cooper-black-std, serif;
+
+        font-weight: 400;
         
     }
     .sub{
-        font-size:17px;
+        font-family: 'DM Serif Text', serif;
+        font-size:15px;
         color:white;
-        font-weight:400;
-        font-style:italic;
+        font-weight:200;
+        /* font-style:italic; */
     }
     .description{
         font-family: 'Roboto', sans-serif;
+
+        
         font-weight:800;
         font-size:23px;
         color:white;
@@ -60,9 +74,16 @@
 
         /* padding-top:50%; */
         padding-top:20vh;
+
+        font-family: 'DM Serif Text', serif;
+        font-weight:200;
+        font-style:italic;
+        font-size:28px;
     }
     .main{
-        font-size:26px;
+        
+        font-size: 20px;
+        color: white;
     }
     .container{
         /* padding-top:50%; */
@@ -90,20 +111,22 @@
         font-family: 'Roboto', sans-serif;
         font-weight:800;
 
-        color:black;
+       
         background-color:green;
 
         width:300px;
         height:40px;
+
+        font-family: cooper-black-std, serif;
     }
     .new_duo::after{
         content: "";
-        width:300px;
+        width:299px;
         height:43px;
         border-radius:13px;
         position:absolute;
         top:0;
-        left:0;
+        left:1px;
         background-color:rgb(5, 75, 5);
         z-index:-1;
     }
@@ -116,49 +139,59 @@
 
     /* ~~~~~~~~~~~~~~~ button colors ~~~~~~~~~~~~~ */
     .new_duo.green {
-        background-color:#60dc5e !important;
-        /* background-color:#E9C46A !important;
-        background-color:#2EB270 !important; */
+        /* background-color:#60dc5e !important;
+        background-color:#E9C46A !important;
+        background-color:#2EB270 !important;
         background-color: #15CB61 !important;
         background-color:#DB504A !important;
-        background-color: #aaf683 !important;
+        background-color: #aaf683 !important; */
+
+        background-color: #02bfe7 !important;
     }
     .new_duo.green::after{
-        background-color:#31902f !important;
+        /* background-color:#31902f !important;
         background-color: #087033 !important;
 
         background-color:#681310 !important;
-        /* background-color:#b88c1d !important;
-        background-color:#0a6638 !important; */
-        background-color: #437e25 !important;
+        background-color:#b88c1d !important;
+        background-color:#0a6638 !important;
+        background-color: #437e25 !important; */
+        background-color: #006699 !important;
     }
     .new_duo.blue{
        
-        background-color:#1bbfc7 !important;
+        /* background-color:#1bbfc7 !important;
         background-color:#bef0f3 !important;
-        /* background-color: #8AF3FF !important;
+        background-color: #8AF3FF !important;
         background-color: #254441 !important; */
+        background-color:#8be3f6 !important;
     }
     .new_duo.blue::after{
-        background-color:#69685d !important;
+        /* background-color:#69685d !important;
         
         background-color:#014c50 !important;
         background-color:#1a676b !important;
-        /* background-color: #256970 !important;
+        background-color: #256970 !important;
         background-color: #0e2a27 !important; */
+        background-color:#006699 !important;
     }
     .new_duo.big{
         height:65px;
-        background-color:#e99434 !important;
+        /* background-color:#e99434 !important;
         background-color:#2fd3db !important;
-        /* background-color: #F7F0F0 !important;
+        background-color: #F7F0F0 !important;
         background-color: #f4a259 !important; */
+        
+        background-color:#66cccc;
+        border: 1.5px solid #006699 !important;
     }
     .new_duo.big::after{
         height:68px;
-        background-color:#b36627 !important;
+        /* background-color:#b36627 !important;
         background-color:#055b5f !important;
-        /* background-color: #8a4f1b !important; */
+        background-color: #8a4f1b !important; */
+        background-color:#006699 !important;
+        
 
     }
     .new_duo.big:active::after{
@@ -173,12 +206,12 @@
         justify-content: center;
     }
     .get_started, .signin{
-        font-size:17px;
+       
+        font-size: 15px;
+        
         
     }
-    .signin{
-        
-    }
+   
     .pt-2{
         padding-top:2em;
     }
@@ -285,6 +318,8 @@
         padding-right: 30px;
 
         font-size:21px;
+        font-family: 'DM Serif Text', serif;
+        font-weight:200;
     }
     .how_textEN{
         display:none;
@@ -319,16 +354,20 @@
         width:200px;
         background-color:tomato;
         background-color:#1bbfc7;
+        background-color: #02bfe7 !important;
         
     }
     .new_duo.translate::after{
         background-color:rgb(149, 39, 20);
         background-color:#014c50;
+        width:197px;
+        background-color: #1a676b !important;
     }
     .new_duo.back{
         width:200px;
         background-color:#ECE4B7 !important;
         background-color:#bef0f3 !important;
+        background-color: #8be3f6 !important;
         
         
         margin-right: 44px;
@@ -338,11 +377,14 @@
 
     }
     .new_duo.back::after{
-        width:200px;
+        width:199px;
         height: 42px;
         background-color:#69685d !important;
         background-color:#349aa0 !important;
         background-color:#1a676b !important;
+
+        width: 197px;
+        height: 43px;
     }
     
     .new_duo.back:active::after{
@@ -380,12 +422,32 @@
         }
         
     }
+    @media only screen and (min-width: 600px) {
+        .main{
+            font-size:28px;
+            
+        }
+        .sub{
+            font-size:20px;
+        }
+    }
     @media only screen and (min-width: 1024px) {
         .desktop_how{
             display:flex;
         }
         .mobile_how{
             display:none;
+        }
+        .main{
+            
+            font-size: 35px;
+        
+        }
+        .sub{
+        
+            font-size:20px;
+       
+        
         }
     }
 

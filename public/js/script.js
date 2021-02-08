@@ -571,7 +571,33 @@ if (token!=null){
     // }
 }
  function startTimer(){
-     
+
+    var objective = 10; // take this as param later
+
+    // time started + objective time
+    var time_end = new Date().getTime() + objective;
+
+    var x = setInterval(function() {
+
+        var time_now = new Date().getTime();
+
+
+        // Find the distance between now and after objective
+        var distance = time_now - time_end;
+        // console.log(distance)
+        
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        console.log(minutes+":"+seconds);
+        
+      
+        // If the count down is finished, write some text
+        if (distance < 0) {
+        //   clearInterval(x);
+        //   document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
  }
 
 
