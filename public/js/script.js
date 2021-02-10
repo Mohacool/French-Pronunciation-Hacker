@@ -14,16 +14,6 @@
 // })
 
 
-var daily_objective = JSON.parse(localStorage.getItem('daily_objective'));
-if (!(localStorage.getItem('daily_objective'))){
-    daily_objective = 10;
-}
-else{
-    $('.timer').html(daily_objective+":"+"00");
-}
-
-var timer_started = false;
-
 
 
 // Load the scroll bar js/css only if SCREEN WIDTH > 420px
@@ -374,6 +364,7 @@ $(".skipword").on('click',function(){
 
     if (!(timer_started)){
         countdown("ten-countdown", daily_objective, 0 );
+        timer_started = true;
     }
 
     // If signed in 
@@ -443,6 +434,7 @@ function canalyse(transcript){
             at_wrd+=1;
             if (!(timer_started)){
                 countdown("ten-countdown", daily_objective, 0 );
+                timer_started=true;
             }
             
 
@@ -478,6 +470,7 @@ function canalyse(transcript){
                             at_wrd+=2;
                             if (!(timer_started)){
                                 countdown("ten-countdown", daily_objective, 0 );
+                                timer_started=true;
                             }
                             
                         }
@@ -504,6 +497,7 @@ function canalyse(transcript){
                         at_wrd+=1;
                         if (!(timer_started)){
                             countdown("ten-countdown", daily_objective, 0 );
+                            timer_started=true;
                         }
                         
                     }
@@ -664,6 +658,55 @@ if (token!=null){
     updateTimer();
 }
 
+// ================================ OBJECTIVE MODAL AND INIT ====================================
+var daily_objective = JSON.parse(localStorage.getItem('daily_objective'));
+if (!(localStorage.getItem('daily_objective'))){
+    daily_objective = 10;
+    $("#objectiveModal").modal('toggle');
+    
+}
+$('.timer').html(daily_objective+":"+"00");
+
+ // ================ OBJECTIVE ===================
+ var objective_selected = 0;
+ $('.objective_button').on('click',function(){
+
+     // remove the 'no objective selected ' msg
+     $('.no_objective_selected').css('display','none');
+
+     const objective_class= this.className.split(" ").slice(-1)[0];
+     objective_selected = objective_class.slice(-1); // set the number:  objective_button1 => 1
+     // alert(objective_class);
+     
+     // Keep the selected button highlighted
+     $('.objective_button').css('background-color','white');
+     $('.'+objective_class).css('background-color','#cff2f5'); // selected color
+ })
+
+ $('.objective_continue').on('click',function(){
+     
+     if (objective_selected == 0){
+         $('.no_objective_selected').css('display','flex');
+     }
+     else{
+         
+         localStorage.setItem('daily_objective', objective_selected*5);
+         daily_objective = objective_selected*5;
+         $('.timer').html(daily_objective+":"+"00");
+         $('.no_objective_selected').css('display','none');
+         $('#objectiveModal').modal('hide');
+         $('#createaccModal').modal();
+
+
+     }
+     
+ })
+ $('.not_now').on('click',function(){
+     $('#createaccModal').modal('hide');
+ })
+
+var timer_started = false;
+// ================================ OBJECTIVE MODAL AND INIT (END) ====================================
 
 // countdown( "ten-countdown", 0.1, 0 );
 

@@ -808,41 +808,7 @@
         }
     })
 
-    // ================ OBJECTIVE ===================
-    var objective_selected = 0;
-    $('.objective_button').on('click',function(){
-
-        // remove the 'no objective selected ' msg
-        $('.no_objective_selected').css('display','none');
-
-        const objective_class= this.className.split(" ").slice(-1)[0];
-        objective_selected = objective_class.slice(-1); // set the number:  objective_button1 => 1
-        // alert(objective_class);
-        
-        // Keep the selected button highlighted
-        $('.objective_button').css('background-color','white');
-        $('.'+objective_class).css('background-color','#cff2f5'); // selected color
-    })
-
-    $('.objective_continue').on('click',function(){
-        
-        if (objective_selected == 0){
-            $('.no_objective_selected').css('display','flex');
-        }
-        else{
-            
-            localStorage.setItem('daily_objective', objective_selected*5);
-            $('.no_objective_selected').css('display','none');
-            $('#objectiveModal').modal('hide');
-            $('#createaccModal').modal();
-
-
-        }
-        
-    })
-    $('.not_now').on('click',function(){
-        $('#createaccModal').modal('hide');
-    })
+   
 
     
 

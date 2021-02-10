@@ -522,14 +522,13 @@
                     Progresse en français avec des
                         histoires captivantes!     
                 </div>
-                <a href="./montecristo/:first_time">
+                <a href="./montecristo">
                     <div id="getstarted" class="buttons get_started pt-2">
                         <div class="new_duo green">
                             GET STARTED
                         </div>
                     </div>
                 </a>
-                
                 <div id="signin" class="buttons signin pt-1">
                     <div class="new_duo blue">
                         SIGN IN
@@ -796,6 +795,11 @@
             })
         });
 
+        $('#signin').on('click',function(){
+            localStorage.setItem('signup',false);
+            window.location.href = "./login"
+            
+        })
         
     </script>
 </body>
