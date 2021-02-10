@@ -7,7 +7,9 @@ const UserSchema = new mongoose.Schema(
     email: {type:String, required: true, unique:true, lowercase:true},
     current_spot: {type:Number,default:0},
     skipped: {type:Array,default:[]},
-    daily_objective: {type:Number,default:0}
+    daily_objective: {type:Number,default:0},
+    verify_pin: {type:String,default:"0000"},
+    verified: {type:Boolean, default:false}
     },
     { collection: 'users', timestamps: true}
 )

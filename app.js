@@ -94,6 +94,11 @@ app.post('/api/login', async (req,res) => {
     // lean returns simpler version of json
     const user = await User.findOne( {email}).lean()
 
+    const verified = user.verified
+    if (verified==false){
+      return res.json ({ status:'error', error: 'Not Verified'})
+    }
+
     if (!user){
         return res.json ({ status:'error', error: 'Invalid username/password'})
     }
@@ -144,11 +149,13 @@ app.post('/api/register', async (req,res) =>{
     }
     // Check if email is in form blahblah@xxxxxx.com (maybe regex?)
 
-    
-
     const password = await bcrypt.hash(plainTextPassword,10)
 
     console.log(req.body)
+
+
+    // Create random 4 digit pin
+    const verify_pin = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 
     try {
 
@@ -158,7 +165,8 @@ app.post('/api/register', async (req,res) =>{
         name,
         password,
         email,
-        daily_objective
+        daily_objective,
+        verify_pin
       })
 
       console.log('User created succesfully: ', response)
@@ -182,26 +190,37 @@ app.post('/api/register', async (req,res) =>{
         // }
       });
 
-      // send mail with defined transport object
-      let info = await transporter.sendMail({
+      // --------------------- WELCOME EMAIL --------------------------------
+
+      // let info = await transporter.sendMail({
+      //   from: 'fred@frenchpronunciationhacker.com', // sender address
+      //   to: email, // list of receivers
+      //   subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
+      //   text: `Welcome ${name}!`, // plain text body
+      //   html: // html body
+      //     ` <img src="cid:image_header"/><br>
+      //     Bienvenue ${name} &#x1F60A; &#128075; et bravo pour ton ambition d'apprendre le français ! <br><br>
+      //     Continue ! C'est une question de temps, de concentration et de pratiquer avec des ressources adaptées ! <br><br>
+      //     Notre objectif est de t'aider à progresser rapidement en français. Alors, n'hésite pas à envoyer ton commentaire ou ta recommandation pour améliorer le site internet. <br><br>
+      //     Pour apprendre rapidement le français, c'est bien de fixer un objectif en minutes pour pratiquer chaque jour, par exemple 15 minutes ! <br><br>
+      //     À bientôt !<br>
+      //     Moha et Fred`, 
+
+      //     attachments: [{
+      //       filename: 'image_header.png',
+      //       path: 'https://res.cloudinary.com/mohacool/image/upload/v1612404266/email_header_mrige7.png',
+      //       cid: 'image_header' //same cid value as in the html img src
+      //     }]
+      // });
+
+      let verify = await transporter.sendMail({
         from: 'fred@frenchpronunciationhacker.com', // sender address
-        to: email, // list of receivers
-        subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
+        to: 'moha.salama@mail.utoronto.ca', // list of receivers
+        subject: `French Pronunciation Hacker Verification`, // Subject line
         text: `Welcome ${name}!`, // plain text body
         html: // html body
-          ` <img src="cid:image_header"/><br>
-          Bienvenue ${name} &#x1F60A; &#128075; et bravo pour ton ambition d'apprendre le français ! <br><br>
-          Continue ! C'est une question de temps, de concentration et de pratiquer avec des ressources adaptées ! <br><br>
-          Notre objectif est de t'aider à progresser rapidement en français. Alors, n'hésite pas à envoyer ton commentaire ou ta recommandation pour améliorer le site internet. <br><br>
-          Pour apprendre rapidement le français, c'est bien de fixer un objectif en minutes pour pratiquer chaque jour, par exemple 15 minutes ! <br><br>
-          À bientôt !<br>
-          Moha et Fred`, 
+          `<h1>Your verification pin is: ${verify_pin}</h1>`, 
 
-        attachments: [{
-          filename: 'image_header.png',
-          path: 'https://res.cloudinary.com/mohacool/image/upload/v1612404266/email_header_mrige7.png',
-          cid: 'image_header' //same cid value as in the html img src
-      }]
       });
 
       // console.log("Message sent: %s", info.messageId);
@@ -221,6 +240,78 @@ app.post('/api/register', async (req,res) =>{
 
 
 })
+
+// =========== send welcome email
+app.post('/api/welcome_email', async (req,res) =>{
+
+
+  const { email } = req.body
+
+
+  console.log(req.body)
+
+
+
+  try {
+    
+    const user_row = await User.find({"email" : email})
+
+    const name = user_row[0].name;
+    // ================== SEND WELCOME EMAIL ==========================
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "mi3-ts5.a2hosting.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: 'fred@frenchpronunciationhacker.com', 
+        pass: process.env.SERVER_PASSWORD
+      },
+      // put this back in for LOCAL TESTING
+      // tls:{
+      //   rejectUnauthorized:false
+      // }
+    });
+
+    // --------------------- WELCOME EMAIL --------------------------------
+
+    let info = await transporter.sendMail({
+      from: 'fred@frenchpronunciationhacker.com', // sender address
+      to: 'moha.salama@mail.utoronto.ca', // list of receivers
+      subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
+      text: `Welcome ${name}!`, // plain text body
+      html: // html body
+        ` <img src="cid:image_header"/><br>
+        Bienvenue ${name} &#x1F60A; &#128075; et bravo pour ton ambition d'apprendre le français ! <br><br>
+        Continue ! C'est une question de temps, de concentration et de pratiquer avec des ressources adaptées ! <br><br>
+        Notre objectif est de t'aider à progresser rapidement en français. Alors, n'hésite pas à envoyer ton commentaire ou ta recommandation pour améliorer le site internet. <br><br>
+        Pour apprendre rapidement le français, c'est bien de fixer un objectif en minutes pour pratiquer chaque jour, par exemple 15 minutes ! <br><br>
+        À bientôt !<br>
+        Moha et Fred`, 
+
+        attachments: [{
+          filename: 'image_header.png',
+          path: 'https://res.cloudinary.com/mohacool/image/upload/v1612404266/email_header_mrige7.png',
+          cid: 'image_header' //same cid value as in the html img src
+        }]
+    });
+
+
+  } catch(error){
+      console.log(error);
+      if (error.code === 11000){
+        // Duplicate key
+        return res.json ({status:'error', error: 'Email already in use'})
+      }
+      return res.json ({status:'error', error: 'error general'})
+      // throw error
+  }
+  res.json({status:'ok'})
+
+
+})
+
 
 // ================  Update USER PROGRESS
 app.post('/api/update_progress', async (req,res) =>{
@@ -249,7 +340,8 @@ app.post('/api/update_progress', async (req,res) =>{
 
 })
 
-app.post('/api/get_progress', async (req,res) =>{
+// ================ Get USER DATA
+app.post('/api/get_userdata', async (req,res) =>{
 	const { token } = req.body
 
 	const user = jwt.verify(token, jwt_secret)
@@ -262,6 +354,39 @@ app.post('/api/get_progress', async (req,res) =>{
 		const user_row = await User.find({"_id" : ObjectId(_id)})
 		
 		res.json({status:'ok',user_row:user_row})
+
+
+	} catch(error){
+		res.json({status:'error', error:';'})
+	}
+	
+
+})
+
+// =============== VERIFY USER EMAIL
+app.post('/api/verify_acc', async (req,res) =>{
+  
+  const { email, input_pin } = req.body
+  
+
+	try{
+
+		// Get the row in DB for the user
+    const user_row = await User.find({"email" : email})
+
+    const true_pin = user_row[0].verify_pin;
+    
+		if (true_pin==input_pin){
+
+      // update verified_boolean = TRUE
+      await User.updateOne( {email}, {$set: {verified:true}})
+
+      res.json({status:'ok'})
+    }
+    else{
+      res.json({status:'error', error:'Incorrect PIN'})
+    }
+		
 
 
 	} catch(error){

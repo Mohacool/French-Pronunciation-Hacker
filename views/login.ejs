@@ -16,7 +16,15 @@
     <meta name="theme-color" content="#ffffff">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+
+    
    
     <style>
         *{
@@ -205,10 +213,138 @@ body{
         .register:hover{
           background-color:#1a7279 !important;
         }
+
+
+        /* pin code */
+        #wrapper {
+            font-family: Lato;
+            font-size: 1.5rem;
+            text-align: center;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        #wrapper #dialog {
+            border: solid 1px #ccc;
+            margin: 10px auto;
+            padding: 20px 30px;
+            display: inline-block;
+            box-shadow: 0 0 4px #ccc;
+            background-color: #FAF8F8;
+            overflow: hidden;
+            position: relative;
+            max-width: 450px;
+        }
+
+        #wrapper #dialog h3 {
+            margin: 0 0 10px;
+            padding: 0;
+            line-height: 1.25;
+        }
+
+        #wrapper #dialog span {
+            font-size: 90%;
+        }
+
+        #wrapper #dialog #form {
+            max-width: 240px;
+            margin: 25px auto 0;
+        }
+
+        #wrapper #dialog #form input {
+            margin: 0 5px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 50px;
+            border: solid 1px #ccc;
+            box-shadow: 0 0 5px #ccc inset;
+            outline: none;
+            width: 20%;
+            transition: all 0.2s ease-in-out;
+            border-radius: 3px;
+        }
+
+        #wrapper #dialog #form input:focus {
+            border-color: #2b9299;
+            box-shadow: 0 0 5px #2b9299 inset;
+        }
+
+        #wrapper #dialog #form input::selection {
+            background: transparent;
+        }
+
+        #wrapper #dialog #form button {
+            margin: 30px 0 50px;
+            width: 100%;
+            padding: 6px;
+            background-color: #2b9299;
+            border: none;
+            border-radius:13px;
+            text-transform: uppercase;
+        }
+
+        #wrapper #dialog button.close {
+            border: solid 2px;
+            border-radius: 30px;
+            line-height: 19px;
+            font-size: 120%;
+            width: 22px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+
+        .btn.focus, .btn:focus {
+            outline: 0;
+            box-shadow: none !important;
+        }
+        .verify{
+            font-family: 'Raleway', sans-serif !important; 
+        }
+
+        #wrapper #dialog div {
+            position: relative;
+            z-index: 1;
+        }
+
+        #wrapper #dialog img {
+            position: absolute;
+            bottom: -70px;
+            right: -63px;
+        }
         
     </style>
 </head>
 <body>
+
+    <div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+            
+                
+                <div id="wrapper">
+                    <div id="dialog">
+                        
+                        <h3>Please enter the 4-digit verification code sent to your email</h3>
+                        <span>Check your junk folder</span>
+                        <div id="form">
+                        <input id="pin1" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
+                        <input id="pin2" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input id="pin3"type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input id="pin4" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
+                        <button class="btn btn-primary btn-embossed verify">Verify</button>
+                        </div>
+                    
+                        
+                    </div>
+                    
+                </div>
+            </div>
+           
+        </div>
+        </div>
+    </div>
+
     <!-- <h1 class="desktoptitle desktop">French Pronunciation Hacker (BETA)</h1>
     <h3 class="subtitle"> User registration Coming Soon!</h3> -->
     <!--form area start-->
@@ -229,7 +365,7 @@ body{
           <input id="password" class="user-input" autocomplete="off" type="password" name="" placeholder="Mot de passe (password)" required>
           <input id="password2" class="user-input" autocomplete="off" type="password" name="" placeholder="Confirm password" required>
 
-
+            
           <div class="options-01">
             <label class="remember-me"><input type="checkbox" name="">Remember me</label>
             <a href="#">Forgot your password?</a>
@@ -263,12 +399,16 @@ body{
 			signupform.addEventListener('submit',registerUser);
 
 			async function registerUser(event) {
-				event.preventDefault();
+                event.preventDefault();
+                
 
 				const name = document.getElementById('name').value;
 				const email = document.getElementById('email').value;
 				const password = document.getElementById('password').value;
                 const password2 = document.getElementById('password2').value;
+
+                // Store email in localStorage (used for verification)
+                localStorage.setItem('email',email);
 
                 var daily_objective;
                 
@@ -296,22 +436,20 @@ body{
 
 				if (result.status==='ok'){
 					//everything went fine
-					console.log(result)
-				
-                    // alert('Success')
-                    Swal.fire({
-                        title: 'Account Created!',
-                        text: 'Login Now',
-                        icon: 'success',
-                        timer:3000,
-                        showConfirmButton: false
-                    })
-                    setTimeout(function(){
-                        $('form').animate({
-					height: "toggle", opacity: "toggle"
-					}, "slow");
-					$('.createprofile').text('Se connecter');
-                        }, 3100);
+                    console.log(result)
+                    
+                    // Toggle PIN VERIFICATION
+                    $('#verifyModal').modal('toggle');
+            
+                    // LOGIN TOGGLE
+                    // setTimeout(function(){
+                    //     $('form').animate({
+					// height: "toggle", opacity: "toggle"
+					// }, "slow");
+					// $('.createprofile').text('Se connecter');
+                    //     }, 3100);
+
+
 					// $('form').animate({
 					// height: "toggle", opacity: "toggle"
 					// }, "slow");
@@ -338,16 +476,16 @@ body{
 			// get progress from mongo
 			// loginform.addEventListener('submit',dostuff); 
 
-			function dostuff(){
-				
-				alert('grab data from mongo');
-			}
+			
 
 			async function login(event) {
 				event.preventDefault();
 
 				const email = document.getElementById('login_email').value;
-				const password = document.getElementById('login_password').value;
+                const password = document.getElementById('login_password').value;
+                
+                // Store email in localStorage (used for verification)
+                localStorage.setItem('email',email);
 
 				const result = await fetch('/api/login',{
 					method: 'POST',
@@ -369,7 +507,10 @@ body{
 					// jan 26
 					console.log("===================== FETCHING PROGRESS=====================");
 
-					const result2 = await fetch('/api/get_progress',{
+                    // Get the user_data from the DB.
+                        // Save words_complete, skipped_words in localStorage
+                        // Save daily_objective in localStorage
+					const result2 = await fetch('/api/get_userdata',{
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json'
@@ -384,10 +525,12 @@ body{
 
 							// grab data and put in local storage here
 							const skipped_words = JSON.stringify(data.user_row[0].skipped) //JSON stringify (make into array)
-							const words_completed = data.user_row[0].current_spot
+                            const words_completed = data.user_row[0].current_spot
+                            const daily_objective = data.user_row[0].daily_objective
 
 							localStorage.setItem('skipped_words',skipped_words)
-							localStorage.setItem('words_completed',words_completed)
+                            localStorage.setItem('words_completed',words_completed)
+                            localStorage.setItem('daily_objective',daily_objective)
 							
 						}) 
 					// jan 26 end
@@ -402,6 +545,10 @@ body{
 					// alert('Success')
 				}
 				else{
+                    if (result.error=="Not Verified"){
+                        // Toggle PIN VERIFICATION
+                        $('#verifyModal').modal('toggle');
+                    }
 					alert(result.error);
 				}
 			}
@@ -439,7 +586,155 @@ body{
 					
 					$('.createprofile').text('Créer un profil')
 				}     
-			} 
+            } 
+
+            $('.verify').on('click',function(){
+                var pin1 = $('#pin1').val();
+                var pin2 = $('#pin2').val();
+                var pin3 = $('#pin3').val();
+                var pin4 = $('#pin4').val();
+
+                if (pin1!="" && pin2!="" && pin3!="" && pin4!=""){
+                    
+                    
+
+                    const input_pin = String(pin1+pin2+pin3+pin4);
+                    console.log(input_pin);
+                    send_pin();
+
+                    // make post request here
+                    async function send_pin(){
+                        var email = localStorage.getItem('email');
+
+                        if (email!=null){
+                            
+                            const result = await fetch('/api/verify_acc',{
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    email,
+                                    input_pin
+                                })
+                                }).then((res) => res.json())
+                                
+
+                                // If pin correct
+                                if (result.status==='ok'){
+                                    // close modal
+                                    $('#verifyModal').modal('toggle');
+
+                                    // success message 
+                                    Swal.fire({
+                                        title: 'Account Created!',
+                                        text: 'Login Now',
+                                        icon: 'success',
+                                        timer:3000,
+                                        showConfirmButton: false
+                                    })
+
+                                    // LOGIN TOGGLE
+                                    setTimeout(function(){
+                                        $('form').animate({
+                                    height: "toggle", opacity: "toggle"
+                                    }, "slow");
+                                    $('.createprofile').text('Se connecter');
+                                        }, 3100);
+
+                                    // send welcome email
+                                    const result2 = await fetch('/api/welcome_email',{
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            email
+                                            
+                                        })
+                                        }).then((res) => res.json())
+
+
+                                }
+                                else{
+                                    Swal.fire({
+                                        title: 'Incorrect PIN',
+                                        text: 'Please re-enter your pin',
+                                        icon: 'error',
+                                        timer:3000,
+                                        showConfirmButton: false
+                                    })
+                                }
+                        }
+                    }
+                }
+                else{
+                    
+                }
+                    
+            })
+            
+            $(function() {
+                
+
+                var body = $('body');
+
+                function goToNextInput(e) {
+                    var key = e.which,
+                    t = $(e.target),
+                    sib = t.next('input');
+
+                    if (key != 9 && (key < 48 || key > 57)) {
+                    e.preventDefault();
+                    return false;
+                    }
+
+                    if (key === 9) {
+                    return true;
+                    }
+
+                    if (!sib || !sib.length) {
+                    sib = body.find('input').eq(0);
+                    }
+                    sib.select().focus();
+                }
+
+                function onKeyDown(e) {
+                    var key = e.which;
+
+                    if (key === 9 || (key >= 48 && key <= 57)) {
+                    return true;
+                    }
+
+                    e.preventDefault();
+                    return false;
+                }
+                
+                function onFocus(e) {
+                    $(e.target).select();
+                }
+
+                // If the modal is open
+                $('#verifyModal').on('shown.bs.modal', function (e) {
+                    
+                    body.on('keyup', 'input', goToNextInput);
+                    body.on('keydown', 'input', onKeyDown);
+                    body.on('click', 'input', onFocus);
+                // do something...
+                })
+                $('#verifyModal').on('hidden.bs.modal', function (e) {
+                    body.unbind("click");
+                    body.unbind("keyup");
+                    body.unbind("keydown");
+                    
+                // do something...
+                })
+                
+                
+
+                })
+
+                
 			
 
       </script>

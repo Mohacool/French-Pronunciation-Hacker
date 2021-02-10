@@ -332,6 +332,7 @@
         display:flex;
         justify-content: center;
         align-items:center;
+        padding-bottom: 60px;
     }
     .slider{
         height:8px;
@@ -343,6 +344,7 @@
         opacity:0.4;
         cursor:pointer;
     }
+    
     .bottom_buttons{
         left: 0;
         right: 0;
@@ -415,10 +417,46 @@
         
     }
 
+    .numberCircle {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        padding: 0px;
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+        text-align: center;
+        font: 32px Arial, sans-serif;
+        font-family: 'DM Serif Text', serif;
+
+        margin-left: 15px;
+        margin-right: 15px;
+        opacity:0.4;
+        cursor:pointer;
+    }
+
+    .mobile_how .comment{
+        color:black !important;
+        font-family: 'DM Serif Text', serif;
+        font-size:30px;
+        padding-bottom:30px;
+    }
+
+    .column_header, .column_headerEN{
+        font-family: 'DM Serif Text', serif;
+        font-weight: 600;
+        font-size: 27px;
+        padding-bottom: 5px;
+    }
+    .column_headerEN{
+        display:none;
+    }
     /* IF HEIGHT GREATER THAN 600PX*/
     @media only screen and (min-height:600px){
         .how_text,.how_textEN, .how_text.smaller, .how_textEN.smaller{
             font-size:25.5px;
+            padding-left: 35px;
+            padding-right: 35px;
         }
         
     }
@@ -430,10 +468,20 @@
         .sub{
             font-size:20px;
         }
+        .mobile_how {
+            /* height: 100%; */
+            padding-top: 60px;
+        }
+        .how_text, .how_textEN, .how_text.smaller, .how_textEN.smaller {
+   
+            padding-left: 50px;
+            padding-right: 50px;
+        }
     }
     @media only screen and (min-width: 1024px) {
         .desktop_how{
             display:flex;
+            align-items: center;
         }
         .mobile_how{
             display:none;
@@ -448,6 +496,9 @@
             font-size:20px;
        
         
+        }
+        .numberCircle{
+            margin: 0 auto;
         }
     }
 
@@ -492,19 +543,20 @@
             <div class="second">
                 
                 <div class="mobile_how">
+                    
                     <div class="content_inner">
                         <div class="first_inner">
-                            <h1 class="number">1</h1>
+                            <!-- <h1 class="number">1</h1> -->
                             <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures </p>
                             <p class="how_textEN">A question of time. It's different if you study 1hr, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
                         </div>
                         <div class="second_inner">
-                            <h1 class="number">2</h1>
+                            <!-- <h1 class="number">2</h1> -->
                             <p class="how_text">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
                             <p class="how_textEN">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
                         </div>
                         <div class="third_inner">
-                            <h1 class="number">3</h1>
+                            <!-- <h1 class="number">3</h1> -->
                             <p class="how_text">Il est nécessaire de trouver des activités et ressources adaptées à ton niveau pour étudier le français. Un peu de difficulté, ça va. Mais si c’est trop difficile, l’étudiant ne va rien comprendre, et sa concentration ne va pas être bonne </p>
                             <p class="how_textEN">It is necessary to find activities and resources that are adapted to your level for studying french. A little difficulty is good. But if its too difficult the student will understanding nothing and their concentration won't be good </p>
                         </div>
@@ -513,29 +565,52 @@
                     
                 </div>
                 <div class="desktop_how">
+                    
                     <div class="column">
-                        <h1 class="number">1</h1>
-                        <p class="how_text">Une question de temps. C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures </p>
-                        <p class="how_textEN">A question of time. It's different if you study 1hr, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
+                        <!-- <h1 class="number">1</h1> -->
+                        <div class="column_headerEN">TIME</div>
+                        <div class="column_header">LE TEMPS</div>
+                        <p class="how_text">C’est différent si tu étudies 1h, 10h ou 100h. Ce n’est pas une question de quantité de mois ou d’années, mais c'est une question de quantité d’heures </p>
+                        <p class="how_textEN">It's different if you study 1hr, 10hrs or 100hrs. It's not a question of how many years or months, but how many hours </p>
                     </div>
                     <div class="column">
-                        <h1 class="number">2</h1>
-                            <p class="how_text smaller">C’est une question de concentration. L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
-                            <p class="how_textEN smaller">It's a question of concentration. The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
+                        <!-- <h1 class="number">2</h1> -->
+                        <div class="column_headerEN">CONCENTRATION</div>
+                        <div class="column_header">LA CONCENTRATION</div>
+                        
+                        <p class="how_text smaller">L’intensité de ta concentration pendant ta pratique de français est fondamentale. Si ta concentration est mauvaise, par exemple 30%, alors ton progrès sera seulement de 30% </p>
+                        <p class="how_textEN smaller">The intensity of your concentration during your french practice is fundamental. If your concentration is low, for example 30%, your progress will only be 30% </p>
                     </div>
                     <div class="column">
-                        <h1 class="number">3</h1>
+                        <!-- <h1 class="number">3</h1> -->
+                        <div class="column_header">LE CONTENU</div>
+                        <div class="column_headerEN">CONTENT</div>
                         <p class="how_text smaller">Il est nécessaire de trouver des activités et ressources adaptées à ton niveau pour étudier le français. Un peu de difficulté, ça va. Mais si c’est trop difficile, l’étudiant ne va rien comprendre, et sa concentration ne va pas être bonne </p>
                         <p class="how_textEN smaller">It is necessary to find activities and resources that are adapted to your level for studying french. A little difficulty is good. But if its too difficult the student will understanding nothing and their concentration won't be good </p>
                     </div>
                 </div>
 
                 <div class="bottom_buttons ">
-                    <div class="slider_boxes mobile_how">
+                    
+                    <!-- Sliders  -->
+                    <!-- <div class="slider_boxes mobile_how">
                         <div class="slider slider1"></div>
                         <div class="slider slider2"></div>
                         <div class="slider slider3"></div>
+                    </div> -->
+
+                    <!-- numbers  -->
+                    <div class="slider_boxes mobile_how">
+                        <div class="numberCircle circle1">1</div>
+                        <div class="numberCircle circle2">2</div>
+                        <div class="numberCircle circle3">3</div>
+                        <!-- <div class="slider slider1"></div>
+                        <div class="slider slider2"></div>
+                        <div class="slider slider3"></div> -->
                     </div>
+
+
+
                     <!-- <div class="back">back</div> -->
                     <div class="buttons">
                         <div class="new_duo back desktop_how">
@@ -573,6 +648,9 @@
                 $('.second').toggleClass('animate');
                 if ($('.slider2').css('opacity')=="0.4" && $('.slider3').css('opacity')=="0.4"){
                     $('.slider1').css('opacity',1);
+                }
+                if ($('.circle2').css('opacity')=="0.4" && $('.circle3').css('opacity')=="0.4"){
+                    $('.circle1').css('opacity',1);
                 }
                 
             }).on('click', '.second', function (ev) {
@@ -616,6 +694,10 @@
                 // reset sliders and mark the current
                 $('.slider').css('opacity',0.4);
                 $('.slider1').css('opacity',1);
+
+                $('.numberCircle').css('opacity',0.4);
+                $('.circle1').css('opacity',1);
+
             }
             function second(){
                 $('.first_inner').css('-webkit-transform','translate3d(-100%, 0, 0)');
@@ -636,6 +718,9 @@
                 // reset sliders and mark the current
                 $('.slider').css('opacity',0.4);
                 $('.slider2').css('opacity',1);
+
+                $('.numberCircle').css('opacity',0.4);
+                $('.circle2').css('opacity',1);
             }
             function third(){
                 $('.first_inner').css('-webkit-transform','translate3d(-200%, 0, 0)');
@@ -656,6 +741,9 @@
                 // reset sliders and mark the current
                 $('.slider').css('opacity',0.4);
                 $('.slider3').css('opacity',1);
+
+                $('.numberCircle').css('opacity',0.4);
+                $('.circle3').css('opacity',1);
             }
             
             $('.slider1').on('click',function(){
@@ -667,10 +755,25 @@
             $('.slider3').on('click',function(){
                 third();
             })
+
+            $('.circle1').on('click',function(){
+                first();
+            })
+            $('.circle2').on('click',function(){
+                second();
+            })
+            $('.circle3').on('click',function(){
+                third();
+            })
+
             $('.translate').on('click',function(){
                 if (EN==false){
                     $('.how_text').css('display','none');
                     $('.how_textEN').css('display','block');
+
+                    $('.column_header').css('display','none');
+                    $('.column_headerEN').css('display','block');
+
                     EN = true;
                     $('.lang1').text('En');
                     $('.lang2').text('Fr');
@@ -678,6 +781,9 @@
                 else{
                     $('.how_text').css('display','block');
                     $('.how_textEN').css('display','none');
+
+                    $('.column_header').css('display','block');
+                    $('.column_headerEN').css('display','none');
                     EN = false;
                     $('.lang1').text('Fr');
                     $('.lang2').text('En');

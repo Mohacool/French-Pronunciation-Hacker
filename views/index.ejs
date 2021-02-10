@@ -51,6 +51,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap" rel="stylesheet">
 
+    <!-- new fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/yue6eem.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet"> 
+
 <noscript>
     <style>
       /**
@@ -234,16 +239,13 @@
                 }
             </script>
 
-            <!-- <h5 id="username"></h5> -->
-            
-            <!-- <button id="signout_button" onclick="signout()">Signout</button> -->
-            <!-- <div id="status"></div> -->
-            <!-- <img class="mr-2 logo desktop" src="assets/tiny/logo2.png" > -->
         </div>
         
         <!-- <div class="row show">
             <h3 class="booktitle">Le Comte de Monte Cristo</h3>
         </div> -->
+
+        <!-- Audio player row (hidden) -->
         <div class="row show">
             <div class="col-2"></div>
             <div class="col show desktop">
@@ -255,6 +257,19 @@
             
         </div>
 
+        <!-- Timer row -->
+        <div class="row">
+            <div class="col-2 mt-auto desktop">
+                <!-- <div class="timer_holder">
+                    <img class="timer_clock" src="/assets/timer.png" alt="" height="40px">
+                    <div id="ten-countdown" class="timer"></div>
+                </div> -->
+               
+            </div>
+            <div class="col flow"></div>
+            <div class="col-2 mt-auto desktop"></div>
+        </div>
+
         <div class="row top show">
 
             <!-- lazy load -->
@@ -262,7 +277,11 @@
                 <img class="mytooltip tooltip-left desktop" width="100%" src="assets/tiny/tooltip-left2.png" alt="left tooltip">
             </div> -->
 
-            <div class="col-2 mt-auto desktop" data-toggle="modal" data-target="#objectiveModal">
+            <div class="col-2 guy_and_timer mt-auto desktop" data-toggle="modal" data-target="#objectiveModal">
+                <div class="timer_holder">
+                    <img class="timer_clock" src="/assets/timer.png" alt="" height="40px">
+                    <div id="ten-countdown" class="timer">10:00</div>
+                </div>
                 <div id="tooltipleft">
                 </div>
             </div>
@@ -271,7 +290,7 @@
                 <div id="move" class="pt-5 pb-4 movemobile">
 
                     <div class="row show px-0 mx-0 pt-4">
-                        <h3 class="booktitle">Le Comte de Monte Cristo</h3>
+                        <h3 class="booktitle"> ~ Le Comte de Monte Cristo ~</h3>
                         
                     </div>
                     
@@ -667,11 +686,11 @@
     else{
         const name = parseJwt(token).name;
 
-
+        const first_name = name.split(" ")[0].slice(0,1).toUpperCase()+name.split(" ")[0].slice(1);
         // --------------------- DESKTOP ---------------------
         $('.user_button').show();
         // SIGNED IN
-        $('.user_toggle').html(name);
+        $('.user_toggle').html(first_name);
         // document.getElementById('username').innerHTML = `Hello ${name}`;
         // $("#signout_button").show();
 
@@ -679,7 +698,7 @@
         // --------------------- MOBILE ---------------------
 
         // SIGNED IN
-        document.getElementById('hello_mobile').innerHTML = `Hello ${name}`;
+        document.getElementById('hello_mobile').innerHTML = `Hello ${first_name}`;
 
         // Hide sign in, sign up
         $('.signin').hide();
