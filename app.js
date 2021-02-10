@@ -215,7 +215,7 @@ app.post('/api/register', async (req,res) =>{
 
       let verify = await transporter.sendMail({
         from: 'fred@frenchpronunciationhacker.com', // sender address
-        to: 'moha.salama@mail.utoronto.ca', // list of receivers
+        to: email, // list of receivers
         subject: `French Pronunciation Hacker Verification`, // Subject line
         text: `Welcome ${name}!`, // plain text body
         html: // html body
@@ -278,7 +278,7 @@ app.post('/api/welcome_email', async (req,res) =>{
 
     let info = await transporter.sendMail({
       from: 'fred@frenchpronunciationhacker.com', // sender address
-      to: 'moha.salama@mail.utoronto.ca', // list of receivers
+      to: email, // list of receivers
       subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
       text: `Welcome ${name}!`, // plain text body
       html: // html body
@@ -414,9 +414,10 @@ app.get('/login/', function (req, res) {
   res.render('login', {});
 });
 
-app.get('/landing/', function (req, res) {
-	res.render('landing', {});
-  });
+app.get('/montecristo/', function (req, res) {
+	res.render('montecristo', {});
+});
+
 
 
 app.get('/register/', function (req, res) {
