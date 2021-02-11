@@ -3,6 +3,9 @@
 var my_transcript = [];
 var my_full_transcript = [];
 
+var my_beer_transcript = [];
+var my_cheer_transcript = [];
+
 var real_transcript = [];
 
 //connection to socket
@@ -151,6 +154,7 @@ socket.on('speechData', function (data) {
 		resultText.appendChild(empty);
 
 		console.log('cheer: '+data.results[0].alternatives[0].transcript);
+		my_cheer_transcript.push(data.results[0].alternatives[0].transcript);
 
 
 		//add children to empty span
@@ -169,6 +173,8 @@ socket.on('speechData', function (data) {
 		resultText.appendChild(empty);
 
 		console.log('beer: '+data.results[0].alternatives[0].transcript);
+		my_beer_transcript.push(data.results[0].alternatives[0].transcript);
+		canalyse(my_beer_transcript.join(" "));
 
 		//add children to empty span
 		let edit = addTimeSettingsFinal(data);
@@ -209,7 +215,7 @@ function addTimeSettingsInterim(speechData) {
 		
 	}
 	my_full_transcript.push(wholeString);
-	canalyse(my_full_transcript.join(" "));
+	// canalyse(my_full_transcript.join(" "));
 	
 
 	let nlpObject = nlp(wholeString).out('terms');
