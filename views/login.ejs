@@ -23,6 +23,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
 
     
    
@@ -193,6 +194,7 @@ body{
         .createprofile{
             padding-top:20px;
             padding-bottom:20px;
+            font-family: 'DM Serif Text', serif;
             text-align:center;
         }
         .x_button{
@@ -208,7 +210,11 @@ body{
         .register{
           background-color:#2b9299 !important;
           box-shadow: 0px 2px 0px 0px #0b4b50 !important;
+          font-family: 'Raleway', sans-serif;
           
+        }
+        .login{
+            font-family: 'Raleway', sans-serif;
         }
         .register:hover{
           background-color:#1a7279 !important;
@@ -296,10 +302,12 @@ body{
 
         .btn.focus, .btn:focus {
             outline: 0;
-            box-shadow: none !important;
         }
         .verify{
             font-family: 'Raleway', sans-serif !important; 
+            background-color: #2b9299 !important;
+            box-shadow: 0px 2px 0px 0px #0b4b50 !important;
+            font-family: 'Raleway', sans-serif;
         }
 
         #wrapper #dialog div {
@@ -311,6 +319,13 @@ body{
             position: absolute;
             bottom: -70px;
             right: -63px;
+        }
+        #dialog{
+            font-family: 'DM Serif Text', serif;
+        }
+        .check_junk{
+            font-style:italic;
+            font-size: 17px !important;
         }
         
     </style>
@@ -327,8 +342,8 @@ body{
                 <div id="wrapper">
                     <div id="dialog">
                         
-                        <h3>Please enter the 4-digit verification code sent to your email</h3>
-                        <span>Check your junk folder</span>
+                        <h4>Please enter the 4-digit verification code sent to your email</h4>
+                        <span class="check_junk">Check your junk folder</span>
                         <div id="form">
                         <input id="pin1" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
                         <input id="pin2" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input id="pin3"type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input id="pin4" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
@@ -382,7 +397,7 @@ body{
           <!-- <input class="user-input" type="text" name="" placeholder="Username" required> -->
           <input id="login_email" class="user-input" type="email" name="" placeholder="Email Address" required>
           <input id="login_password" class="user-input" type="password" name="" placeholder="Password" required>
-          <input class="btn" type="submit" name="" value="LOGIN">
+          <input class="btn login" type="submit" name="" value="LOGIN">
          
           <div class="options-02 createacc">
             <p> Not Registered? <a href="#">Create an Account</a></p>

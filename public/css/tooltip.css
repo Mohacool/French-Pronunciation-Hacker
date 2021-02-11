@@ -346,6 +346,8 @@ ul {
     font-size: 29px;
 
     font-size: 33px;
+    color: #8cdce2;
+    cursor:pointer;
 }
 
 
@@ -353,10 +355,16 @@ ul {
     color: #156d74;
     padding-top:5px;
     padding-bottom: 28px;
+
+    
 }
 .navbar_title{
     color: #156d74;
     font-size: 16px;
+    font-family: cooper-black-std, serif !important;
+    font-weight: 800;
+    color: #8cdce2;
+    cursor: pointer;
 }
 .movemobile{
     padding-top:0px !important;
@@ -380,6 +388,9 @@ ul {
     padding-bottom: 10px;
     margin:0 auto;
     
+}
+.bienvenue{
+    font-family: 'DM Serif Text', serif;
 }
 .buybutton {
     width: 288px;
@@ -445,18 +456,19 @@ ul {
     padding-left: 9px;
 }
 
-.timer{
+.timer {
     display: inline;
     padding: 5px;
-    color: #02bfe7;
+    color: #212529;
     font-family: Verdana, sans-serif, Arial;
     font-size: 32px;
-    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    /* font-weight: bold; */
     text-decoration: none;
-    
+    /* font-family: 'DM Serif Text', serif; */
 }
 .timer_clock{
-    transform: translateY(-9px);
+    transform: translateY(-8px);
     
 }
 .guy_and_timer{

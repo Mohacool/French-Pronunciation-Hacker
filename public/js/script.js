@@ -533,12 +533,20 @@ $(".annotate").hover(function(e){
 
 })
 
+// Return to landing page on title click
+$('.desktoptitle').on('click',function(){
+    window.location.href="./";
+})
+$('.navbar_title').on('click',function(){
+    window.location.href="./";
+})
+
+
 // Show a small story title when the big title is scrolled past
 $(".story_holder").scroll(function(e){
     if(this.scrollTop>=150){
         // $(".book-title-small").fadeOut(500);
         
-
         $(".book-title-small").animate({
             opacity:1
         })
