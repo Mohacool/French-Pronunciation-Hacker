@@ -172,9 +172,13 @@ socket.on('speechData', function (data) {
 		let empty = document.createElement('span');
 		resultText.appendChild(empty);
 
+
+		// analyse words (MINE)
 		console.log('beer: '+data.results[0].alternatives[0].transcript);
 		my_beer_transcript.push(data.results[0].alternatives[0].transcript);
 		canalyse(my_beer_transcript.join(" "));
+		// add to box (MINE)
+		resultText.innerHTML+= data.results[0].alternatives[0].transcript+" ";
 
 		//add children to empty span
 		let edit = addTimeSettingsFinal(data);
@@ -253,6 +257,7 @@ function addTimeSettingsInterim(speechData) {
 	return words_without_time;
 }
 
+// Original addTimeSettings
 function addTimeSettingsFinal(speechData) {
 	let wholeString = speechData.results[0].alternatives[0].transcript;
 
@@ -295,6 +300,8 @@ function addTimeSettingsFinal(speechData) {
 
 	return words_n_time;
 }
+
+
 
 window.onbeforeunload = function () {
 	if (streamStreaming) { socket.emit('endGoogleCloudStream', ''); }

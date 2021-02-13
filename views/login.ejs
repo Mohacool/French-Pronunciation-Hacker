@@ -564,7 +564,14 @@ body{
                         // Toggle PIN VERIFICATION
                         $('#verifyModal').modal('toggle');
                     }
-					alert(result.error);
+                    Swal.fire({
+                        title: result.error,
+                        text: '',
+                        icon: 'error',
+                        timer:300000,
+                        showConfirmButton: false
+                    })
+					// alert(result.error);
 				}
 			}
 
@@ -673,8 +680,8 @@ body{
                                 }
                                 else{
                                     Swal.fire({
-                                        title: 'Incorrect PIN',
-                                        text: 'Please re-enter your pin',
+                                        title: 'Incorrect CODE',
+                                        text: 'Please re-enter',
                                         icon: 'error',
                                         timer:3000,
                                         showConfirmButton: false

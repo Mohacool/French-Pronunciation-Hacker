@@ -94,10 +94,17 @@ app.post('/api/login', async (req,res) => {
     // lean returns simpler version of json
     const user = await User.findOne( {email}).lean()
 
-    const verified = user.verified
-    if (verified==false){
-      return res.json ({ status:'error', error: 'Not Verified'})
+    // If the user exists check if they are verified
+    if (user){
+
+      const verified = user.verified
+      if (verified==false){
+        return res.json ({ status:'error', error: 'Not Verified'})
+      }
+      
     }
+
+    
 
     if (!user){
         return res.json ({ status:'error', error: 'Invalid username/password'})
@@ -214,12 +221,19 @@ app.post('/api/register', async (req,res) =>{
       // });
 
       let verify = await transporter.sendMail({
-        from: 'fred@frenchpronunciationhacker.com', // sender address
+        from: 'French Pronunciation Hacker <fred@frenchpronunciationhacker.com>', // sender address
         to: email, // list of receivers
-        subject: `French Pronunciation Hacker Verification`, // Subject line
+        subject: `Verification Code`, // Subject line
         text: `Welcome ${name}!`, // plain text body
         html: // html body
-          `<h1>Your verification pin is: ${verify_pin}</h1>`, 
+          `<img src="cid:image_header"/><br>
+          <h1>Your verification code is:</h1><h1 style="font-size: 75px;">${verify_pin}</h1>`, 
+
+        attachments: [{
+          filename: 'image_header.png',
+          path: 'https://res.cloudinary.com/mohacool/image/upload/v1612404266/email_header_mrige7.png',
+          cid: 'image_header' //same cid value as in the html img src
+        }]
 
       });
 
@@ -277,7 +291,7 @@ app.post('/api/welcome_email', async (req,res) =>{
     // --------------------- WELCOME EMAIL --------------------------------
 
     let info = await transporter.sendMail({
-      from: 'fred@frenchpronunciationhacker.com', // sender address
+      from: 'French Pronunciation Hacker <fred@frenchpronunciationhacker.com>', // sender address
       to: email, // list of receivers
       subject: `French Pronunciation Hacker Welcome ${name}!`, // Subject line
       text: `Welcome ${name}!`, // plain text body
