@@ -176,7 +176,9 @@ socket.on('speechData', function (data) {
 		// analyse words (MINE)
 		console.log('beer: '+data.results[0].alternatives[0].transcript);
 		my_beer_transcript.push(data.results[0].alternatives[0].transcript);
-		canalyse(my_beer_transcript.join(" "));
+		// canalyse(my_beer_transcript.join(" "));
+
+		canalyse(data.results[0].alternatives[0].transcript);
 		// add to box (MINE)
 		resultText.innerHTML+= data.results[0].alternatives[0].transcript+" ";
 
