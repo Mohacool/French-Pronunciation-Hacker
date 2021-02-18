@@ -326,6 +326,60 @@ app.post('/api/welcome_email', async (req,res) =>{
 
 })
 
+// =========== feedback email
+app.post('/api/feedback_email', async (req,res) =>{
+
+
+  const { name, feedback } = req.body
+
+
+  console.log(req.body)
+
+
+
+  try {
+    
+    // ================== SEND WELCOME EMAIL ==========================
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: "mi3-ts5.a2hosting.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: 'fred@frenchpronunciationhacker.com', 
+        pass: process.env.SERVER_PASSWORD
+      },
+      // put this back in for LOCAL TESTING
+      // tls:{
+      //   rejectUnauthorized:false
+      // }
+    });
+
+    // --------------------- WELCOME EMAIL --------------------------------
+
+    let info = await transporter.sendMail({
+      from: 'French Pronunciation Hacker <fred@frenchpronunciationhacker.com>', // sender address
+      to: 'moha.salama@mail.utoronto.ca', // list of receivers
+      subject: `Feedback from ${name}!`, // Subject line
+      text: `Welcome ${name}!`, // plain text body
+      html: // html body
+        `<b>From</b>: ${name}<br><br>
+        ${feedback}`, 
+
+    });
+
+
+  } catch(error){
+      console.log(error);
+      return res.json ({status:'error', error})
+      // throw error
+  }
+  res.json({status:'ok'})
+
+
+})
+
 
 // ================  Update USER PROGRESS
 app.post('/api/update_progress', async (req,res) =>{

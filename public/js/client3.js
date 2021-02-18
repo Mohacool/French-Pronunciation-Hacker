@@ -24,6 +24,7 @@ let bufferSize = 2048,
 let audioElement = document.querySelector('audio'),
 	finalWord = false,
 	resultText = document.getElementById('ResultText'),
+	resultTextMobile = document.getElementById('ResultTextMobile'),
 	removeLastSentence = true,
 	streamStreaming = false;
 
@@ -183,6 +184,7 @@ socket.on('speechData', function (data) {
 		canalyse(data.results[0].alternatives[0].transcript);
 		// add to box (MINE)
 		resultText.innerHTML+= data.results[0].alternatives[0].transcript+" ";
+		resultTextMobile.innerHTML+= data.results[0].alternatives[0].transcript+" ";
 
 		//add children to empty span
 		let edit = addTimeSettingsFinal(data);

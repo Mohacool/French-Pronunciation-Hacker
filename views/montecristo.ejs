@@ -201,6 +201,40 @@
             </div>
         </div>
 
+        <!-- Feedback Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+
+                    <br>
+                    <h4 class="justify-content-center d-flex bienvenue feedback_title">We appreciate your feedback! </h4>
+                    <br>
+                    <h4 class="justify-content-center d-flex bienvenue error_msg">Please enter your name</h4>
+                    <div class="collapse show" style="transition: all 0.5s ease 0s;">
+                        <div class="form-group">
+                            <input type="text" class="form-control name_box mb-4" id="formGroupExampleInput" placeholder="Name">
+                            <label class="pl-2 text_area_label" for="exampleTextarea">How was your experience? Is there anything you would change?</label>
+                            
+                                <textarea class="form-control text_box" id="exampleTextarea" rows="6"></textarea>
+                            
+                            
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary mx-auto submit_feedback">Submit</button>
+                        </div>
+                    </div>
+                    
+                      
+                </div>
+               
+            </div>
+            </div>
+        </div>
+
+
+
         <!-- Button trigger modal -->
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Launch demo modal
@@ -410,7 +444,9 @@
             </div>
         </div>
 
-        <div class="row desktop flow">
+        <!-- Desktop bottom most row -->
+        
+        <div class="row desktop flow" style="display:none !important;">
             <!-- lazy load -->
             <!-- <a href="buythebook" target="_blank" class="mx-auto">
                 <div class="mx-auto" >
@@ -419,10 +455,49 @@
                 </div>
             </a> -->
             <div id="buybook" class="mx-auto">
-                
+                <!-- temporary for testing -->
+                <div class="" >
+                    <img class="cart" src="https://res.cloudinary.com/mohacool/image/upload/v1610675938/cart_pqrluq.png" height="40px" alt="cart button">
+                    <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
+                </div>
             </div>
             
+
             
+            
+        </div>
+
+        <div class="row desktop flow">
+            <div class="col-2"></div>
+            <div class="col mx-auto">
+                <div class="row" style="justify-content: center;">
+
+                    <!-- <div id="buybook" class="" style="width:270px;">
+                        
+                        <div class="" >
+                            <img class="cart" src="https://res.cloudinary.com/mohacool/image/upload/v1610675938/cart_pqrluq.png" height="40px" alt="cart button">
+                            <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
+                        </div>
+                    </div> -->
+                    <div id="buybook_button"  class="mr-3">
+                        <img class="cart" src="https://res.cloudinary.com/mohacool/image/upload/v1610675938/cart_pqrluq.png" alt="cart button">
+                        <div class="buy_text">
+                            Complete book <br>&nbsp;  + audiobook
+                        </div>
+                    </div>
+                    <div id="feedback_button" class="ml-3">
+                        <img class="cone" src="assets/cone2.png" alt="cart button">
+                        <div class="text">
+                            Feedback?
+                        </div>
+                    </div>
+
+                    
+                </div>
+                
+                
+            </div>
+            <div class="col-2"></div>
         </div>
 
         <!-- Skip word for mobile -->
@@ -445,7 +520,7 @@
                        
                         
     
-                        <div class="ResultText">
+                        <div id="ResultTextMobile" class="ResultText">
                             
                             
                             <span class="greyText">
@@ -755,12 +830,12 @@
     if (window.innerWidth>=1024){
         $('#tooltipleft').html(`<img class="mytooltip tooltip-left desktop" width="100%" src="https://res.cloudinary.com/mohacool/image/upload/v1610676021/tooltip-left2_phowje.png" alt="left tooltip">`);
         $('#tooltipright').html(`<img class="mytooltip tooltip-right desktop" width="100%" src="https://res.cloudinary.com/mohacool/image/upload/v1610676039/tooltip-right2_wukzkc.png" alt="right tooltip">`);
-        $('#buybook').html(`<a href="buythebook" target="_blank" class="mx-auto">
-                <div class="mx-auto" >
-                    <img class="cart" src="https://res.cloudinary.com/mohacool/image/upload/v1610675938/cart_pqrluq.png" height="40px" alt="cart button">
-                    <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
-                </div>
-            </a>`);
+        // $('#buybook').html(`<a href="buythebook" target="_blank" class="mx-auto">
+        //         <div class="mx-auto" >
+        //             <img class="cart" src="https://res.cloudinary.com/mohacool/image/upload/v1610675938/cart_pqrluq.png" height="40px" alt="cart button">
+        //             <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
+        //         </div>
+        //     </a>`);
     }
     
 
@@ -771,12 +846,12 @@
         if (window.innerWidth>=1024){
             $('#tooltipleft').html(`<img class="mytooltip tooltip-left desktop" width="100%" src="https://res.cloudinary.com/mohacool/image/upload/v1610676021/tooltip-left2_phowje.png" alt="left tooltip">`);
             $('#tooltipright').html(`<img class="mytooltip tooltip-right desktop" width="100%" src="https://res.cloudinary.com/mohacool/image/upload/v1610676039/tooltip-right2_wukzkc.png" alt="right tooltip">`);
-            $('#buybook').html(`<a href="buythebook" target="_blank" class="mx-auto">
-                <div class="mx-auto" >
-                    <img class="cart" src="https://res.cloudinary.com/mohacool/image/upload/v1610675938/cart_pqrluq.png" height="40px" alt="cart button">
-                    <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
-                </div>
-            </a>`);
+            // $('#buybook').html(`<a href="buythebook" target="_blank" class="mx-auto">
+            //     <div class="mx-auto" >
+            //         <img class="cart" src="https://res.cloudinary.com/mohacool/image/upload/v1610675938/cart_pqrluq.png" height="40px" alt="cart button">
+            //         <img class="buytooltip" src="https://res.cloudinary.com/mohacool/image/upload/v1610676076/buytooltip_mzz1ee.png" height="70px" alt="Buying tooltip">
+            //     </div>
+            // </a>`);
             
             // If not signed in keep buttons
             if (!token){

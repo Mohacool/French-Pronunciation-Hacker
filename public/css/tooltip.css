@@ -11,6 +11,10 @@
 .slow{
     border: 1px solid blue !important;
 } */
+.flow{
+    /* border:1px solid green; */
+
+}
 
 
 
@@ -260,11 +264,11 @@ p {
     transition: all ease 0.5s;
     transform:translateY(0px);
 }
-.cart:hover{
+/* .cart:hover{
     transform:translateY(-10px);
     transition: all ease 0.5s;
     cursor:pointer;
-}
+} */
 .buytooltip:hover{
     cursor:pointer;
 }
@@ -402,6 +406,64 @@ ul {
     background-color: #8cdce2;
     border-radius: 5px;
 }
+
+#buybook_button{
+    width:220px;
+    background-color:#8cdce2;
+    height:70px;
+    border-radius:13px;
+    cursor:pointer;
+    font-family: 'Quicksand', sans-serif;
+    align-items: center;
+    /* justify-content: center; */
+    display: flex;
+    box-shadow: 0px 2px 0px 0px #156d74;
+}
+#feedback_button{
+    width:220px;
+    background-color:#8cdce2;
+    height:70px;
+    border-radius:13px;
+    cursor:pointer;
+    font-family: 'Quicksand', sans-serif;
+    align-items: center;
+    /* justify-content: center; */
+    display: flex;
+
+    background-color:#2b9299;
+    box-shadow: 0px 2px 0px 0px #0b4b50;
+    
+}
+.cone{
+    height:50px;
+    padding-left:13px;
+}
+#buybook_button .cart{
+    padding-left:10px;
+    height:50px;
+}
+#buybook_button:hover{
+    background-color:#5bd6df;
+    cursor:pointer;
+}
+#buybook_button .buy_text{
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 20px;
+    padding-left: 6px;
+    padding-top: 2px;
+}
+#feedback_button:hover{
+    background-color:#1e777e;
+}
+#feedback_button .text{
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 20px;
+    padding-left: 13px;
+    transform: translateY(-1px);
+}
+
 .buytext{
     font-size: 16px;
     margin-left: 10px;
@@ -513,6 +575,43 @@ ul {
 }
 .objective_button{
     font-size: 0.8rem;
+}
+.text_box, .name_box{
+    border-color:#5bd6df !important;
+    border-width:2px;
+    border-radius:7px;
+
+}
+.name_box{
+    width:200px;
+}
+.text_area_label{
+    font-family: 'DM Serif Text', serif;
+
+}
+.error_msg{
+    font-size: 19px;
+    color: #d81d1d;
+    display:none !important;
+}
+.submit_feedback{
+    background-color: #5bd6df !important;
+    border: none !important;
+    border-radius: 6px !important;
+    width: 200px !important;
+    font-family: 'Raleway', sans-serif;
+}
+.submit_feedback:hover{
+    background-color: #3aafb8 !important;
+}
+
+textarea{
+    resize: none;
+}
+.form-control:focus {
+    
+
+    box-shadow: unset;
 }
 /* ------overwrite bootstrap things (END)---------------- */
 
