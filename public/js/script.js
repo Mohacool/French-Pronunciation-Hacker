@@ -665,12 +665,15 @@ if (token!=null){
             time = new Date( msLeft );
             hours = time.getUTCHours();
             mins = time.getUTCMinutes();
-            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            // element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            
+            $('.ten-countdown').html((hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() ));
             setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
         }
     }
 
     element = document.getElementById( elementName );
+    
     endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
     updateTimer();
 }
