@@ -594,14 +594,21 @@ ul {
     color: #d81d1d;
     display:none !important;
 }
-.submit_feedback{
+.submit_feedback, .reset_yes, .reset_no{
     background-color: #5bd6df !important;
     border: none !important;
     border-radius: 6px !important;
     width: 200px !important;
     font-family: 'Raleway', sans-serif;
 }
-.submit_feedback:hover{
+.reset_no{
+    background-color:#f2f1eb !important;
+    color:black;
+}
+.reset_no:hover{
+    background-color:#c7c6bc !important;
+}
+.submit_feedback:hover, .reset_yes:hover{
     background-color: #3aafb8 !important;
 }
 

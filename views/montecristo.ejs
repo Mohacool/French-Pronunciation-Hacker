@@ -238,6 +238,33 @@
             </div>
         </div>
 
+        <!-- Reset Modal -->
+        <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+
+                    <br>
+                    <h4 class="justify-content-center d-flex bienvenue feedback_title">Are you sure you want to reset all your progress?</h4>
+                    <br>
+                    
+                    <div class="row">
+                        <div class="mx-auto">
+                            <button type="submit" class="btn btn-primary mr-2 reset_yes">Oui</button>
+                            <button type="submit" class="btn btn-primary ml-2 reset_no">Non</button>
+                        </div>
+                        
+                    </div>
+                    </div>
+                    
+                      
+                </div>
+               
+            </div>
+            </div>
+        </div>
+
 
 
         <!-- Button trigger modal -->
@@ -672,9 +699,15 @@
 
         if (token!=null){
             console.log("=====================UPDATING PROGRESS=====================");
-        
+            var skip_indices;
             var words_complete = parseInt(localStorage.getItem('words_completed'));
-            var skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
+            if (localStorage.getItem('skipped_words')==""){
+                skip_indices = null;
+            }
+            else{
+                skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
+            }
+            
             
             var id = parseJwt(localStorage.getItem('token')).id; // used to update the database later
             console.log(id);

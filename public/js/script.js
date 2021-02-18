@@ -295,13 +295,9 @@ function highlight(num_words,skip_indeces){
     }
 }
 
-
+// Open the reset modal on reset button click
 $(".reset").on('click',function(){
-    localStorage.setItem('words_completed',0);
-    localStorage.setItem('skipped_words',[]);
-    update_progress();
-    location.reload();
-
+    $('#resetModal').modal('toggle');
 })
 
 $(".skipword").on('click',function(){
@@ -579,7 +575,15 @@ function playAudio(url) {
 if (token!=null){
 
     const words_complete = parseInt(localStorage.getItem('words_completed'));
-    const skip_indices = JSON.parse(localStorage.getItem('skipped_words')); 
+
+    var skip_indices;
+    if (localStorage.getItem('skipped_words')==""){
+        skip_indices = null;
+    }
+    else{
+        skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
+    }
+    
 
     // GET PROGRESS FROM LOCAL STORAGE IF AVAILABLE
     if (words_complete != null && !isNaN(words_complete)){
@@ -726,7 +730,6 @@ var timer_started = false;
 $('#feedback_button').on('click',function(){
     $('#feedbackModal').modal('toggle');
 })
-
 $('.submit_feedback').on('click',function(){
     var feedback = $.trim($("textarea").val());
     var name = $.trim($(".name_box").val());
@@ -779,6 +782,16 @@ $('.submit_feedback').on('click',function(){
 
 })
 
+// ============ RESET BUTTON ===================
+$('.reset_no').on('click',function(){
+    $('#resetModal').modal('toggle');
+})
+$('.reset_yes').on('click',function(){
+    localStorage.setItem('words_completed',0);
+    localStorage.setItem('skipped_words',[]);
+    update_progress();
+    location.reload();
+})
 
 // countdown( "ten-countdown", 0.1, 0 );
 
