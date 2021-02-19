@@ -134,7 +134,12 @@ body{
 }
 mark{
     background-color: #72c157;
+    background-color: #65e08e;
     border-radius: 8px;
+
+    height: 23px;
+    display: inline-block;
+    line-height: 14px;
         
 }
 .highlight{
@@ -539,6 +544,9 @@ ul {
 }
 .guy_and_timer{
     flex-direction:column;
+}
+.fast_highlight{
+    background-color:#65e08e;
 }
 
 
