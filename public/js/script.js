@@ -1121,6 +1121,7 @@ if (token){
     var progress_lst = JSON.parse(sessionStorage.getItem('progress'))[story_number];
     var words_to_fill = progress_lst[0];
     var skip_words = progress_lst[1];
+    console.log('HIGHLIGHT AT BOTTOM: words='+words_to_fill+" skip words"+skip_words);
     highlight(words_to_fill,skip_words);
     // This highlights either from sessionStorage or from DB 
 
