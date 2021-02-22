@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema(
     verify_pin: {type:String,default:"0000"},
     verified: {type:Boolean, default:false},
     last_objective_completion: {type:String,default:''},
-    progress: {type:Array,default:[]}
+    progress: {type:Array}
     },
     { collection: 'users', timestamps: true}
 )

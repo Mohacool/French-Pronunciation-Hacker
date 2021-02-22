@@ -394,55 +394,43 @@ $(".reset").on('click',function(){
 $(".skipword").on('click',function(){
 
     
-    
-    skipped_indeces.push(at_wrd+1); // keep track of which words were skipped
+    // OLD SITE REMOVED FEB 22
 
+    // skipped_indeces.push(at_wrd+1); // keep track of which words were skipped
 
-    
+    // // If signed in
+    // if (token!=null){
+    //     var old_skipped_words;
+    //     if (localStorage.getItem('skipped_words').length==0){
+    //         old_skipped_words = [];
+    //     }
+    //     else{
+    //         old_skipped_words = JSON.parse(localStorage.getItem('skipped_words'));
+    //     }
+    //     // if already filled then append old to new 
+    //     if (old_skipped_words.length >=1){
 
-    // Set the localstorage variable => Use JSON.parse to get list back
+    //         // Merge the old indices with new and remove duplicates
+    //         const full_skipped_words = [...new Set([...old_skipped_words,...skipped_indeces])];
 
-    // If signed in
-    if (token!=null){
-        var old_skipped_words;
-        if (localStorage.getItem('skipped_words').length==0){
-            old_skipped_words = [];
-        }
-        else{
-            old_skipped_words = JSON.parse(localStorage.getItem('skipped_words'));
-        }
-        // if already filled then append old to new 
-        if (old_skipped_words.length >=1){
-
-            // Merge the old indices with new and remove duplicates
-            const full_skipped_words = [...new Set([...old_skipped_words,...skipped_indeces])];
-
-            localStorage.setItem('skipped_words', JSON.stringify(full_skipped_words));
-        }
-        // if empty then create it
-        else{
-            // if not then create (setItem)
-            localStorage.setItem('skipped_words', JSON.stringify(skipped_indeces));
-        }
+    //         localStorage.setItem('skipped_words', JSON.stringify(full_skipped_words));
+    //     }
+    //     // if empty then create it
+    //     else{
+    //         // if not then create (setItem)
+    //         localStorage.setItem('skipped_words', JSON.stringify(skipped_indeces));
+    //     }
         
-        console.log('old');
-        console.log(localStorage.getItem('skipped_words'));
+    //     console.log('old');
+    //     console.log(localStorage.getItem('skipped_words'));
 
-        console.log('new');
-        console.log(skipped_indeces);
+    //     console.log('new');
+    //     console.log(skipped_indeces);
 
         
-    }
+    // }
 
-    // alert('at word '+words[at_wrd]+' and skipping');
-    $('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
-
-    // $("#story").mark(words[at_wrd],{
-    //     accuracy:'exactly',
-    //     className: "highlight"
-    // });
-
-    
+    // //$('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
 
 
     let mark_word = words[at_wrd].replace("'","’").replace(",","").replace("?","").replace(".","");
@@ -736,47 +724,7 @@ function playAudio(url) {
 
 
 
-// If signed in
-if (token!=null){
 
-    const words_complete = parseInt(localStorage.getItem('words_completed'));
-
-    var skip_indices;
-    if (localStorage.getItem('skipped_words')==""){
-        skip_indices = null;
-    }
-    else{
-        skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
-    }
-    
-
-    // GET PROGRESS FROM LOCAL STORAGE IF AVAILABLE
-    if (words_complete != null && !isNaN(words_complete)){
-
-        // if(words_complete>0){
-        //     console.log("FAST HIGHLIGHT ON ================"+words_complete+" words");
-        //     fast_highlight(words_complete);
-        // }
-        
-        
-        // Highlight the progress
-
-        // FEB 18 replaced with fast highlight for efficiency
-        // if (skip_indices==null || skip_indices==[]){
-        //     highlight(words_complete,[]);
-        // }
-        // else{
-        //     highlight(words_complete,skip_indices);
-        // }
-
-
-    }
-    // GET PROGRESS FROM DATABASE
-    // else{
-
-    //     // POST METHOD /getProgress lol
-    // }
-}
 
 
  function startTimer(){
@@ -1006,8 +954,16 @@ $('.reset_no').on('click',function(){
     $('#resetModal').modal('toggle');
 })
 $('.reset_yes').on('click',function(){
-    localStorage.setItem('words_completed',0);
-    localStorage.setItem('skipped_words',[]);
+
+    // localStorage.setItem('words_completed',0);
+    // localStorage.setItem('skipped_words',[]);
+    let curr_progress = JSON.parse(sessionStorage.getItem('progress'));
+    curr_progress[story_number][0] = 0;
+    curr_progress[story_number][1] = [];
+
+    
+    sessionStorage.setItem('progress',JSON.stringify(curr_progress));
+    at_wrd = 0;
     update_progress();
     location.reload();
 })
@@ -1091,10 +1047,28 @@ if (token){
                     // If progress saved in DB put it in local Storage
                     var progress_fromDB = JSON.stringify(data.user_row[0].progress);
                     console.log(progress_fromDB);
+
+                    // If progressfromDB exists set it
                     if (progress_fromDB){
                         sessionStorage.setItem('progress',progress_fromDB);
                     }
+                    // if progressfromDB is [] set it to default value
+                    if (progress_fromDB==[]){
+                        sessionStorage.setItem('progress',JSON.stringify(progress_default));
+                    }
                     // console.log("Default+"+ sessionStorage.getItem('progress'));
+
+                    // DO THE HIGHLIGHTING FROM DB
+                    var progress_lst = JSON.parse(sessionStorage.getItem('progress'))[story_number];
+                    var words_to_fill = progress_lst[0];
+                    var skip_words = progress_lst[1];
+                    if (words_to_fill!=0){
+                        console.log('HIGHLIGHT IN ASYNC: words='+words_to_fill+" skip words"+skip_words);
+                    
+                        highlight(words_to_fill,skip_words);
+                    }
+                    
+                    
          
 
                 })
@@ -1118,20 +1092,36 @@ if (token){
 
 
     // =========================== HIGHLIGHT ======================================
+    var all_progress = JSON.parse(sessionStorage.getItem('progress'));
     var progress_lst = JSON.parse(sessionStorage.getItem('progress'))[story_number];
     var words_to_fill = progress_lst[0];
     var skip_words = progress_lst[1];
     console.log('HIGHLIGHT AT BOTTOM: words='+words_to_fill+" skip words"+skip_words);
-    highlight(words_to_fill,skip_words);
+
+    
+    if (words_to_fill!=0){
+        highlight(words_to_fill,skip_words);
+    }
+    
     // This highlights either from sessionStorage or from DB 
 
     // UPDATE CHAPTER PERCENTAGES COMPLETE
-    var number_words_in_each_part = []; //Array 12
+    var chapter_1_total_words = 809; 
     // find percentage and update
+    
+    // only for chapter 1 
+    var chapter_1_words_complete = all_progress.slice(0,4).map(e => e[0]).reduce((a, b) => a + b, 0);
+    var chapter_1_percentage = Math.round((chapter_1_words_complete/chapter_1_total_words)*100);
+
+    $('.chapter_1_percentage').html(`(${chapter_1_percentage}% Complete)`);
+
 
     
 
 
+}
+if (!token){
+    $('.chapter_progress').html(`<i>Create an account to save your progress!</i>`);
 }
 
 
