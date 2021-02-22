@@ -1067,6 +1067,16 @@ if (token){
                     
                         highlight(words_to_fill,skip_words);
                     }
+                    let all_progress = JSON.parse(sessionStorage.getItem('progress'));
+                    let chapter_1_total_words = 809; 
+                    // find percentage and update
+                    
+                    // only for chapter 1 
+                    let chapter_1_words_complete = all_progress.slice(0,4).map(e => e[0]).reduce((a, b) => a + b, 0);
+                    let chapter_1_percentage = Math.round((chapter_1_words_complete/chapter_1_total_words)*100);
+                    console.log('CHAPTER UPGRADE!!!!!!!!!!!!!');
+                    console.log(chapter_1_percentage);
+                    $('.chapter_1_percentage').html(`(${chapter_1_percentage}% Complete)`);
                     
                     
          
@@ -1106,14 +1116,15 @@ if (token){
     // This highlights either from sessionStorage or from DB 
 
     // UPDATE CHAPTER PERCENTAGES COMPLETE
-    var chapter_1_total_words = 809; 
-    // find percentage and update
-    
-    // only for chapter 1 
-    var chapter_1_words_complete = all_progress.slice(0,4).map(e => e[0]).reduce((a, b) => a + b, 0);
-    var chapter_1_percentage = Math.round((chapter_1_words_complete/chapter_1_total_words)*100);
-
-    $('.chapter_1_percentage').html(`(${chapter_1_percentage}% Complete)`);
+        var chapter_1_total_words = 809; 
+        // find percentage and update
+        
+        // only for chapter 1 
+        var chapter_1_words_complete = all_progress.slice(0,4).map(e => e[0]).reduce((a, b) => a + b, 0);
+        var chapter_1_percentage = Math.round((chapter_1_words_complete/chapter_1_total_words)*100);
+        console.log('CHAPTER UPGRADE!!!!!!!!!!!!!');
+        console.log(chapter_1_percentage);
+        $('.chapter_1_percentage').html(`(${chapter_1_percentage}% Complete)`);
 
 
     
