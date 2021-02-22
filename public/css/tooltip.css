@@ -515,6 +515,12 @@ ul {
     outline: none !important;
 }
 
+.story_loc{
+    right: 0;
+    position: absolute;
+    transform: translate(-40px, -30px);
+}
+
 .buttontexts{
     font-size:16px;
 }
@@ -547,6 +553,79 @@ ul {
 }
 .fast_highlight{
     background-color:#65e08e;
+}
+
+.story_visibility{
+    /* display:none; */
+}
+.all_chapter_button{
+   
+    font-size:15px;
+    text-decoration: underline;
+    cursor:pointer;
+    padding-left:30px;
+    padding-top: 11px;
+    display:block !important;
+}
+.all_chapter_button.with_title{
+    position:absolute;
+}
+.all_chapter_view{
+    display:none;
+    /* border:2px solid green; */
+    height:100%;
+    width:100%;
+
+}
+.inner{
+    /* border:2px solid blue; */
+    height:100%;
+    width:100%;
+    overflow-y:auto;
+}
+.red{
+    /* border:1px solid red; */
+}
+.chapter{
+    width:100%;
+    background-color:#47b8c0;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    font-size:30px;
+    cursor:pointer;
+}
+.chapter.chapter2{
+    background-color:#257e85;
+}
+.sub_chapter{
+    width:100%;
+    background-color:#5bd88b;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    font-size:25px;
+    cursor:pointer;
+    /* border:1px solid black; */
+}
+.chapter_progress{
+    font-size:15px;
+}
+.next{
+    position: absolute;
+    /* top: 0; */
+    transform: translateY(-100px);
+    /* margin: 0 auto; */
+    text-align: center;
+    /* display: flex; */
+    justify-content: center;
+    /* left: 50%; */
+    left: 0;
+    right: 0;
+    cursor:pointer;
+}
+.next:hover{
+    text-decoration: underline;
 }
 
 

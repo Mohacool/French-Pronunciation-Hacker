@@ -384,7 +384,8 @@ app.post('/api/feedback_email', async (req,res) =>{
 // ================  Update USER PROGRESS
 app.post('/api/update_progress', async (req,res) =>{
 
-	const { token, words_complete, skip_indices} = req.body
+	// const { token, words_complete, skip_indices} = req.body
+	const { token, progress} = req.body
 	try {
 		const user = jwt.verify(token, jwt_secret)
 		console.log('JWT decoded', user)
@@ -394,8 +395,12 @@ app.post('/api/update_progress', async (req,res) =>{
 		// console.log('words completed'+words_complete)
 
 		// Update the entries in the databse
-		await User.updateOne( { _id}, {$set: {'current_spot':words_complete}})
-		await User.updateOne( { _id}, {$set: {'skipped':skip_indices}})
+		// await User.updateOne( { _id}, {$set: {'current_spot':words_complete}})
+		// await User.updateOne( { _id}, {$set: {'skipped':skip_indices}})
+
+		// Update progress
+		console.log(progress);
+		await User.updateOne( { _id}, {$set: {'progress':progress}})
   
 		res.json({status:'ok'})
   
@@ -464,6 +469,37 @@ app.post('/api/verify_acc', async (req,res) =>{
 
 })
 
+// =============== UPDATE USER OBJECTIVE COMPLETION
+app.post('/api/objective_streak', async (req,res) =>{
+  
+  const { token, current_date } = req.body
+  
+
+	try{
+
+
+		const user = jwt.verify(token, jwt_secret)
+		console.log('JWT decoded', user)
+
+		const _id = user.id
+		
+
+		await User.updateOne( { _id}, {$set: {'last_objective_completion':current_date}})
+
+		res.json({status:'ok'})
+    
+
+
+	} catch(error){
+		res.json({status:'error', error:';'})
+	}
+	
+
+})
+
+
+
+
 
 
 
@@ -502,6 +538,10 @@ app.get('/change-password/', function (req, res) {
 // MY NEW ROUTE for a new page
 app.get('/buythebook/', function (req, res) {
   res.render('buythebook', {});
+});
+
+app.get('/mobilecomingsoon/', function (req, res) {
+  res.render('mobilecomingsoon', {});
 });
 
 

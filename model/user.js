@@ -9,7 +9,9 @@ const UserSchema = new mongoose.Schema(
     skipped: {type:Array,default:[]},
     daily_objective: {type:Number,default:0},
     verify_pin: {type:String,default:"0000"},
-    verified: {type:Boolean, default:false}
+    verified: {type:Boolean, default:false},
+    last_objective_completion: {type:String,default:''},
+    progress: {type:Array,default:[]}
     },
     { collection: 'users', timestamps: true}
 )

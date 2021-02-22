@@ -2,6 +2,13 @@
 <html>
 
 <head>
+
+
+    <script>
+        if (window.innerWidth<1025){
+            window.location = "./mobilecomingsoon";
+        }
+    </script>
     <style>html{visibility: hidden;opacity:0;}</style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-184913227-1"></script>
@@ -77,7 +84,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.3/plyr.min.css" integrity="sha512-dq8AeRs1cVyiW4/Ybo7Rn8+TlezUqjZrkZQd+zmR0ina6bSDcFyfM1ID7Mkj9QHmkk7sxZMEvspxL1U91tZS5w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/tooltip.css">
 </head>
-
+<!-- <script src="assets/js/main.js"></script> -->
 <body>
 
     <!-- Google Tag Manager (noscript) -->
@@ -357,20 +364,92 @@
             <div class="col flow">
                 <div id="move" class="pt-5 pb-4 movemobile">
 
-                    <div class="row show px-0 mx-0 pt-4">
+                    
+
+                    <div class="row show px-0 mx-0 pt-4 ">
                         <h3 class="booktitle"> ~ Le Comte de Monte Cristo ~</h3>
+                        <div class="all_chapter_button with_title" >All Chapters</div>
+                        
                         
                     </div>
-                    
-                    <!-- <div class="row px-0 mx-0 pb-4">
-                        <div class="buybutton">
-                            <img src="assets/cart.png" height="25px" alt="">
-                            <h5 class="buytext">Buy the complete book + audiobook</h5>
+                    <div class="row px-0 pt-4 mx-0 all_chapter_view">
+
+                        <!-- <div class="col">
+                            <div class="row">
+                                <div class="all_chapter_button w-100 red" >All Chapters</div>
+                            </div>
+                        </div> -->
+
+                        <div class="col inner">
+                            
+
+                            <div class="row" data-toggle="collapse" href="#collapse1" style="text-align:center;">
+                                <div class="chapter mx-auto">
+
+                                    Chapter 1
+                                    <div class="chapter_progress pb-2">
+                                        (0% Complete)
+                                    </div>
+                                </div>
+                                
+                        
+                                <div id="collapse1" class="collapse sub_chapter part1_1">
+                                    Part 1
+                                </div>
+                                <div id="collapse1" class="collapse sub_chapter part1_2">
+                                    Part 2
+                                </div>
+                                <div id="collapse1" class="collapse sub_chapter part1_3">
+                                    Part 3
+                                </div>
+                                <div id="collapse1" class="collapse sub_chapter part1_4">
+                                    Part 4
+                                </div>
+
+                            </div>
+
+                            <div class="row" data-toggle="collapse" href="#collapse2" style="text-align:center;">
+                                <div class="chapter chapter2 ">
+                                    Chapter 2
+                                    <div class="chapter_progress pb-2">
+                                        (0% Complete)
+                                    </div>
+                                </div>
+                        
+                                <div id="collapse2" class="collapse sub_chapter part2_1">
+                                    Part 1
+                                </div>
+                                <div id="collapse2" class="collapse sub_chapter part2_2">
+                                    Part 2
+                                </div>
+                                <div id="collapse2" class="collapse sub_chapter part2_3">
+                                    Part 3
+                                </div>
+                                <div id="collapse2" class="collapse sub_chapter part2_4">
+                                    Part 4
+                                </div>
+                                <div id="collapse2" class="collapse sub_chapter part2_5">
+                                    Part 5
+                                </div>
+                                <div id="collapse2" class="collapse sub_chapter part2_6">
+                                    Part 6
+                                </div>
+                                <div id="collapse2" class="collapse sub_chapter part2_7">
+                                    Part 7
+                                </div>
+                                <div id="collapse2" class="collapse sub_chapter part2_8 mb-2">
+                                    Part 8
+                                </div>
+                                
+
+                            </div>
+                            
                         </div>
+                       
+                    </div>
+                    
 
-                    </div> -->
-
-                    <div data-simplebar class="story_holder">
+                    <div id="story_holder" data-simplebar class="story_holder story_visibility">
 
                         <!-- <h1 class="book-title text-center">Le Comte de Monte-Cristo</h1>
                         <br>
@@ -380,6 +459,7 @@
                         <h3>
                             <p id="story"></p>
                         </h3>
+                        
                     </div>
                     
 
@@ -413,7 +493,7 @@
                 <div class="row microw rowmic justify-content-center">
 
                     <div class="circle">
-                        <img class="mx-auto d-block mic" height="50%"src="https://res.cloudinary.com/mohacool/image/upload/v1610675812/mic_jll1aw.png" alt="microphone button">
+                        <img class="mx-auto d-block mic" height="50%" src="https://res.cloudinary.com/mohacool/image/upload/v1610675812/mic_jll1aw.png" alt="microphone button">
                     </div>
                     
                     <button id="startRecButton" type="button" style="display:none"> Start recording</button>
@@ -426,11 +506,11 @@
             <div class="col flow">
                 
                 <div class="form-group pt-4" >
-
-                    <div class="outer">
                     
+                    <div class="outer">
+                        <div class="story_loc"></div>
                         <div class="result_holder">
-                        
+                            
                             
         
                             <div id="ResultText" class="ResultText">
@@ -449,6 +529,7 @@
                         <div class="mx-auto">
                             <button class="reset">Reset</button>
                             <button class="skipword">Skip Word</button>
+                            
                         </div>
                         <!-- <button class="mx-auto skipword">Skip Word</button> -->
 
@@ -694,50 +775,76 @@
         
     }
     // THIS FUNCTION ONLY WORKS WHEN SIGNED IN (only when token exists)
+    // async function update_progress() {
+    //     var token = localStorage.getItem('token');
+
+    //     if (token!=null){
+    //         console.log("=====================UPDATING PROGRESS=====================");
+    //         var skip_indices;
+    //         var words_complete = parseInt(localStorage.getItem('words_completed'));
+    //         if (localStorage.getItem('skipped_words')==""){
+    //             skip_indices = null;
+    //         }
+    //         else{
+    //             skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
+    //         }
+            
+            
+    //         var id = parseJwt(localStorage.getItem('token')).id; // used to update the database later
+    //         console.log(id);
+
+        
+
+    //         // IF USER HAS MADE PROGRESS (If either values exists)
+    //         if (words_complete !=null || skip_indices !=null){
+
+    //             if (words_complete == null){
+    //                 words_complete = 0
+    //             }
+    //             if (skip_indices == null){
+    //                 skip_indices = []
+    //             }
+
+
+    //             const result = await fetch('/api/update_progress',{
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({
+    //                     words_complete,
+    //                     skip_indices,
+    //                     token
+    //                 })
+    //             }).then((res) => res.json())
+
+    //         }
+    //     }
+ 
+    // }
+
+    // new update_progress FEB21
     async function update_progress() {
         var token = localStorage.getItem('token');
 
         if (token!=null){
             console.log("=====================UPDATING PROGRESS=====================");
-            var skip_indices;
-            var words_complete = parseInt(localStorage.getItem('words_completed'));
-            if (localStorage.getItem('skipped_words')==""){
-                skip_indices = null;
-            }
-            else{
-                skip_indices = JSON.parse(localStorage.getItem('skipped_words'));
-            }
             
+
+            var progress = JSON.parse(sessionStorage.getItem('progress'));
             
-            var id = parseJwt(localStorage.getItem('token')).id; // used to update the database later
-            console.log(id);
+            const result = await fetch('/api/update_progress',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    progress,
+                    token
+                })
+            }).then((res) => res.json())
 
-        
-
-            // IF USER HAS MADE PROGRESS (If either values exists)
-            if (words_complete !=null || skip_indices !=null){
-
-                if (words_complete == null){
-                    words_complete = 0
-                }
-                if (skip_indices == null){
-                    skip_indices = []
-                }
-
-
-                const result = await fetch('/api/update_progress',{
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        words_complete,
-                        skip_indices,
-                        token
-                    })
-                }).then((res) => res.json())
-
-            }
+            
         }
  
     }
@@ -879,6 +986,10 @@
 
     // RESIZE
     $(window).on('resize', function(){
+
+        if (window.innerWidth<1025){
+            window.location = "./mobilecomingsoon";
+        }
 
         // DESKTOP 
         if (window.innerWidth>=1024){

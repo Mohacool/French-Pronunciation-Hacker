@@ -1,5 +1,4 @@
 
-
 // $(".logo").on('click',function(){
 //     alert('Your real dimensions are:'+screen.width+' by '+screen.height);
 //     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
@@ -12,6 +11,15 @@
 //     alert('Your real dimensions are:'+screen.width+' by '+screen.height);
 //     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
 // })
+
+
+var show_chapter_view = false;
+
+// ========= GOT DATA FROM DATABASE
+
+sessionStorage.setItem('got_data_fromDB',false);
+// fetch data from database later then set to true
+
 
 
 
@@ -103,14 +111,14 @@ $('.rightrewind').on('click',function(){
 
 // =============================== BUTTONS ===========================================
 
-var checkpoints = [14,41,71,117,141,175,185,222,228,249,257,266,273,282,294,324,430,476,496,570,611,661,704,752,808];
+var checkpoints = [14,41,71,117,141,175,185,222,228,249,257,266,273,282,294,324,430,476,496,570,611,661,704,752,808,872,];
 
 
 // let transcript_length = my_transcript.length;
 // console.log(my_transcript);
 
 // Main single word homophone dictionary
-var homophone_dict = { 'a': ['Ah','à'], 'à': ['Ah'], 'à bord': ['adore'], 'enfance':['enfant'], 'agite': ['àgîtes'], 'aiment': ['M'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'], 'arrivées': ['arrivé','arrivés','arrivée'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'au': ['Oh'], 'aux': ['Oh','au'], 'aux hommes': ['awesome'], 'avons': ['avant'],'avance':['avant'],'alors':['allô'],'anglais':['onglet'], 'bateau': ['bâteau'], 'beaux': ['beau'],'bord':['bon'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'],'capitaine':['capitale'],'certaines':['certains'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'combattre':['combat'], 'commencé': ['commencer'], 'commencent': ['commence'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'crie': ['cri','prix'], 'curieuses': ['curieuse'],"demandent":["demande"], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], "d'anxiété": ["d'anxiété","densité"],'danger':['tanger'], 'danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps','don'], 'dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter','dans','donte'], 'de': ['2'],'des':['dès'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets','dis'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'],'donne':['dans'],'du':['2'], 'du port': ['duporc'], 'edmond': ['edmonde', 'etdemain'], 'eh': ['et'], 'elles': ['elle'], 'en': ['on','a'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc'], 'gestes': ['geste'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'], 'intelligents': ['intelligent','intelligente'], 'je': ['jeux'], 'jetant': ["jet'en"],'jeune':['jean','jeunes'], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'leclère': ['leclerc'], 'les': ['mets'], 'leur': ["l'heure"],'lui':['oui','louis'], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit'], 'm': ['monsieur', 'M', 'aime'],'monsieur':['messieurs'], 'main': ['mets'], 'Mais': ['mets'], 'malheur': ['alors'], 'manière': ['panière'], 'marchandise': ['marchandises'], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'], 'mortels': ['mortel'],'morrel':['morel'], 'mouvement': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'], 'organisé': ['organiser'], 'ou': ['où'],'obéissent':['obéis','obéit','obéisse'], 'puis':['oui'], 'personnes': ['personne'], 'particulier':['particulière'],'peut': ['peu'], 'plate-forme': ['plateforme'],'plateforme':['plate-forme'], 'point': ['.'], 'port':['porc'], 'préparez': ['préparer'], 'près': ['prêt','prix'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'], 'rapides': ['rapide'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'répond': ['réponds','reprendre','répondre','reprends'],'regardant':['regardons'],'répond': ['réponds'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100'], 'savez': ['savais', 'çafait', 'avec'], 'se': ['ce'], 'se demandent': ['se demande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'],'tourne':['tourner'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'vécu': ['déçu'], 'vers': ['verre'], 'vie': ['v'], 'vingt-cinq': ['25', '20V'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'], 'vous': ['veau', 'faux'], 'yeux': ['mieux', 'Dieu']};
+var homophone_dict = { 'a': ['Ah','à'], 'à': ['Ah'], 'à bord': ['adore'], 'enfance':['enfant'], 'agite': ['àgîtes'], 'aiment': ['M'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'],'arrivée':['arrivé','arrivées','arrivés'], 'arrivées': ['arrivé','arrivés','arrivée'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'au': ['Oh'], 'aux': ['Oh','au'], 'aux hommes': ['awesome'], 'avons': ['avant'],'avance':['avant'],'alors':['allô'],'anglais':['onglet'], 'bateau': ['bâteau'], 'beaux': ['beau'],'bord':['bon'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'],'capitaine':['capitale'],'certaines':['certains'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'combattre':['combat'],'conditions':['condition'], 'commencé': ['commencer'], 'commencent': ['commence'],'court':['cours'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'crie': ['cri','prix'], 'curieuses': ['curieuse'],"demandent":["demande"],"d'un":['dans'], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], "d'anxiété": ["d'anxiété","densité"],'dernier':['dernière'],'danger':['tanger'],'debout':['début'], 'danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps','don'], 'dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter','dans','donte','dompter','dentés'], 'de': ['2'],'des':['dès'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets','dis'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'],'donne':['dans'],'du':['2'], 'du port': ['duporc'], 'edmond': ['edmonde', 'etdemain'], 'eh': ['et'], 'elles': ['elle'],'essaye':['essaie','essai'], 'en': ['on','a'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc','feront','Franck','Frank'], 'gestes': ['geste'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'],'inquiet':['inquiète'], 'intelligents': ['intelligent','intelligente'], 'je': ['jeux'], 'jetant': ["jet'en","gitan","jetons"],'jeune':['jean','jeunes'], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'leclère': ['leclerc'], 'les': ['mets'], 'leur': ["l'heure"], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit','oui','louis'], 'm': ['monsieur', 'M', 'aime'],'monsieur':['messieurs'], 'main': ['mets'], 'mais': ['mets'], 'malheur': ['alors'], 'manière': ['panière'], 'marchandise': ['marchandises'], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'],'méchantes':['méchante','méchant'], 'mortels': ['mortel'],'morrel':['morel'], 'mouvement': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'],'obscur':['obscure'], 'organisé': ['organiser'], 'ou': ['où'],'obéissent':['obéis','obéit','obéisse'], 'puis':['oui'], 'personnes': ['personne'], 'particulier':['particulière'],'peut': ['peu'],'perdre':['peur','erdre'],'prend':['prends','prendre'], 'plate-forme': ['plateforme'],'plateforme':['plate-forme'], 'point': ['.'], 'port':['porc'], 'préparez': ['préparer'], 'près': ['prêt','prix'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'], 'rapides': ['rapide'],'retourne':['retour'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'répond': ['réponds','reprendre','répondre','reprends','répondes'],'regardant':['regardons'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100'], 'savez': ['savais', 'çafait', 'avec'], 'se': ['ce'], 'se demandent': ['se demande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'],'tourne':['tourner'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'vécu': ['déçu'], 'vers': ['verre'], 'vie': ['v'], 'vingt-cinq': ['25', '20V'],'voyant':['voyons'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'], 'vous': ['veau', 'faux'], 'yeux': ['mieux', 'Dieu']};
 
 
 // Homophones that <EXIST> in the story as multiple words
@@ -221,18 +229,81 @@ $.ajax({
     
 })
 */
+
+// Load in all story ( CHANGE STRUCTURE FEB 21)
+// $.ajax({
+//     url: "assets/storycomplete.txt",
+//     dataType: "text",
+//     async: false,
+//     success: (content) => {
+//         $('#story').html(content);
+//     }
+
+// })
+// ======================================== LOADING CORRECT STORY PART =====================================
+var story_file_names = ['part1_1.txt','part1_2.txt','part1_3.txt','part1_4.txt','part2_1.txt','part2_2.txt','part2_3.txt','part2_4.txt','part2_5.txt','part2_6.txt','part2_7.txt','part2_8.txt'];
+var story_file = "part1_1.txt"; // Default file
+
+// Set progress sessionVALUE to default [[0,0],[0,0]....[0,0]]
+
+// feb 21 removed - put elsewhere
+var progress_default = Array(story_file_names.length).fill([0,[]]);
+
+// On a brand new session
+if (!sessionStorage.getItem('progress')){
+    sessionStorage.setItem('progress',JSON.stringify(progress_default));
+}
+
+
+if (sessionStorage.getItem('story_file')){
+    story_file = sessionStorage.getItem('story_file');
+}
+else{
+    sessionStorage.setItem('story_file',"part1_1.txt");
+}
+
+var chapter = story_file.split('part')[1].split('_')[0];
+var part = story_file.split('part')[1].split('_')[1].split('.txt')[0];
+$('.story_loc').html(`Chapter ${chapter} <b>|</b> Part ${part}`);
+var story_number = story_file_names.indexOf(story_file);
+
+
+// If you're not at the end 
+if (story_file_names.indexOf(story_file)!=story_file_names.length-1){
+    var next_file = story_file_names[story_file_names.indexOf(story_file)+1];
+    console.log('next_file');
+    $('#story_holder').append(`<div class="next ${next_file}">NEXT</div>`);
+}
+else{
+    alert('last one!');
+}
+
+
+
 $.ajax({
-    // url: "assets/chapter1new.txt",
-    url: "assets/storycomplete.txt",
+    url: "assets/"+story_file,
     dataType: "text",
     async: false,
     success: (content) => {
-        $('#story').html(content);
+        
+        $('#story').html("<br>"+content);
+        $('#story').append("<br><br>");
     }
 
 })
 
-// Try speeding up read in already done txt
+
+// $.ajax({
+//     url: "assets/tester.txt",
+//     dataType: "text",
+//     async: false,
+//     success: (content) => {
+//         $('#story').html(content);
+//     }
+
+// })
+
+
 
 var sentence = $("#story").text(); // Fetch the story from the html 
 console.log(sentence);
@@ -303,7 +374,7 @@ function highlight(num_words,skip_indeces){
     console.log("=========HIGHLIGHT COMMENCING=========");
     at_wrd = num_words;
     for (i=0;i<num_words;i++){
-        let mark = words[i].replace("'","’").replace(",","").replace("?","").replace(".","");
+        let mark = words[i].replace("'","’").replace(",","").replace("?","").replace(".","").replace(";","").replace(":","");
         if (skip_indeces.includes(i+1)){
             $('#story').mark(mark,skip_options);
         }
@@ -323,7 +394,10 @@ $(".skipword").on('click',function(){
 
     
     
-    skipped_indeces.push(at_wrd+1); // keep track of which words were skipped 
+    skipped_indeces.push(at_wrd+1); // keep track of which words were skipped
+
+
+    
 
     // Set the localstorage variable => Use JSON.parse to get list back
 
@@ -388,7 +462,7 @@ $(".skipword").on('click',function(){
 
     at_wrd +=1; // increment the word count
 
-    if (!(timer_started)){
+    if (!(timer_started) && sessionStorage.getItem('completed_today')!='true'){
         countdown("ten-countdown", daily_objective, 0 );
         timer_started = true;
     }
@@ -398,14 +472,40 @@ $(".skipword").on('click',function(){
         localStorage.setItem('words_completed',at_wrd); // store the words_completed in local
         checkpoint_update(at_wrd); // Update the progress if at_wrd is a checkpoint
     }
+
+    // If signed in
+    if (token!=null){
+        var curr_progress = JSON.parse(sessionStorage.getItem('progress'));
+
+        // Update sessionProgress with at_wrd and skipped_indices
+        curr_progress[story_number][0]+=1;  
+        curr_progress[story_number][1].push(at_wrd);
+
+        sessionStorage.setItem('progress',JSON.stringify(curr_progress));
+        // console.log(curr_progress);
+        console.log("adding 1 for"+words[at_wrd]);
+    }
+
+
+    
+    //peter
     
 
 
 })
 
 function checkpoint_update(word_num){
+
+
     // If the word number is in the list of checkpoints then update the progress
-    if (checkpoints.includes(word_num)){
+    // Removed feb 21
+    // if (checkpoints.includes(word_num)){
+    //     update_progress();
+    // }
+
+    // Feb 21 - every 25 words instead
+    if ((word_num%25==0) || word_num==words.length){
+        console.log('update because word count is'+word_num);
         update_progress();
     }
 }
@@ -458,9 +558,17 @@ function canalyse(transcript){
             audio.play();
 
             at_wrd+=1;
-            if (!(timer_started)){
+            if (!(timer_started) && sessionStorage.getItem('completed_today')!='true'){
                 countdown("ten-countdown", daily_objective, 0 );
                 timer_started=true;
+            }
+
+            if (token!=null){
+                var curr_progress = JSON.parse(sessionStorage.getItem('progress'));
+                curr_progress[story_number][0]+=1;
+                sessionStorage.setItem('progress',JSON.stringify(curr_progress));
+                // console.log(curr_progress);
+                console.log("adding 1 for"+words[at_wrd]);
             }
             
 
@@ -494,9 +602,16 @@ function canalyse(transcript){
                             $("#story").mark(words[at_wrd+1],options);
                             audio.play();
                             at_wrd+=2;
-                            if (!(timer_started)){
+                            if (!(timer_started) && sessionStorage.getItem('completed_today')!='true'){
                                 countdown("ten-countdown", daily_objective, 0 );
                                 timer_started=true;
+                            }
+                            if (token!=null){
+                                var curr_progress = JSON.parse(sessionStorage.getItem('progress'));
+                                curr_progress[story_number][0]+=2;
+                                sessionStorage.setItem('progress',JSON.stringify(curr_progress));
+                                // console.log(curr_progress);
+                                console.log("adding 1 for"+words[at_wrd]);
                             }
                             
                         }
@@ -518,12 +633,30 @@ function canalyse(transcript){
                         console.log('-------------------------------\n');
                         console.log('Homophone RESOLVED: '+item+' sounds like: '+stripped_word);
                         console.log('-------------------------------');
-                        $("#story").mark(actual_word,options);
+                        
+                        // console.log("POP: mark:"+actual_word);
+                        // console.log("POP: detected_word:"+detected_word);
+                        // console.log("POP: stripped_word:"+stripped_word);
+
+
+                        if (actual_word.includes(',')){
+                            $("#story").mark(stripped_word,options);
+                        }
+                        else{
+                            $("#story").mark(actual_word,options);
+                        }
+                        
                         audio.play();
                         at_wrd+=1;
-                        if (!(timer_started)){
+                        if (!(timer_started) && sessionStorage.getItem('completed_today')!='true'){
                             countdown("ten-countdown", daily_objective, 0 );
                             timer_started=true;
+                        }
+                        if (token!=null){
+                            var curr_progress = JSON.parse(sessionStorage.getItem('progress'));
+                            curr_progress[story_number][0]+=1;
+                            sessionStorage.setItem('progress',JSON.stringify(curr_progress));
+                            console.log("adding 1 for"+words[at_wrd]);
                         }
                         
                     }
@@ -539,6 +672,7 @@ function canalyse(transcript){
         localStorage.setItem('words_completed',at_wrd);
         checkpoint_update(at_wrd);
     }
+    //peter
     
 }
 
@@ -627,12 +761,12 @@ if (token!=null){
         // Highlight the progress
 
         // FEB 18 replaced with fast highlight for efficiency
-        if (skip_indices==null || skip_indices==[]){
-            highlight(words_complete,[]);
-        }
-        else{
-            highlight(words_complete,skip_indices);
-        }
+        // if (skip_indices==null || skip_indices==[]){
+        //     highlight(words_complete,[]);
+        // }
+        // else{
+        //     highlight(words_complete,skip_indices);
+        // }
 
 
     }
@@ -692,6 +826,35 @@ if (token!=null){
             $(".ten-countdown").css('color','#72c157');
             $(".ten-countdown").css('font-size','10px');
             $(".ten-countdown").html("Daily Objective <br> Complete!");
+            
+            // Update database with objective completion
+            if (token){
+
+                update_objective_complete();
+
+                async function update_objective_complete(){
+
+                    var current_date = new Date().getDate()+"/"+ (new Date().getMonth()+1) +"/"+ new Date().getFullYear();
+
+                    const result = await fetch('/api/objective_streak',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            token,
+                            current_date
+                        })
+                        }).then((res) => res.json())
+                        if (result.status==='ok'){
+                            console.log('===== OBJECTIVE COMPLETION => DB SUCCESS');
+                        }
+                        else{
+                            console.log('===== OBJECTIVE COMPLETION => DB ERROR')
+                        }
+                }
+
+            }
 
             $('.timer_holder').css('padding-left','26px');
             $('.timer').css('font-size','16px');
@@ -722,10 +885,22 @@ if (token!=null){
 var daily_objective = JSON.parse(localStorage.getItem('daily_objective'));
 if (!(localStorage.getItem('daily_objective'))){
     daily_objective = 10;
-    $("#objectiveModal").modal('toggle');
+    
+    // removed feb21
+    // $("#objectiveModal").modal('toggle');
     
 }
-$('.timer').html(daily_objective+":"+"00");
+
+
+// If signed in check if objective already complete
+if (token){
+    $('.timer').html(daily_objective+":"+"00");
+}
+else{
+    // If not signed in, always reset timer
+    $('.timer').html(daily_objective+":"+"00");
+}
+
 
  // ================ OBJECTIVE ===================
  var objective_selected = 0;
@@ -836,5 +1011,97 @@ $('.reset_yes').on('click',function(){
     location.reload();
 })
 
-// countdown( "ten-countdown", 0.1, 0 );
+// ===================== CHAPTER VIEW / STORY VIEW ===================
+$('.all_chapter_button').on('click',function(){
+    if (show_chapter_view==false){
+        $('.story_visibility').hide();
+        $('.all_chapter_view').show();
+        show_chapter_view = true;
+    }
+    else{
+        $('.story_visibility').show();
+        $('.all_chapter_view').hide();
+        show_chapter_view = false;
+    }
+    
+})
+
+$('.sub_chapter').on('click',function(){
+    var file_name = this.className.split(' ')[1]+'.txt';
+    sessionStorage.setItem('story_file',file_name);
+    window.location = window.location;
+})
+
+$('.next').on('click',function(){
+    var next_file_name = this.className.split(' ')[1];
+    sessionStorage.setItem('story_file',next_file_name);
+    window.location = window.location;
+})
+
+
+// ====================== DAILY OBJECTIVE TEXT =====================      
+if (token){
+    if (!(sessionStorage.getItem('completed_today'))){
+
+        get_objective_data();
+
+        async function get_objective_data(){
+
+
+            const result = await fetch('/api/get_userdata',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    token
+                })
+                }).then((res) => res.json())
+                .then(function (data) {  
+                    // console.log('Request success: ', data)
+                    let todays_date = new Date().getDate()+"/"+ (new Date().getMonth()+1) +"/"+ new Date().getFullYear();
+
+                    let daily_objective_from_DB = data.user_row[0].last_objective_completion;
+                 
+                    var completed_today = todays_date == daily_objective_from_DB;
+
+                    if (completed_today){
+                        sessionStorage.setItem('completed_today',true);
+                        $(".ten-countdown").css('color','#72c157');
+                        $(".ten-countdown").css('font-size','10px');
+                        $(".ten-countdown").html("Daily Objective <br> Complete!");
+                        $('.timer_holder').css('padding-left','26px');
+                        $('.timer').css('font-size','16px');
+                        $('.timer').css('text-align','center');
+                        $('.timer').css('display','flex');
+                        $('.timer_clock').hide();
+                    }
+                    else{
+                        sessionStorage.setItem('completed_today',false);
+                    }
+
+                    
+
+                })
+        }
+    }
+
+    console.log(sessionStorage.getItem('completed_today'));
+    if (sessionStorage.getItem('completed_today')=='true'){
+        console.log('setting it opn');
+        $(".ten-countdown").css('color','#72c157');
+        $(".ten-countdown").css('font-size','10px');
+        $(".ten-countdown").html("Daily Objective <br> Complete!");
+        $('.timer_holder').css('padding-left','26px');
+        $('.timer').css('font-size','16px');
+        $('.timer').css('text-align','center');
+        $('.timer').css('display','flex');
+        $('.timer_clock').hide();
+    }
+}
+
+
+
+
+
 

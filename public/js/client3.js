@@ -5,6 +5,7 @@ var my_full_transcript = [];
 
 var my_beer_transcript = [];
 var my_cheer_transcript = [];
+var cheer_pickups = ['à','il a','prends'];
 
 var real_transcript = [];
 
@@ -141,6 +142,13 @@ socket.on('messages', function (data) {
 });
 
 
+// added feb 20
+socket.on('error', function (err) {
+
+	console.log("we have a situation: " +err);
+
+});
+
 socket.on('speechData', function (data) {
     
     console.log("REACHING CLIENT SIDE SOCKET");
@@ -157,7 +165,11 @@ socket.on('speechData', function (data) {
 		resultText.appendChild(empty);
 
 		console.log('cheer: '+data.results[0].alternatives[0].transcript);
-		my_cheer_transcript.push(data.results[0].alternatives[0].transcript);
+		var cheer_detected = data.results[0].alternatives[0].transcript;
+		if (cheer_pickups.includes(cheer_detected)){
+			canalyse(cheer_detected);
+		}
+		// my_cheer_transcript.push(data.results[0].alternatives[0].transcript);
 
 
 		//add children to empty span
