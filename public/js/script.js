@@ -252,6 +252,7 @@ var progress_default = Array(story_file_names.length).fill([0,[]]);
 // On a brand new session
 if (!sessionStorage.getItem('progress')){
     sessionStorage.setItem('progress',JSON.stringify(progress_default));
+
 }
 
 
@@ -487,7 +488,7 @@ $(".skipword").on('click',function(){
     }
 
 
-    
+
     //peter
     
 
@@ -606,7 +607,7 @@ function canalyse(transcript){
                                 countdown("ten-countdown", daily_objective, 0 );
                                 timer_started=true;
                             }
-                            if (token!=null){
+                            if (token !=null ){
                                 var curr_progress = JSON.parse(sessionStorage.getItem('progress'));
                                 curr_progress[story_number][0]+=2;
                                 sessionStorage.setItem('progress',JSON.stringify(curr_progress));
@@ -1039,9 +1040,12 @@ $('.next').on('click',function(){
 })
 
 
-// ====================== DAILY OBJECTIVE TEXT =====================      
+// ====================== FIRST SESSION GRAB DATA AND DO EVERYTHING ===============================    
 if (token){
     if (!(sessionStorage.getItem('completed_today'))){
+
+
+        console.log("FIRST SESSION GRAB DATA");
 
         get_objective_data();
 
@@ -1059,10 +1063,11 @@ if (token){
                 }).then((res) => res.json())
                 .then(function (data) {  
                     // console.log('Request success: ', data)
-                    let todays_date = new Date().getDate()+"/"+ (new Date().getMonth()+1) +"/"+ new Date().getFullYear();
 
+
+                    // ============== OBJECTIVE and STREAK =====================
+                    let todays_date = new Date().getDate()+"/"+ (new Date().getMonth()+1) +"/"+ new Date().getFullYear();
                     let daily_objective_from_DB = data.user_row[0].last_objective_completion;
-                 
                     var completed_today = todays_date == daily_objective_from_DB;
 
                     if (completed_today){
@@ -1080,12 +1085,24 @@ if (token){
                         sessionStorage.setItem('completed_today',false);
                     }
 
+
+                    // =========================== GRAB PROGRESS ========================
                     
+                    // If progress saved in DB put it in local Storage
+                    var progress_fromDB = JSON.stringify(data.user_row[0].progress);
+                    console.log(progress_fromDB);
+                    if (progress_fromDB){
+                        sessionStorage.setItem('progress',progress_fromDB);
+                    }
+                    // console.log("Default+"+ sessionStorage.getItem('progress'));
+         
 
                 })
         }
     }
 
+
+    // ============================ OBJECTIVE COMPLETE TOGGLE ==========================
     console.log(sessionStorage.getItem('completed_today'));
     if (sessionStorage.getItem('completed_today')=='true'){
         console.log('setting it opn');
@@ -1098,7 +1115,25 @@ if (token){
         $('.timer').css('display','flex');
         $('.timer_clock').hide();
     }
+
+
+    // =========================== HIGHLIGHT ======================================
+    var progress_lst = JSON.parse(sessionStorage.getItem('progress'))[story_number];
+    var words_to_fill = progress_lst[0];
+    var skip_words = progress_lst[1];
+    highlight(words_to_fill,skip_words);
+    // This highlights either from sessionStorage or from DB 
+
+    // UPDATE CHAPTER PERCENTAGES COMPLETE
+    var number_words_in_each_part = []; //Array 12
+    // find percentage and update
+
+    
+
+
 }
+
+
 
 
 
