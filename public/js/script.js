@@ -1081,7 +1081,7 @@ if (token){
                         sessionStorage.setItem('progress',progress_fromDB);
                     }
                     // if progressfromDB is [] set it to default value
-                    console.log(progress_fromDB.length==0);
+                    console.log(progress_fromDB=="[]");
                     console.log(JSON.stringify(progress_default));
                     // if progress_fromDB==[] => progress_fromDB.length==0
                     if (progress_fromDB.length==0){
