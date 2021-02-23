@@ -424,7 +424,8 @@ app.post('/api/get_userdata', async (req,res) =>{
 	try{
 
 		// Get the row in DB for the user
-		const user_row = await User.find({"_id" : ObjectId(_id)})
+    const user_row = await User.find({"_id" : ObjectId(_id)})
+    console.log(user_row);
 		
 		res.json({status:'ok',user_row:user_row})
 
@@ -635,6 +636,8 @@ const request = {
 //   // app.address = "127.0.0.1";
 //   console.log('Server started on port:' + port);
 // });
+
+
 
 server.listen(port, () => {
   console.log(`Our app is running on port ${ port }`);

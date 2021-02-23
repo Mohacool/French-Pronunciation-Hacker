@@ -118,7 +118,7 @@ var checkpoints = [14,41,71,117,141,175,185,222,228,249,257,266,273,282,294,324,
 // console.log(my_transcript);
 
 // Main single word homophone dictionary
-var homophone_dict = { 'a': ['Ah','à'], 'à': ['Ah'], 'à bord': ['adore'], 'enfance':['enfant'], 'agite': ['àgîtes'], 'aiment': ['M'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'],'arrivée':['arrivé','arrivées','arrivés'], 'arrivées': ['arrivé','arrivés','arrivée'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'au': ['Oh'], 'aux': ['Oh','au'], 'aux hommes': ['awesome'], 'avons': ['avant'],'avance':['avant'],'alors':['allô'],'anglais':['onglet'], 'bateau': ['bâteau'], 'beaux': ['beau'],'bord':['bon'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'],'capitaine':['capitale'],'certaines':['certains'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'combattre':['combat'],'conditions':['condition'], 'commencé': ['commencer'], 'commencent': ['commence'],'court':['cours'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'crie': ['cri','prix'],'chambre':['chambres'], 'curieuses': ['curieuse'],"demandent":["demande"],"d'un":['dans'], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], "d'anxiété": ["d'anxiété","densité"],'dernier':['dernière'],'danger':['tanger'],'debout':['début'],'devenant':['devenu'], 'danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps','don'], 'dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter','dans','donte','dompter','dentés'], 'de': ['2'],'des':['dès'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets','dis'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'],'donne':['dans'],'du':['2'], 'du port': ['duporc'], 'edmond': ['edmonde', 'etdemain'], 'eh': ['et'], 'elles': ['elle'],'essaye':['essaie','essai'], 'en': ['on','a'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc','feront','Franck','Frank'], 'gestes': ['geste'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'],'inquiet':['inquiète'], 'intelligents': ['intelligent','intelligente'], 'je': ['jeux'], 'jetant': ["jet'en","gitan","jetons"],'jeune':['jean','jeunes'], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'leclère': ['leclerc'], 'les': ['mets'], 'leur': ["l'heure"], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit','oui','louis'], 'm': ['monsieur', 'M', 'aime'],'monsieur':['messieurs'], 'main': ['mets'], 'mais': ['mets'], 'malheur': ['alors'],'mets-tu':['mais'], 'manière': ['panière'], 'marchandise': ['marchandises'], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'],'méchantes':['méchante','méchant'], 'mortels': ['mortel'],'morrel':['morel'], 'mouvement': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'],'ouverte':['ouvert'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'],'obscur':['obscure'], 'organisé': ['organiser'], 'ou': ['où'],'obéissent':['obéis','obéit','obéisse'], 'puis':['oui'], 'personnes': ['personne'], 'particulier':['particulière'],'peut': ['peu'],'perdre':['peur','erdre'], 'père':['air','faire'], 'prend':['prends','prendre'], 'plate-forme': ['plateforme'],'plateforme':['plate-forme'], 'point': ['.'], 'port':['porc'], 'préparez': ['préparer'], 'près': ['prêt','prix'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'], 'rapides': ['rapide'],'retourne':['retour'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'répond': ['réponds','reprendre','répondre','reprends','répondes'],'regardant':['regardons'],'ronds':['ronde'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100','son'], 'savez': ['savais', 'çafait', 'avec'], 'se': ['ce'], 'se demandent': ['se demande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'],"t'acheter":['acheter','cacheter'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'],'tourne':['tourner'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'vécu': ['déçu'], 'vers': ['verre'], 'vieillard':['via','viard'], 'vie': ['v'],'vingt':['20'],'vin':['20'], 'vingt-cinq': ['25', '20V'],'voyant':['voyons'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'],'vos':['vous'], 'vous': ['veau', 'faux','vos'], 'yeux': ['mieux', 'Dieu']};
+var homophone_dict = { 'a': ['Ah','à'], 'à': ['Ah'],'aies':['aie','est'], 'à bord': ['adore'], 'enfance':['enfant'], 'agite': ['àgîtes'], 'aiment': ['M'],'alternativement':['alternative','alternatif'], 'anciens': ['ancien'], 'ans': ['en'], 'appelé': ['appeler'], 'arrangez': ['arranger'], 'arrivé': ['arrivée'],'arrivée':['arrivé','arrivées','arrivés'], 'arrivées': ['arrivé','arrivés','arrivée'], 'arriver': ['arrivée', 'arrivé', 'arrivées'], 'au': ['Oh'], 'aux': ['Oh','au'], 'aux hommes': ['awesome'], 'avons': ['avant'],'avance':['avant'],'alors':['allô'],'anglais':['onglet'], 'bateau': ['bâteau'], 'beaux': ['beau'],'bord':['bon'], 'bonnes': ['bonne'], 'brave': ['AvePAF'], 'bruns': ['brun'], 'calme': ['Cannes'], 'caractéristique': ['caractéristiques'], 'cause': ['COS'], 'cérébrale': ['cérébral'],'capitaine':['capitale'],'certaines':['certains'], 'cet ': ['7', 'cette'], 'cette': ['7'], 'ciel': ['sur'], 'combattre':['combat'],'conditions':['condition'], 'commencé': ['commencer'], 'commencent': ['commence'],'court':['cours'], 'composent': ['compose'], 'conseils': ['conseil'], 'contrôlé': ['contrôler'], 'crie': ['cri','prix'],'chambre':['chambres'], 'curieuses': ['curieuse'],"demandent":["demande"],"déchiré":['déchirer','déchire'], "d'un":['dans'], "d'Elbe": ['Dalbe', 'soldes', 'Delvaux', 'Dell', 'bébé'],'devais':['devait'], "d'évolution": ['devolution'], "d'honneur": ['donneur', 'toner'], "d'anxiété": ["d'anxiété","densité"],'dernier':['dernière'],'danger':['tanger'],'debout':['début'],'devenant':['devenu',"d'événements"], 'danglars': ['latangla', 'Tangara', 'dollar', 'tongars', 'peignoir', 'Danglard', 'standard', 'Danglars'], 'dans': ['temps','don'], 'dantès': ['Dantès', 'dentaire', 'Dante', 'danstes', 'tenter','dans','donte','dompter','dentés'], 'de': ['2'],'des':['dès'], 'désirez': ['désiré'], 'détestent': ['déteste'], 'dit': ['10', 'mets','dis'], 'dites': ['dit'], 'dix': ['10'], 'dix-neuf': ['19'], 'doit': ['doigt', 'toi'], 'donnent': ['donne'],'donne':['dans'],'du':['2'], 'du port': ['duporc'], 'edmond': ['edmonde', 'etdemain'], 'eh': ['et'], 'elles': ['elle'],'essaye':['essaie','essai'], 'en': ['on','a'], 'équipements': ['équipement'], 'est': ['et'], 'fait': ['fais'], 'francs': ['franc','feront','Franck','Frank'], 'gestes': ['geste'],'genoux':['genou'], 'grand': ['quand', 'Groscon', 'Cran', 'camp'], 'habitués': ['habitué'], 'haine': ['n'], 'hé': ['et'], 'heures': ['heure'], 'homme': ['femme'], 'hommes': ['homme', 'femme'], 'honnête': ['ponette'], 'honore': ['Honor'], 'huit': ['8', 'oui'], 'ils': ['il'], 'inattendue': ['inattendu'],'inquiet':['inquiète'], 'intelligents': ['intelligent','intelligente'], 'je': ['jeux'], 'jetant': ["jet'en","gitan","jetons"],'jeune':['jean','jeunes'], 'jeune homme': ['jeunefemme'], 'jours': ['jour'], "l'île": ['Lille'], 'leclère': ['leclerc'], 'les': ['mets'], 'leur': ["l'heure"], 'livrées': ['livret'], 'livrées en': ['livretA'], 'longue': ['langue'], 'lui': ['nuit','oui','louis'], 'm': ['monsieur', 'M', 'aime'],'monsieur':['messieurs'], 'main': ['mets'], 'mais': ['mets'], 'malheur': ['alors'],'mets-tu':['mais'], 'manière': ['panière'], 'marchandise': ['marchandises'],"m’as":["m'a"], 'marchandises': ['marchandise'], 'marins': ['marin'], 'monsieur': ['monsieur', 'Monster', 'monsieur', 'bonnesœur', 'masœur'], 'monte': ['Nantes', 'menthe'], 'Morell': ['Morel'], 'mort': ['Marc', 'Laure', 'alors', 'nord'],'méchantes':['méchante','méchant'], 'mortels': ['mortel'],'morrel':['morel'], 'mouvement': ['ouvreman'], "n'a": ['na', 'non'], "n'est-ce pas": ['néo', 'mets', 'LaCiotat'], "n'y": ['ni'], 'noirs': ['noir'], 'nouvel': ['nouvelle'],'ouverte':['ouvert'], 'ordinaires': ['ordinaire'], 'ordres': ['ordre', 'odre'],'obscur':['obscure'], 'organisé': ['organiser'], 'ou': ['où'],'obéissent':['obéis','obéit','obéisse'],'payais':['payer','paye'], 'puis':['oui'], 'personnes': ['personne'], 'particulier':['particulière'],'paniqué':['Annick'], 'peut': ['peu'],'perdre':['peur','erdre'], 'père':['air','faire'], 'prend':['prends','prendre'], 'plate-forme': ['plateforme'],'plateforme':['plate-forme'], 'point': ['.'], 'port':['porc'], 'préparez': ['préparer'], 'près': ['prêt','prix'], 'pressé': ['presser'], 'pris': ['prix'], 'promets': ['promet'], "Qu'est-ce": ['caisse'], "qu'ils": ["qu'il"], "qu'on": ['con'], 'quitte': ['kit'], 'quitté': ['quitter'],'rappelée':['rappelé','rapeller'], 'rapides': ['rapide'],'retourne':['retour'], 'rapportons': ['rapportant'], 'rassuré': ['rassurer'], 'répond': ['réponds','reprendre','répondre','reprends','répondes'],'regardant':['regardons'],'ronds':['ronde'], 'réponds': ['répond'], 'revient': ['reviens'], "s'exécute": ["c'estquec'estculte", 'sexycute', 'sexeécoute'],'soixante':['Soissons'], 'sa': ['ça'], 'saisit': ['saisie'], 'sans': ['100','son'], 'savez': ['savais', 'çafait', 'avec'],"s'éclaire":["c'est"], 'se': ['ce'], 'se demandent': ['se demande'], 'serez': ['serai'], 'ses': ["c'est"], 'si': ['6'], 'sombre': ['sandre', 'semble', 'Sambre', 'centre'], 'sommes': ['Sam'], 'sont': ['100', 'son'], 'sort': ['Saur', 'Sarah'], 'souffrances': ['souffrance'], 'soulagé': ['soulager'], 'spectateurs': ['spectateur'], 'statut': ['statue'], 'subordonnés': ['subordonnée'], 'supérieurs': ['supérieur'],"t'acheter":['acheter','cacheter'], 'tombé': ['tomber'], 'tous': ['tu'], 'tout': ['tu'],'tourne':['tourner'], 'toutes': ['tout'], 'travaille': ['travail'], 'très': ['prêt'], 'triste': ['test'], 'trois': ['3'], 'un': ['1'], 'va':['vas'], 'vécu': ['déçu'], 'vers': ['verre'], 'vieillard':['via','viard'], 'vie': ['v'],'vingt':['20'],'vin':['20'], 'vingt-cinq': ['25', '20V'],'voyant':['voyons'], 'vois': ['voix'], 'voulez': ['boulet', 'voulais'],'vos':['vous'], 'vous': ['veau', 'faux','vos'], 'yeux': ['mieux', 'Dieu']};
 
 
 // Homophones that <EXIST> in the story as multiple words
@@ -312,10 +312,16 @@ console.log(sentence);
 var words = sentence.split(" ");
 var old_words = sentence.split(" ");
 
-// Filter round 1
-words = words.filter(word => word!="«" && word!="»").filter(e=> e!="" && e!="  ").filter(e=> e!="\n");
 
-words = words.filter(word=> word!="»\n");
+
+// Filter round 1
+// words = words.filter(word => word!="«" && word!="«").filter(e=> e!="" && e!="  ").filter(e=> e!="\n");
+
+// words = words.filter(word=> word!="»\n");
+
+var remove = ["«","»","","  ","\n","»\n","!..."];
+
+words = words.filter(e=> !(remove.includes(e)));
 
 
 
@@ -375,7 +381,12 @@ function highlight(num_words,skip_indeces){
     console.log("=========HIGHLIGHT COMMENCING=========");
     at_wrd = num_words;
     for (i=0;i<num_words;i++){
-        let mark = words[i].replace("'","’").replace(",","").replace("?","").replace(".","").replace(";","").replace(":","");
+
+        // let mark = words[i].replace("'","’").replace(",","").replace("?","").replace(".","").replace(";","").replace(":","");
+
+        let mark = words[i].replace("'","’").replace(/[.,\/#!$%\^&\*;:{}=_`~()«»?]/g,"");
+        
+
         if (skip_indeces.includes(i+1)){
             $('#story').mark(mark,skip_options);
         }
@@ -433,7 +444,11 @@ $(".skipword").on('click',function(){
     // //$('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
 
 
-    let mark_word = words[at_wrd].replace("'","’").replace(",","").replace("?","").replace(".","");
+    // let mark_word = words[at_wrd].replace("'","’").replace(",","").replace("?","").replace(".","").replace("!","");
+
+    let mark_word = words[at_wrd].replace("'","’").replace(/[.,\/#!$%\^&\*;:{}=_`~()«»?]/g,"");
+
+
     // console.log("this going in: " + mark_word);
     $('#story').mark(mark_word,skip_options);
 
@@ -543,6 +558,8 @@ function canalyse(transcript){
             // Problem here is the
 
             $("#story").mark(mark_word,options);
+
+            console.log('YOSH mark_wrd: '+mark_word);
             
             audio.play();
 
@@ -627,8 +644,10 @@ function canalyse(transcript){
                         // console.log("POP: detected_word:"+detected_word);
                         // console.log("POP: stripped_word:"+stripped_word);
 
+                        stripped_word = stripped_word.replace("'","’");
 
-                        if (actual_word.includes(',')){
+                        
+                        if (actual_word.includes(',') || actual_word.includes('.') || actual_word.includes('?') || actual_word.includes('!')){
                             $("#story").mark(stripped_word,options);
                         }
                         else{
@@ -876,10 +895,14 @@ else{
          
          localStorage.setItem('daily_objective', objective_selected*5);
          daily_objective = objective_selected*5;
-         $('.timer').html(daily_objective+":"+"00");
-         $('.no_objective_selected').css('display','none');
+         if (sessionStorage.getItem('completed_today')!='true'){
+            $('.timer').html(daily_objective+":"+"00");
+            $('.no_objective_selected').css('display','none');
+            
+         }
          $('#objectiveModal').modal('hide');
          $('#createaccModal').modal();
+         
 
 
      }
@@ -1030,7 +1053,7 @@ if (token){
                 })
                 }).then((res) => res.json())
                 .then(function (data) {  
-                    // console.log('Request success: ', data)
+                    console.log('Request success: ', data)
 
 
                     // ============== OBJECTIVE and STREAK =====================
