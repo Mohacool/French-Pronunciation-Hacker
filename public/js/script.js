@@ -1081,7 +1081,9 @@ if (token){
                         sessionStorage.setItem('progress',progress_fromDB);
                     }
                     // if progressfromDB is [] set it to default value
-                    if (progress_fromDB==[]){
+
+                    // if progress_fromDB==[] => progress_fromDB.length==0
+                    if (progress_fromDB.length==0){
                         sessionStorage.setItem('progress',JSON.stringify(progress_default));
                     }
                     // console.log("Default+"+ sessionStorage.getItem('progress'));
