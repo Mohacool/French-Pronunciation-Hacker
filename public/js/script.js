@@ -250,7 +250,8 @@ var story_file = "part1_1.txt"; // Default file
 var progress_default = Array(story_file_names.length).fill([0,[]]);
 
 // On a brand new session
-if (!sessionStorage.getItem('progress')){
+// If progress doesn't exist OR its empty then create a default one
+if (!(sessionStorage.getItem('progress')) || sessionStorage.getItem('progress')=="[]"){
     sessionStorage.setItem('progress',JSON.stringify(progress_default));
 
 }
