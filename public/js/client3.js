@@ -5,7 +5,7 @@ var my_full_transcript = [];
 
 var my_beer_transcript = [];
 var my_cheer_transcript = [];
-var cheer_pickups = ['à','il a','prends','et'];
+var cheer_pickups = ['à','il a','prends','et','25','26'];
 
 var real_transcript = [];
 
