@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Version Unavailable</title>
+    <title>Mobile Coming Soon!</title>
+    
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/yue6eem.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet"> 
+
     <script>
         if (window.innerWidth>=1025){
                 window.location = "./montecristo";
@@ -15,7 +31,96 @@
         });
     </script>
 </head>
+<style>
+    .container{
+        width:100%;
+        height:100vh;
+        align-items: center;
+        text-align:center;
+        align-items: center;
+
+        text-align: center;
+        display: flex;
+    
+    }
+    body{
+        background-color:#66cccc;
+    }
+    .title{
+        font-family: cooper-black-std, serif;
+        
+        color: white;
+        font-size: 19px;
+        padding-top: 16px;
+       
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align:center;
+    }
+    .please_use_desktop{
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align:center;
+
+        font-family: 'DM Serif Text', serif;
+
+        padding-left:10%;
+        padding-right:10%;
+        color:white;
+        font-size:29px;
+        color:black;
+        
+    }
+    .mobile_unavail{
+        font-family: 'DM Serif Text', serif;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align:center;
+        
+        padding-top: 137px;
+    font-size: 30px;
+    color: black;
+    }
+    @media only screen and (min-width: 600px) {
+        .title{
+            font-size: 27px;
+        }
+    
+    }
+    @media only screen and (min-width: 700px) {
+        .please_use_desktop{
+            font-size: 43px;
+        }
+    
+    }
+
+    
+
+</style>
 <body>
-    <h1>Please use desktop version</h1>
+    <div class="title">French Pronunciation Hacker</div>
+    <!-- <div class="mobile_unavail">
+        Mobile site unavailable<br>
+            We're working on it! <br>
+            
+            <br>
+    </div> -->
+    <div class="container">
+        
+        <div class="please_use_desktop">
+            
+            Mobile site unavailable<br>
+            We're working on it! <br>
+            
+            <br>
+        
+        </div>
+    </div>
 </body>
 </html>
