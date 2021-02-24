@@ -12,6 +12,10 @@
 //     alert('Your window dimensions are:'+window.innerWidth+' by '+window.innerHeight);
 // })
 
+// -=-=-=-=-=-=-=-= CONSTANTS -=-=-=-=-=-=-=-=-
+const audiobook_urls = ["https://res.cloudinary.com/mohacool/video/upload/v1614137172/Audiobook%20parts/part1_1_x7lsfb.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137173/Audiobook%20parts/part1_2_mp3aym.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137175/Audiobook%20parts/part1_3_ria1q2.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137170/Audiobook%20parts/part1_4_jjt1xj.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137176/Audiobook%20parts/part2_1_dg8nbi.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137178/Audiobook%20parts/part2_2_ugalfx.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137181/Audiobook%20parts/part2_3_s6ce7p.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137180/Audiobook%20parts/part2_4_zzczrd.mp3","https://res.cloudinary.com/mohacool/video/upload/v1614137181/Audiobook%20parts/part2_5_mftrrm.mp3"];
+
+
 
 var show_chapter_view = false;
 
@@ -241,7 +245,7 @@ $.ajax({
 
 // })
 // ======================================== LOADING CORRECT STORY PART =====================================
-var story_file_names = ['part1_1.txt','part1_2.txt','part1_3.txt','part1_4.txt','part2_1.txt','part2_2.txt','part2_3.txt','part2_4.txt','part2_5.txt','part2_6.txt','part2_7.txt','part2_8.txt'];
+var story_file_names = ['part1_1.txt','part1_2.txt','part1_3.txt','part1_4.txt','part2_1.txt','part2_2.txt','part2_3.txt','part2_4.txt','part2_5.txt'];
 var story_file = "part1_1.txt"; // Default file
 
 // Set progress sessionVALUE to default [[0,0],[0,0]....[0,0]]
@@ -274,10 +278,10 @@ var story_number = story_file_names.indexOf(story_file);
 if (story_file_names.indexOf(story_file)!=story_file_names.length-1){
     var next_file = story_file_names[story_file_names.indexOf(story_file)+1];
     console.log('next_file');
-    $('#story_holder').append(`<div class="next ${next_file}">NEXT</div>`);
+    $('#story_holder').append(`<div class="next ${next_file}">NEXT PART</div>`);
 }
 else{
-    alert('last one!');
+    // alert('last one!');
 }
 
 
@@ -405,48 +409,6 @@ $(".reset").on('click',function(){
 
 $(".skipword").on('click',function(){
 
-    
-    // OLD SITE REMOVED FEB 22
-
-    // skipped_indeces.push(at_wrd+1); // keep track of which words were skipped
-
-    // // If signed in
-    // if (token!=null){
-    //     var old_skipped_words;
-    //     if (localStorage.getItem('skipped_words').length==0){
-    //         old_skipped_words = [];
-    //     }
-    //     else{
-    //         old_skipped_words = JSON.parse(localStorage.getItem('skipped_words'));
-    //     }
-    //     // if already filled then append old to new 
-    //     if (old_skipped_words.length >=1){
-
-    //         // Merge the old indices with new and remove duplicates
-    //         const full_skipped_words = [...new Set([...old_skipped_words,...skipped_indeces])];
-
-    //         localStorage.setItem('skipped_words', JSON.stringify(full_skipped_words));
-    //     }
-    //     // if empty then create it
-    //     else{
-    //         // if not then create (setItem)
-    //         localStorage.setItem('skipped_words', JSON.stringify(skipped_indeces));
-    //     }
-        
-    //     console.log('old');
-    //     console.log(localStorage.getItem('skipped_words'));
-
-    //     console.log('new');
-    //     console.log(skipped_indeces);
-
-        
-    // }
-
-    // //$('#skippedwordslist').append(`<li>${words[at_wrd]}</li>`);
-
-
-    // let mark_word = words[at_wrd].replace("'","’").replace(",","").replace("?","").replace(".","").replace("!","");
-
     let mark_word = words[at_wrd].replace("'","’").replace(/[.,\/#!$%\^&\*;:{}=_`~()«»?]/g,"");
 
 
@@ -467,6 +429,8 @@ $(".skipword").on('click',function(){
 
     at_wrd +=1; // increment the word count
 
+    end_of_part_confetti();
+
     if (!(timer_started) && sessionStorage.getItem('completed_today')!='true'){
         countdown("ten-countdown", daily_objective, 0 );
         timer_started = true;
@@ -474,7 +438,6 @@ $(".skipword").on('click',function(){
 
     // If signed in 
     if (token !=null){
-        localStorage.setItem('words_completed',at_wrd); // store the words_completed in local
         checkpoint_update(at_wrd); // Update the progress if at_wrd is a checkpoint
     }
 
@@ -490,11 +453,6 @@ $(".skipword").on('click',function(){
         // console.log(curr_progress);
         console.log("adding 1 for"+words[at_wrd]);
     }
-
-
-
-    //peter
-    
 
 
 })
@@ -618,7 +576,7 @@ function canalyse(transcript){
                                 curr_progress[story_number][0]+=2;
                                 sessionStorage.setItem('progress',JSON.stringify(curr_progress));
                                 // console.log(curr_progress);
-                                console.log("adding 1 for"+words[at_wrd]);
+                                console.log("adding 2 for"+words[at_wrd]);
                             }
                             
                         }
@@ -676,6 +634,8 @@ function canalyse(transcript){
         }
         
     })
+
+    end_of_part_confetti();
     // If signed in
     if (token!=null){
         localStorage.setItem('words_completed',at_wrd);
@@ -1019,6 +979,22 @@ $('.next').on('click',function(){
     window.location = window.location;
 })
 
+
+// Check if end of part is reached
+function end_of_part_confetti(){
+    if (at_wrd == words.length){
+        confetti_sound.play();
+        confetti();
+        setTimeout(function(){ confetti(); }, 200);
+        setTimeout(function(){ confetti(); }, 500);
+        setTimeout(function(){ confetti(); }, 800);
+        setTimeout(function(){ confetti(); }, 1000);
+        setTimeout(function(){ confetti(); }, 1200);
+        setTimeout(function(){ confetti(); }, 1400);
+    }
+}
+
+// Change the timer to objective complete
 function objective_complete(){
     sessionStorage.setItem('completed_today',true);
     $(".ten-countdown").css('color','#72c157');
@@ -1097,7 +1073,9 @@ if (token){
                         highlight(words_to_fill,skip_words);
                     }
                     let all_progress = JSON.parse(sessionStorage.getItem('progress'));
+
                     let chapter_1_total_words = 809; 
+
                     // find percentage and update
                     
                     // only for chapter 1 
@@ -1163,10 +1141,6 @@ if (sessionStorage.getItem('completed_today')=='true'){
     objective_complete();
 }
 
-
-
-
-
-
+var confetti_sound = new Audio("https://res.cloudinary.com/mohacool/video/upload/v1614121684/cartoon_success_fanfair_ukcdwa.mp3");
 
 

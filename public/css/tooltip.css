@@ -631,20 +631,29 @@ ul {
 .next:hover{
     text-decoration: underline;
 }
-.part1_2{
+.part1_2, .part2_2{
     background-color: #44c375;
 }
-.part1_3{
+.part1_3, .part2_3{
     background-color: #28a558;
 }
-.part1_4{
+.part1_4, .part2_4{
     background-color: #248148;
+}
+.part2_5{
+    background-color: #166133;
+    margin-bottom: 42px;
 }
 .chapter1{
     border-radius: 10px 10px 0px 0px;
 }
 
-
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* display:none; */
+}
 
 /* ------overwrite bootstrap things----------------- */
 .navbar-toggler:focus,
