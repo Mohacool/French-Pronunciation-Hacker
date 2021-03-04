@@ -545,6 +545,11 @@ app.get('/mobilecomingsoon/', function (req, res) {
   res.render('mobilecomingsoon', {});
 });
 
+// Add a new route for sitemap
+app.get('/sitemap.xml/', function (req, res) {
+  res.sendFile('sitemap.xml', { root: __dirname });
+});
+
 
 
 
