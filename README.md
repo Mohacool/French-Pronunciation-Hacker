@@ -1,4 +1,4 @@
-# French-Pronunciation-Hacker
+# French Pronunciation Hacker
 
 A site for intermediate french learners to practice their pronunciation in live time using google speech to text API.
 
